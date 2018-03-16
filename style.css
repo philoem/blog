@@ -1,0 +1,18 @@
+/* Page login.php */
+header nav h1 {
+	color: white;
+}
+header {
+	padding-top: 150px;
+}
+#content_header {
+	display: flex;
+	justify-content: space-between;
+	align-content: flex-end;
+	width: 100%;
+}
+#paragraph_header {
+	margin-top: 15px;
+	color: white;
+}
+/* Page admin.php */
