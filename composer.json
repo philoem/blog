@@ -1,0 +1,10 @@
+{
+    "name": "philoem/blog",
+    "authors": [
+        {
+            "name": "philoem",
+            "email": "philoem@nexgate.ch"
+        }
+    ],
+    "require": {}
+}

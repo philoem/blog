@@ -1,24 +1,22 @@
 <?php
 	session_start();
-
 	require_once('backend/model.php');
 	$db = dbConnect();
 	/**
 	 * Vérifie ici si le prénom et le nom sopnt présents et correspondent à "jean forteroche"
 	 */
-	if (!isset($_POST['prenom']) OR $_POST['prenom'] != 'jean' AND (!isset($_POST['nom'])) OR $_POST['nom'] != 'forteroche') {
-		header('location: login.php');
+	if ($_POST['prenom'] == 'jean' AND $_POST['nom'] == 'forteroche') {
+		header('location: admin.php');
 	}
 	else if (!empty($_POST['password']) AND $_POST['password'] === $_POST['confirmPassword']) {
 		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 		$req = $db->prepare('INSERT INTO login_admin(prenom, nom, password, date_login) VALUES(?, ?, ?, NOW())');
 		$req->execute(array($_POST['prenom'], $_POST['nom'], $password));	
-	}
+	} 
 	if (isset($_POST['remember'])) {
 		setcookie('auth',$_POST['prenom'], time() + 3600 * 24 * 3, '/', 'localhost', false, true);
 		setcookie('auth',$_POST['nom'], time() + 3600 * 24 * 3, '/', 'localhost', false, true);
 	}
-	
 	
 ?>
 <!DOCTYPE html>
