@@ -1,7 +1,4 @@
 <?php
-	// Démarrage de la session
-	session_start();
-
 	require_once('backend/model.php');
 	$db = dbConnect();
 	if (isset($_POST['name']) AND (isset($_POST['commentary']))) {

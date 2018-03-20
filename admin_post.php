@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	
 	require_once('backend/model.php');
 	$db = dbConnect();
 	//setcookie('pseudo', $_POST['name'], time() + 3600, null, null, false, true);

@@ -1,22 +1,7 @@
 <?php
-	session_start();
 	require_once('backend/model.php');
+	require_once('AccesControl.php');
 	$db = dbConnect();
-	/**
-	 * Vérifie ici si le prénom et le nom sopnt présents et correspondent à "jean forteroche"
-	 */
-	if ($_POST['prenom'] == 'jean' AND $_POST['nom'] == 'forteroche') {
-		header('location: admin.php');
-	}
-	else if (!empty($_POST['password']) AND $_POST['password'] === $_POST['confirmPassword']) {
-		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-		$req = $db->prepare('INSERT INTO login_admin(prenom, nom, password, date_login) VALUES(?, ?, ?, NOW())');
-		$req->execute(array($_POST['prenom'], $_POST['nom'], $password));	
-	} 
-	if (isset($_POST['remember'])) {
-		setcookie('auth',$_POST['prenom'], time() + 3600 * 24 * 3, '/', 'localhost', false, true);
-		setcookie('auth',$_POST['nom'], time() + 3600 * 24 * 3, '/', 'localhost', false, true);
-	}
 	
 ?>
 <!DOCTYPE html>
@@ -87,7 +72,7 @@
 							<textarea class="form-control" name="billet" id="exampleFormControlTextarea1" rows="20"></textarea>
 						</div>
 						<button type="reset" class="btn btn-danger">Tout effacer</button>
-						<button type="submit" class="btn btn-primary">Validation du billet</button>
+						<input class="btn btn-primary" type="submit" value="Validation du billet">
 					</form>
 				</div>
 			</div>

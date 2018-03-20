@@ -1,6 +1,5 @@
 <?php
-	session_start();
-
+	
 	require_once('backend/model.php');
 
 	$db = dbConnect();
@@ -15,7 +14,6 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			
 			<header>
 				<nav class="navbar fixed-top navbar-dark bg-info">
 					<div class="navbar-brand" id="content_header">
@@ -24,7 +22,7 @@
 					</div>
 				</nav>
 			</header>
-
+			
 			<div class="container" id="card_user_vedette">
 				<div class="card text-center">
 					<div class="card-header" id="card_header_user_title_billet">
