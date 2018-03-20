@@ -25,7 +25,7 @@
 				<nav class="navbar fixed-top navbar-dark bg-info">
 					<div class="navbar-brand" id="content_header">
 						<h1>Laissez vos commentaires</h1>
-						<a href="#" id="paragraph_header">Billet simple pour l'Alaska</a>
+						<a href="user_post.php" id="paragraph_header_user_comments">Billet simple pour l'Alaska</a>
 					</div>
 				</nav>
 			</header>

@@ -5,6 +5,7 @@ header nav h1 {
 header {
 	padding-top: 150px;
 }
+/* Page user.php */
 #content_header {
 	display: flex;
 	justify-content: space-between;
@@ -15,7 +16,10 @@ header {
 	margin-top: 15px;
 	color: white;
 }
-/* Page user.php */
+#paragraph_header:hover {
+	font-weight: bold;
+	text-decoration: none;
+}
 #card_user_vedette {
 	margin-bottom: 50px;
 }
@@ -24,4 +28,13 @@ header {
 }
 #card_user {
 	margin-bottom: 50px;
+}
+/* Page user_comments.php */
+#paragraph_header_user_comments:hover {
+	font-weight: bold;
+	text-decoration: none;
+}
+#paragraph_header_user_comments {
+	margin-top: 15px;
+	color: white;
 }

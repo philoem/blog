@@ -18,7 +18,7 @@
 				<nav class="navbar fixed-top navbar-dark bg-info">
 					<div class="navbar-brand" id="content_header">
 						<h1>Bienvenu dans l'espace lecteur</h1>
-						<a href="user_post.php"><p id="paragraph_header">"Billet simple pour l'Alaska"</p></a>
+						<a href="user_post.php" id="paragraph_header"><p>"Billet simple pour l'Alaska"</p></a>
 					</div>
 				</nav>
 			</header>
@@ -82,7 +82,7 @@
 									$reponse->closeCursor();
 								?>
 							</p>
-							<a href="#" class="btn btn-info">Commentez</a>
+							<a href="user_comments.php" class="btn btn-info">Commentez</a>
 						</div>
 					</div>
 				</div>
@@ -107,7 +107,7 @@
 									$reponse->closeCursor();
 								?>
 							</p>
-							<a href="#" class="btn btn-info">Commentez</a>
+							<a href="user_comments.php" class="btn btn-info">Commentez</a>
 						</div>
 					</div>
 				</div>
@@ -132,7 +132,7 @@
 									$reponse->closeCursor();
 								?>
 							</p>
-							<a href="#" class="btn btn-info">Commentez</a>
+							<a href="user_comments.php" class="btn btn-info">Commentez</a>
 						</div>
 					</div>
 				</div>
