@@ -1,6 +1,6 @@
 <?php
 	require_once('backend/model.php');
-	require_once('AccesControl.php');
+	require('AccesControl.php');
 	$db = dbConnect();
 	
 ?>

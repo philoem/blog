@@ -6,9 +6,12 @@
 		$_SESSION['nom'] = $_POST['nom'];
 	}
 	if (isset($_POST['remember'])) {
-		setcookie('prenom', $_POST['prenom'], time() + 3*24*3600, null, null, false, true);
-		setcookie('nom', $_POST['nom'], time() + 3*24*3600, null, null, false, true);
-		setcookie('password', $_POST['password'], time() + 3*24*3600, null, null, false, true);	
+		$prenom = password_hash($_POST['prenom'], PASSWORD_BCRYPT);
+		setcookie('prenom', $prenom, time() + 3*24*3600, null, null, false, true);
+		$nom = password_hash($_POST['nom'], PASSWORD_BCRYPT);
+		setcookie('nom', $nom, time() + 3*24*3600, null, null, false, true);
+		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+		setcookie('password', $password, time() + 3*24*3600, null, null, false, true);	
 	}
 
 	// Vérifie ici le prénom, le nom et le mot de passe
