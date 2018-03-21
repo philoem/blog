@@ -14,14 +14,7 @@
 	<body>
 		<div class="container-fluid">
 			
-			<header>
-				<nav class="navbar fixed-top navbar-dark bg-primary">
-					<div class="navbar-brand" id="content_header">
-						<h1>Accès administrateur</h1>
-						<p id="paragraph_header">"Billet simple pour l'Alaska"</p>
-					</div>
-				</nav>
-			</header>
+			<?php include 'views/header_login.php'; ?>
 			
 			<div class="col-xs-12">
 				<div class="row justify-content-center">
