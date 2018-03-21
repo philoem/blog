@@ -1,27 +1,20 @@
 <?php
-	
-	require_once('backend/model.php');
+require_once 'backend/model.php';
 
-	$db = dbConnect();
+$db = dbConnect();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="style.css" rel="stylesheet" type="text/css" >
 		<title>Espace Lecteurs</title>
 	</head>
 	<body>
 		<div class="container-fluid">
-			<header>
-				<nav class="navbar fixed-top navbar-dark bg-info">
-					<div class="navbar-brand" id="content_header">
-						<h1>Bienvenu dans l'espace lecteur</h1>
-						<a href="user_post.php" id="paragraph_header"><p>"Billet simple pour l'Alaska"</p></a>
-					</div>
-				</nav>
-			</header>
+<!-- Ici le header  -->
+			<?php include 'views/inc/header_user.php'; ?>
 			
 			<div class="container" id="card_user_vedette">
 				<div class="card text-center">
@@ -45,7 +38,7 @@
 							?>
 						</h5>
 						<a href="user_comments.php" class="btn btn-primary">Laissez votre commentaire</a>
-						<a href="user_post.php" class="btn btn-info">Lire tous les billets</a>
+						<a href="../models/user_post.php" class="btn btn-info">Lire tous les billets</a>
 					</div>
 						<div class="card-footer text-muted">
 						<?php 

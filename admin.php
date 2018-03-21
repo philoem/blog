@@ -14,8 +14,8 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			
-			<?php include 'views/header_admin.php'; ?>
+<!-- Ici le header  -->			
+			<?php include 'views/inc/header_admin.php'; ?>
 			
 		<div class="container-fluid">
 			<div class="row">
@@ -37,17 +37,17 @@
 					?>
 				</div>
 				<div class="col-xs-4 col-lg-4">
-					<h3>Liste des derniers billets:</h3>
+					<h3>Liste des derniers commentaires:</h3>
 					<?php
 						/**
-						 * Affichage des 3 derniers billets
+						 * Affichage des 3 derniers commentaires
 						*/
 
 						$db = dbConnect();
 										 
-						$reponse = $db->query('SELECT title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY date_billet DESC LIMIT 0, 3');
+						$reponse = $db->query('SELECT name, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 3');
 						while ($donnees = $reponse->fetch()) {
-							echo'<p><strong>'.htmlspecialchars($donnees['title']). ', publié le ' .htmlspecialchars($donnees['date_billet']).'</p></strong><p>'.htmlspecialchars($donnees['billet']).'</p>';
+							echo'<p><strong>'.htmlspecialchars($donnees['name']). ', publié le ' .htmlspecialchars($donnees['date_commentary']).'</p></strong><p>'.htmlspecialchars($donnees['commentary']).'</p>';
 						}
 
 						$reponse->closeCursor();

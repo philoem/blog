@@ -13,8 +13,8 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			
-			<?php include 'views/header_login.php'; ?>
+<!-- Ici le header  -->
+			<?php include 'views/inc/header_login.php'; ?>
 			
 			<div class="col-xs-12">
 				<div class="row justify-content-center">

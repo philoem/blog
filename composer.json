@@ -6,5 +6,8 @@
             "email": "philoem@nexgate.ch"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2"
+    }
 }

@@ -21,14 +21,8 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<header>
-				<nav class="navbar fixed-top navbar-dark bg-info">
-					<div class="navbar-brand" id="content_header">
-						<h1>Laissez vos commentaires</h1>
-						<a href="user_post.php" id="paragraph_header_user_comments">Billet simple pour l'Alaska</a>
-					</div>
-				</nav>
-			</header>
+<!-- Ici le header  -->
+			<?php include './views/inc/header_user_comments.php'; ?>
 
 			<div class="container">	
 				<div class="row">
@@ -57,10 +51,14 @@
 				
 					<div class="col-xs-6 col-lg-6">
 						<h3>Création d'un nouveau commentaire:</h3>
-						<form action="#" method="post">
+						<form action="../controlers/form_user_comments.php" method="post">
 							<div class="form-group">
-								<label for="exampleFormControlTextarea1">Mon commentaire</label>
-								<textarea class="form-control" name="comment_billet" id="exampleFormControlTextarea1" rows="20"></textarea>
+								<label for="exampleFormControlText">Votre nom :</label>
+								<input class="form-control" name="name" id="exampleFormControlText">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Votre commentaire</label>
+								<textarea class="form-control" name="commentary" id="exampleFormControlTextarea1" rows="20"></textarea>
 							</div>
 							<button type="reset" class="btn btn-danger">Tout effacer</button>
 							<button type="submit" class="btn btn-primary">Validation du commentaire</button>
