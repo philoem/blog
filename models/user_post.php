@@ -12,7 +12,7 @@
 			<?php include '../views/inc/header_user_post.php'; ?>
 
 			<?php
-				require_once('../backend/model.php');
+				require_once('model.php');
 				
 				$db = dbConnect();
 													

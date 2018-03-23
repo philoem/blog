@@ -20,12 +20,12 @@
 		header('location: login.php');
 	} 
 	// Connexion à la base de données
-	require_once('backend/model.php');
+	require_once('./models/model.php');
 	$db = dbConnect();
 	
 	// Cryptage du mot de passe dans la table gestion_admin
-	if (!empty($_POST['password']) AND $_POST['password'] === $_POST['confirmPassword']) {
-		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-		$req = $db->prepare('INSERT INTO login_admin(prenom, nom, password, date_login) VALUES(?, ?, ?, NOW())');
-		$req->execute(array($_POST['prenom'], $_POST['nom'], $password));	
-	} 
+	//if (!empty($_POST['password']) AND $_POST['password'] === $_POST['confirmPassword']) {
+	//	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+	//	$req = $db->prepare('INSERT INTO login_admin(prenom, nom, password_admin, date_login) VALUES(?, ?, ?, NOW())');
+	//	$req->execute(array($_POST['prenom'], $_POST['nom'], $password));	
+	//} 

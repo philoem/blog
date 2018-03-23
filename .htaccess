@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^register.php$ views/register.php
+RewriteRule ^register$ views/register.php

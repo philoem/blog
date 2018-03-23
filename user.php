@@ -1,5 +1,5 @@
 <?php
-require_once 'backend/model.php';
+require_once('./models/model.php');
 
 $db = dbConnect();
 ?>
@@ -51,7 +51,7 @@ $db = dbConnect();
 					</div>
 				</div>
 			</div>
-
+							
 			
 			<div class="row" id="card_user">
 				<div class="col-sm-4" >
@@ -75,7 +75,7 @@ $db = dbConnect();
 									$reponse->closeCursor();
 								?>
 							</p>
-							<a href="user_comments.php" class="btn btn-info">Commentez</a>
+							<a href="user_comments.php" class="btn btn-info" >Commentez</a>
 						</div>
 					</div>
 				</div>

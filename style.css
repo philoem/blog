@@ -38,3 +38,23 @@ header {
 	margin-top: 15px;
 	color: white;
 }
+/* Page register.php */
+#content_header_register {
+	display: flex;
+	justify-content: space-between;
+	align-content: flex-end;
+	width: 100%;
+}
+#paragraph_header_register {
+	margin-top: 15px;
+	color: white;
+}
+#paragraph_header_register:hover {
+	font-weight: bold;
+	text-decoration: none;
+}
+#error_register {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}

@@ -1,6 +1,7 @@
 <?php
-	require_once('backend/model.php');
+	require_once('./models/model.php');
 	require('AccesControl.php');
+	
 	$db = dbConnect();
 	
 ?>
@@ -17,62 +18,53 @@
 <!-- Ici le header  -->			
 			<?php include 'views/inc/header_admin.php'; ?>
 			
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-4 col-lg-4">
-					<h3>Liste des commentaires signalés:</h3>
-					<?php
-						/**
-						 * Affichage des 5 derniers commentaires
-						*/
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-4 col-lg-4">
+						<h3>Liste des commentaires signalés:</h3>
+						<?php
+							/**
+							 * Affichage des 5 derniers commentaires signalés avec possibilité de les supprimer ou de les conserver
+							*/
+							include'models/gestion_admin.php';
+							$reponse = $db->query('SELECT id, name_user, commentary, approuved, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 5');
+							while ($donnees = $reponse->fetch()) { ?>
+								<p><strong><?= htmlspecialchars($donnees['name_user']) ?>, commentaire signalé le <?= htmlspecialchars($donnees['date_commentary']) ?></p></strong><p><?= htmlspecialchars($donnees['commentary']) ?></p><?php if($donnees['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $donnees['id'] ?>">Conserver</a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $donnees['id'] ?>">Supprimer</a><?php } ?>
+							<?php } 
+							$reponse->closeCursor();
+						?>
+					</div>
+					<div class="col-xs-4 col-lg-4">
+						<h3>Liste des derniers commentaires:</h3>
+						<?php
+							/**
+							 * Affichage des 3 derniers commentaires
+							*/
+							$reponse = $db->query('SELECT name_user, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 3');
+							while ($donnees = $reponse->fetch()) {
+								echo'<p><strong>'.htmlspecialchars($donnees['name_user']). ', publié le ' .htmlspecialchars($donnees['date_commentary']).'</p></strong><p>'.htmlspecialchars($donnees['commentary']).'</p>';
+							}
 
-						$db = dbConnect();
-										 
-						$reponse = $db->query('SELECT name, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 5');
-						while ($donnees = $reponse->fetch()) {
-							echo'<p><strong>'.htmlspecialchars($donnees['name']). ', publié le ' .htmlspecialchars($donnees['date_commentary']).'</p></strong><p>'.htmlspecialchars($donnees['commentary']).'</p>';
-						}
-
-						$reponse->closeCursor();
-					?>
-				</div>
-				<div class="col-xs-4 col-lg-4">
-					<h3>Liste des derniers commentaires:</h3>
-					<?php
-						/**
-						 * Affichage des 3 derniers commentaires
-						*/
-
-						$db = dbConnect();
-										 
-						$reponse = $db->query('SELECT name, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 3');
-						while ($donnees = $reponse->fetch()) {
-							echo'<p><strong>'.htmlspecialchars($donnees['name']). ', publié le ' .htmlspecialchars($donnees['date_commentary']).'</p></strong><p>'.htmlspecialchars($donnees['commentary']).'</p>';
-						}
-
-						$reponse->closeCursor();
-					?>
-				</div>
-				<div class="col-xs-4 col-lg-4">
-					<h3>Création d'un nouveau billet:</h3>
-					<form action="admin_post.php" method="post">
-						<div class="form-group">
-							<label for="exampleInputTitle">Titre de mon billet</label>
-							<input type="text" name="title" class="form-control" id="exampleInputTitle" aria-describedby="titlelHelp">
-						</div>
-						<div class="form-group">
-							<label for="exampleFormControlTextarea1">Mon billet</label>
-							<textarea class="form-control" name="billet" id="exampleFormControlTextarea1" rows="20"></textarea>
-						</div>
-						<button type="reset" class="btn btn-danger">Tout effacer</button>
-						<input class="btn btn-primary" type="submit" value="Validation du billet">
-					</form>
+							$reponse->closeCursor();
+						?>
+					</div>
+					<div class="col-xs-4 col-lg-4">
+						<h3>Création d'un nouveau billet:</h3>
+						<form action="admin_post.php" method="post">
+							<div class="form-group">
+								<label for="exampleInputTitle">Titre de mon billet</label>
+								<input type="text" name="title" class="form-control" id="exampleInputTitle" aria-describedby="titlelHelp">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Mon billet</label>
+								<textarea class="form-control" name="billet" id="exampleFormControlTextarea1" rows="20"></textarea>
+							</div>
+							<button type="reset" class="btn btn-danger">Tout effacer</button>
+							<input class="btn btn-primary" type="submit" value="Validation du billet">
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-			
-			
-
 		</div>
 	</body>
 </html>

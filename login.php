@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,21 +18,13 @@
 			<div class="col-xs-12">
 				<div class="row justify-content-center">
 					<form method="post" action="admin.php">
-						<div class="form-group">
-							<label for="exampleInputPrenom">Votre Prénom</label>
+					<div class="form-group">
+							<label for="exampleInputPrenom">Votre pseudo :</label>
 							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom" aria-describedby="prenomHelp" autofocus required >
-						</div>
-						<div class="form-group">
-							<label for="exampleInputNom">Votre Nom</label>
-							<input type="text" class="form-control" name="nom" id="exampleInputNom" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword">Votre mot de passe</label>
 							<input type="password" class="form-control" name="password" id="exampleInputPassword" required>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputConfirmPassword">Confirmez votre mot de passe</label>
-							<input type="password" class="form-control" name="confirmPassword" id="exampleInputConfirmPassword" required>
 						</div>
 						<div class="form-check">
 							<input type="checkbox" class="form-check-input" name="remember" id="exampleCheck1">
