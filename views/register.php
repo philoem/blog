@@ -16,14 +16,14 @@
 			$pseudolength = strlen($pseudo);
 			
 			if ($pseudolength <= 60) {
-				$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?');
+				$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?'); // Ici vérification que le pseudo n'existe pas déjà
 				$reqpseudo->execute([$pseudo]);
 				$pseudoexist = $reqpseudo->rowCount();
 				
 				if ($pseudoexist == 0) {
 					
 					if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-						$reqmail = $db->prepare('SELECT * FROM login_admin WHERE mail_admin = ?');
+						$reqmail = $db->prepare('SELECT * FROM login_admin WHERE mail_admin = ?'); // Ici vérification que le mail n'existe pas déjà
 						$reqmail->execute([$mail]);
 						$mailexist = $reqmail->rowCount();
 						
