@@ -1,6 +1,4 @@
 <?php
-	
-	//require_once('./views/register.php');
 	require('AccesControl.php');
 	require_once('./models/model.php');
 	$db = dbConnect();

@@ -1,10 +1,6 @@
 <?php
 	session_start();
-	if (isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) {
-		$_SESSION['pseudo'] = $_POST['pseudo'];
-	} else if (isset($_POST['mail']) AND !empty($_POST['mail'])) {
-		$_SESSION['mail'] = $_POST['mail'];
-	}
+	
 	//	Utilisation du bouton "se souvenir de moi" et crypter les données (prénom, nom et mot de passe) dans les cookies d'une durée de 3 jours
 	if (isset($_POST['remember'])) {
 		if (isset($_POST['pseudo'])) {
@@ -21,9 +17,35 @@
 		}
 	}
 
-	 
 	// Connexion à la base de données
 	require_once('./models/model.php');
 	$db = dbConnect();
+
+	// Vérification du pseudo et du mot de passe pour se connecter
+	if (isset($_POST['submit_login'])) {
+		$pseudo = htmlspecialchars($_POST['pseudo']);
+		$password = htmlspecialchars($_POST['password']);
+		if (isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) {
+			$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?'); 
+			$reqpseudo->execute([$pseudo]);
+			$pseudoexist = $reqpseudo->rowCount(); 
+			if ($pseudoexist == 1) {
+				
+				if (isset($_POST['password']) AND !empty($_POST['password'])) {
+					$reqpassword = $db->prepare('SELECT * FROM login_admin WHERE password_admin = ?'); 
+					$reqpassword->execute([$password]);
+					$passwordexist = $reqpassword->rowCount(); 
+					if ($pseudoexist == 1) {
+						$_SESSION['pseudo'] = $_POST['pseudo'];
+						$_SESSION['mail'] = $_POST['mail'];
+						header('Location: admin.php');
+					}
+				}
+			} 
+		} 
+	}
+
+	 
+
 	
 	

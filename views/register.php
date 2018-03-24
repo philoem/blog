@@ -76,8 +76,8 @@
 				<div class="row justify-content-center">
 					<form method="post" action="#">
                     <div class="form-group">
-							<label for="exampleInputPrenom">Votre Prénom</label>
-							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom" aria-describedby="prenomHelp"  >
+							<label for="exampleInputPrenom1">Votre Prénom</label>
+							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom1" aria-describedby="prenomHelp"  >
 						</div>
 						<div class="form-group">
 							<label for="exampleInputNom">Votre Nom</label>
