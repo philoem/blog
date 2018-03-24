@@ -20,7 +20,7 @@
 					<form method="post" action="admin.php">
 					<div class="form-group">
 							<label for="exampleInputPrenom">Votre pseudo :</label>
-							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom" aria-describedby="prenomHelp" autofocus required >
+							<input type="text" class="form-control" name="pseudo" id="exampleInputPrenom" aria-describedby="prenomHelp" autofocus required >
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword">Votre mot de passe</label>

@@ -1,7 +1,8 @@
 <?php
-	require_once('./models/model.php');
-	require('AccesControl.php');
 	
+	//require_once('./views/register.php');
+	require('AccesControl.php');
+	require_once('./models/model.php');
 	$db = dbConnect();
 	
 ?>
@@ -15,8 +16,8 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header  -->			
-			<?php include 'views/inc/header_admin.php'; ?>
+<!-- Ici le header  -->		
+			<?php include 'views/inc/header_admin.php'; ?>	
 			
 			<div class="container-fluid">
 				<div class="row">
