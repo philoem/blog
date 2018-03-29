@@ -4,7 +4,7 @@
 	$db = dbConnect();
 	// Appel de la classe FormRegister pour le formulaire
 	require('../models/FormRegister.php');
-	$form = new FormRegister([]);
+	$formRegister = new FormRegister([]);
 	
 	if (isset($_POST['submit_register'])) {
 		$prenom = htmlspecialchars($_POST['prenom']);
@@ -81,24 +81,31 @@
 					<form method="post" action="#">
 						<div class="form-group">
 							<?php
-							echo $form->label('Votre prenom :');
-							echo $form->inputPrenom('prenom');
-							echo $form->label('Votre nom :');
-							echo $form->inputNom('nom');
-							echo $form->label('Votre pseudo :');
-							echo $form->inputPseudo('pseudo');
-							echo $form->label('Votre mail :');
-							echo $form->inputMail('mail');
-							echo $form->label('Confirmez votre mail :');
-							echo $form->inputConfirmMail('mail_confirm');
-							echo $form->label('Votre mot de passe :');
-							echo $form->inputPassword('passwordRegister');
-							echo $form->label('Confirmez votre mot de passe :');
-							echo $form->inputConfirmPassword('confirmPasswordRegister');
+							echo $formRegister->label('Votre prenom :');
+							echo $formRegister->inputPrenom('prenom');
+							echo $formRegister->label('Votre nom :');
+							echo $formRegister->inputNom('nom');
+							echo $formRegister->label('Votre pseudo :');
+							echo $formRegister->inputPseudo('pseudo');
+							?>
+						<div class="form-group">
+							<?php
+							echo $formRegister->label('Votre mail :');
+							echo $formRegister->inputMail('mail');
+							echo $formRegister->label('Confirmez votre mail :');
+							echo $formRegister->inputConfirmMail('mail_confirm');
+							?>
+						</div>
+						<div class="form-group">
+							<?php
+							echo $formRegister->label('Votre mot de passe :');
+							echo $formRegister->inputPassword('passwordRegister');
+							echo $formRegister->label('Confirmez votre mot de passe :');
+							echo $formRegister->inputConfirmPassword('confirmPasswordRegister');
 							?>
 						</div>
 						<?php
-						echo $form->submit();
+						echo $formRegister->submit();
 						?>
 					</form>
 				</div>

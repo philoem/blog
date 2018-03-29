@@ -2,7 +2,7 @@
 	session_start();
 	require_once('AccesControl.php');
 	require('./models/FormLogin.php');
-	$form = new FormLogin([]);
+	$formLogin = new FormLogin([]);
 	
 ?>
 <!DOCTYPE html>
@@ -24,20 +24,20 @@
 					<form method="post" action="#">
 						<div class="form-group">
 							<?php
-							echo $form->label('Votre pseudo :');
-							echo $form->inputText('pseudo');
-							echo $form->label('Votre mot de passe :');
-							echo $form->inputPassword('password');
+							echo $formLogin->label('Votre pseudo :');
+							echo $formLogin->inputText('pseudo');
+							echo $formLogin->label('Votre mot de passe :');
+							echo $formLogin->inputPassword('password');
 							?>
 						</div>
 						<div class="form-check">
 							<?php
-							echo $form->checkbox('remember');
-							echo $form->label('Se souvenir de moi');
+							echo $formLogin->checkbox('remember');
+							echo $formLogin->label('Se souvenir de moi');
 							?>
 						</div>
 						<?php
-						echo $form->submit();
+						echo $formLogin->submit();
 						?>
 					</form>
 				</div>

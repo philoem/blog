@@ -5,7 +5,7 @@
 	$db = dbConnect();
 	
 	// Redirection 
-	header('Location: register.php');
+	header('Location: admin.php');
 	
 	// Gestion du formulaire de créations de nouveaux billets
 	if (!empty($_POST['title']) AND !empty($_POST['billet'])) {
