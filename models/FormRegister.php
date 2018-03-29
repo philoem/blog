@@ -1,5 +1,5 @@
 <?php
-	session_start();
+
 
 class FormRegister {
 
@@ -20,16 +20,41 @@ class FormRegister {
 
 	}
 
-	public function input($prenom = [], $nom = [], $pseudo = [], $mail = [], $mail_confirm = [], $passwordRegister = [], $confirmPasswordRegister = []) {
+	public function inputPrenom($prenom) {
+		
 		return '<input type="text" class="form-control" id="exampleInputPrenom1" aria-describedby="prenomHelp" name="'. $prenom .'">';
-		return '<input type="text" class="form-control" name="'. $nom .'" id="exampleInputNom">';
-		return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPrenom" aria-describedby="prenomHelp">';
-		return '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="'. $mail .'">';
-		return '<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" name="'. $mail_confirm .'">';
-		return '<input type="password" class="form-control" name="'. $passwordRegister .'" id="exampleInputPassword" >';
-		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm"><br>';
-
 	}
+
+	public function inputNom($nom) {
+		
+		return '<input type="text" class="form-control" name="'. $nom .'" id="exampleInputNom">';
+	}
+
+	public function inputPseudo($pseudo) {
+		
+		return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPrenom" aria-describedby="prenomHelp">';
+	}
+
+	public function inputMail($mail) {
+	
+		return '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="'. $mail .'">';
+	}
+
+	public function inputConfirmMail($mail_confirm) {
+		
+		return '<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" name="'. $mail_confirm .'">';
+	}
+
+	public function inputPassword($passwordRegister) {
+		
+		return '<input type="password" class="form-control" name="'. $passwordRegister .'" id="exampleInputPassword" >';
+	}
+
+	public function inputConfirmPassword($confirmPasswordRegister) {
+		
+		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm"><br>';
+	}
+
 	
 	public function submit() {
 		return '<button type="submit" class="btn btn-primary" name="submit_register">Validez votre inscription</button>';

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require('AccesControl.php');
 	require_once('./models/model.php');
 	$db = dbConnect();

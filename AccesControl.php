@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	
 	//	Utilisation du bouton "se souvenir de moi" et crypter les données (prénom, nom et mot de passe) dans les cookies d'une durée de 3 jours
 	if (isset($_POST['remember'])) {
 		if (isset($_POST['pseudo'])) {
@@ -18,8 +16,8 @@
 	}
 
 	// Connexion à la base de données
-	require_once('./models/bdConnect.php');
-	$db = new Connect('projet_4');
+	require_once('./models/model.php');
+	$db = dbConnect();
 
 	// Vérification du pseudo et du mot de passe pour se connecter
 	if (isset($_POST['submit_login'])) {

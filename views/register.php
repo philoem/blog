@@ -74,61 +74,36 @@
 		<div class="container-fluid">
 <!-- Ici le header -->
 			<?php include './inc/header_register.php'; ?> 
-			
+
+<!-- Ici le formulaire pour s'inscrire  -->			
 			<div class="col-xs-12">
 				<div class="row justify-content-center">
 					<form method="post" action="#">
 						<div class="form-group">
 							<?php
 							echo $form->label('Votre prenom :');
-							echo $form->input('prenom');
+							echo $form->inputPrenom('prenom');
 							echo $form->label('Votre nom :');
-							echo $form->input('nom');
+							echo $form->inputNom('nom');
 							echo $form->label('Votre pseudo :');
-							echo $form->input('pseudo');
+							echo $form->inputPseudo('pseudo');
 							echo $form->label('Votre mail :');
-							echo $form->input('mail');
+							echo $form->inputMail('mail');
 							echo $form->label('Confirmez votre mail :');
-							echo $form->input('mail_confirm');
+							echo $form->inputConfirmMail('mail_confirm');
 							echo $form->label('Votre mot de passe :');
-							echo $form->input('passwordRegister');
+							echo $form->inputPassword('passwordRegister');
 							echo $form->label('Confirmez votre mot de passe :');
-							echo $form->input('confirmPasswordRegister');
-							echo $form->submit();
+							echo $form->inputConfirmPassword('confirmPasswordRegister');
 							?>
 						</div>
+						<?php
+						echo $form->submit();
+						?>
 					</form>
-                    <!--<div class="form-group">
 				</div>
-							<label for="exampleInputPrenom1">Votre Prénom</label>
-							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom1" aria-describedby="prenomHelp"  >
-						</div>
-						<div class="form-group">
-							<label for="exampleInputNom">Votre Nom</label>
-							<input type="text" class="form-control" name="nom" id="exampleInputNom" >
-						</div>
-                        <div class="form-group">
-							<label for="exampleInputPrenom">Votre pseudo :</label>
-							<input type="text" class="form-control" name="pseudo" id="exampleInputPrenom" aria-describedby="prenomHelp"  >
-						</div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Votre email :</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="mail">    
-						</div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail2">Confirmez votre email :</label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" name="mail_confirm">    
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword">Votre mot de passe :</label>
-							<input type="password" class="form-control" name="passwordRegister" id="exampleInputPassword" >
-						</div>
-                        <div class="form-group">
-							<label for="exampleInputPasswordConfirm">Confirmez votre mot de passe :</label>
-							<input type="password" class="form-control" name="confirmPasswordRegister" id="exampleInputPasswordConfirm" >
-						</div>
-						<button type="submit" class="btn btn-primary" name="submit_register">Validez votre inscription</button>-->
-			</div>
+     		</div>
+
 <!-- Ici affichage des messages d'erreurs  -->
 			<div class="container" id="error_register">
 				<?php 

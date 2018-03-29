@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require_once('AccesControl.php');
+	require('./models/FormLogin.php');
+	$form = new FormLogin([]);
 	
 ?>
 <!DOCTYPE html>
@@ -16,25 +18,31 @@
 <!-- Ici le header  -->
 			<?php include 'views/inc/header_login.php'; ?>
 			
+<!-- Ici le formulaire pour se connecter  -->			
 			<div class="col-xs-12">
 				<div class="row justify-content-center">
 					<form method="post" action="#">
-					<div class="form-group">
-							<label for="exampleInputPrenom">Votre pseudo :</label>
-							<input type="text" class="form-control" name="pseudo" id="exampleInputPrenom" aria-describedby="prenomHelp"  >
-						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword">Votre mot de passe</label>
-							<input type="password" class="form-control" name="password" id="exampleInputPassword" >
+							<?php
+							echo $form->label('Votre pseudo :');
+							echo $form->inputText('pseudo');
+							echo $form->label('Votre mot de passe :');
+							echo $form->inputPassword('password');
+							?>
 						</div>
 						<div class="form-check">
-							<input type="checkbox" class="form-check-input" name="remember" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+							<?php
+							echo $form->checkbox('remember');
+							echo $form->label('Se souvenir de moi');
+							?>
 						</div>
-						<button type="submit" class="btn btn-primary" name="submit_login">Se connecter</button>
+						<?php
+						echo $form->submit();
+						?>
 					</form>
 				</div>
 			</div>
+			
 		</div>
 	</body>
 </html>
