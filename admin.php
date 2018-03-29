@@ -50,45 +50,29 @@
 							$reponse->closeCursor();
 						?>
 					</div>
+<!-- Formulaire de création de nouveau billet  -->						
 					<div class="col-xs-4 col-lg-4">
 						<h3>Création d'un nouveau billet:</h3>
-						<div class="row justify-content-center">
-							<form action="admin_post.php" method="post">
-								<div class="form-group">
-									<?php
-									echo $formAdmin->label('Titre du billet :');
-									echo $formAdmin->inputTitle('title');
-									?>
-								</div>
-								<div class="form-group">
-									<?php
-									echo $formAdmin->label('Ecrivez ici votre billet :');
-									echo $formAdmin->inputBillet('billet');
-									?>
-								</div>
+						<form action="admin_post.php" method="post">
+							<div class="form-group">
 								<?php
-								echo $formAdmin->erase();
-								echo $formAdmin->submit();
+								echo $formAdmin->label('Titre du billet :');
+								echo $formAdmin->inputTitle('title');
 								?>
-							</form>
-						</div>
+							</div>
+							<div class="form-group">
+								<?php
+								echo $formAdmin->label('Ecrivez ici votre billet :');
+								echo $formAdmin->inputBillet('billet');
+								?>
+							</div>
+							<?php
+							echo $formAdmin->erase();
+							echo $formAdmin->submit();
+							?>
+						</form>
 					</div>
-										
-						
-						
-						
-						<!--<form action="admin_post.php" method="post">
-							<div class="form-group">
-								<label for="exampleInputTitle">Titre de mon billet</label>
-								<input type="text" name="title" class="form-control" id="exampleInputTitle" aria-describedby="titlelHelp">
-							</div>
-							<div class="form-group">
-								<label for="exampleFormControlTextarea1">Mon billet</label>
-								<textarea class="form-control" name="billet" id="exampleFormControlTextarea1" rows="20"></textarea>
-							</div>
-							<button type="reset" class="btn btn-danger">Tout effacer</button>
-							<input class="btn btn-primary" type="submit" value="Validation du billet">
-						</form>-->
+					
 				</div>
 			</div>
 		</div>

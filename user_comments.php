@@ -1,6 +1,9 @@
 <?php
 	require_once('./models/model.php');
 	$db = dbConnect();
+	// Appel du formulaire de création d'un nouveau billet
+	require('./models/FormUserComments.php');
+	$formUser = new FormUserComments();
 	
 ?>
 <!DOCTYPE html>
@@ -40,20 +43,26 @@
 							</p>
 						</div>
 					</div>
-				
+<!-- Formulaire de création de nouveau billet  -->						
 					<div class="col-xs-6 col-lg-6">
 						<h3>Création d'un nouveau commentaire:</h3>
 						<form action="./controlers/form_user_comments.php" method="post">
 							<div class="form-group">
-								<label for="exampleFormControlText">Votre nom :</label>
-								<input class="form-control" name="name" id="exampleFormControlText">
+								<?php
+								echo $formUser->label('Titre du billet :');
+								echo $formUser->inputName('name');
+								?>
 							</div>
 							<div class="form-group">
-								<label for="exampleFormControlTextarea1">Votre commentaire :</label>
-								<textarea class="form-control" name="commentary" id="exampleFormControlTextarea1" rows="20"></textarea>
+								<?php
+								echo $formUser->label('Ecrivez ici votre billet :');
+								echo $formUser->inputCommentary('commentary');
+								?>
 							</div>
-							<button type="reset" class="btn btn-danger">Tout effacer</button>
-							<button class="btn btn-primary" type="submit" name="submit_commentary">Validez votre commentaire</button>
+							<?php
+							echo $formUser->erase();
+							echo $formUser->submit();
+							?>
 						</form>
 					</div>
 
