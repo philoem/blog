@@ -18,8 +18,8 @@
 	}
 
 	// Connexion à la base de données
-	require_once('./models/model.php');
-	$db = dbConnect();
+	require_once('./models/bdConnect.php');
+	$db = new Connect('projet_4');
 
 	// Vérification du pseudo et du mot de passe pour se connecter
 	if (isset($_POST['submit_login'])) {

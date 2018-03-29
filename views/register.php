@@ -1,8 +1,11 @@
 <?php
-	//session_start();
+	// Connexion à la base de données
 	require_once('../models/model.php');
 	$db = dbConnect();
-
+	// Appel de la classe FormRegister pour le formulaire
+	require('../models/FormRegister.php');
+	$form = new FormRegister([]);
+	
 	if (isset($_POST['submit_register'])) {
 		$prenom = htmlspecialchars($_POST['prenom']);
 		$nom = htmlspecialchars($_POST['nom']);
@@ -58,7 +61,7 @@
 			$error = "Veuillez remplir les champs ci-dessus pour valider votre inscription";
 		}
 	}
-?>
+	?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -75,7 +78,28 @@
 			<div class="col-xs-12">
 				<div class="row justify-content-center">
 					<form method="post" action="#">
-                    <div class="form-group">
+						<div class="form-group">
+							<?php
+							echo $form->label('Votre prenom :');
+							echo $form->input('prenom');
+							echo $form->label('Votre nom :');
+							echo $form->input('nom');
+							echo $form->label('Votre pseudo :');
+							echo $form->input('pseudo');
+							echo $form->label('Votre mail :');
+							echo $form->input('mail');
+							echo $form->label('Confirmez votre mail :');
+							echo $form->input('mail_confirm');
+							echo $form->label('Votre mot de passe :');
+							echo $form->input('passwordRegister');
+							echo $form->label('Confirmez votre mot de passe :');
+							echo $form->input('confirmPasswordRegister');
+							echo $form->submit();
+							?>
+						</div>
+					</form>
+                    <!--<div class="form-group">
+				</div>
 							<label for="exampleInputPrenom1">Votre Prénom</label>
 							<input type="text" class="form-control" name="prenom" id="exampleInputPrenom1" aria-describedby="prenomHelp"  >
 						</div>
@@ -103,9 +127,7 @@
 							<label for="exampleInputPasswordConfirm">Confirmez votre mot de passe :</label>
 							<input type="password" class="form-control" name="confirmPasswordRegister" id="exampleInputPasswordConfirm" >
 						</div>
-						<button type="submit" class="btn btn-primary" name="submit_register">Validez votre inscription</button>
-					</form>
-				</div>
+						<button type="submit" class="btn btn-primary" name="submit_register">Validez votre inscription</button>-->
 			</div>
 <!-- Ici affichage des messages d'erreurs  -->
 			<div class="container" id="error_register">
