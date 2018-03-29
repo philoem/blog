@@ -16,7 +16,7 @@
 	}
 
 	// Connexion à la base de données
-	require_once('../models/model.php');
+	require_once('./models/model.php');
 	$db = dbConnect();
 
 	// Vérification du pseudo et du mot de passe pour se connecter
