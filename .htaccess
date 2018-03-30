@@ -5,3 +5,4 @@ RewriteRule ^register$ views/register.php
 
 RewriteRule ^index.php$ public/index.php
 RewriteRule ^index$ public/index.php
+

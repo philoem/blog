@@ -1,22 +1,10 @@
 <?php
-
+namespace Forteroche\classe;
 /**
- * class FormRegister
- * Génère le formulaire pour s'inscrire
+ * class FormRegister enfante de Form
+ * Génère le formulaire de la page register.php pour s'inscrire
  */
-class FormRegister {
-
-	/**
-     * @var array données utilisées pour le formulaire
-     */
-	private $data;
-
-	/**
-     * @param array $data
-     */
-	public function __construct($data = array()) {
-		$this->data = $data;
-	}
+class FormRegister extends Form {
 
 	/**
      * @param array $prenom

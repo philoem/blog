@@ -1,29 +1,19 @@
 <?php
-/**
- * class FormAdmin
- * Génère le formulaire pour la création de nouveaux billets
- */
-class FormAdmin {
-    /**
-     * @var array données utilisées pour le formulaire
-     */
-    private $data;
 
-    /**
-     * @param array $data
-     */
-	public function __construct($data = array()) {
-        
-        $this->data = $data;
-    }
-    
+namespace Forteroche\classe;
+/**
+ * class FormAdmin enfante de Form
+ * Génère le formulaire de la page admin.php pour la création de nouveaux billets
+ */
+class FormAdmin extends Form {
+       
     /**
      * @param array $title
      * @param array $content
      * @return la dénomination du 1er champs input du formulaire
      * @return la dénomination du 2ème champs input du formulaire
      */
-	public function label($title = [], $content = []) {
+	public function labelAdmin($title = [], $content = []) {
         
         return '<label for="exampleInputPseudo">'. $title .'</label>';
         return '<label for="exampleFormControlTextarea1">'. $content .'</label>';

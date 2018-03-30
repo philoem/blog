@@ -1,9 +1,12 @@
 <?php
+	use Forteroche\classe\FormRegister;
+
 	// Connexion à la base de données
 	require_once('../models/model.php');
 	$db = dbConnect();
 	// Appel de la classe FormRegister pour le formulaire
-	require('../models/FormRegister.php');
+	require('../models/classe/Form.php');
+	require('../models/classe/FormRegister.php');
 	$formRegister = new FormRegister([]);
 	
 	if (isset($_POST['submit_register'])) {

@@ -1,8 +1,12 @@
 <?php
 	session_start();
+
+	use \Forteroche\classe\Form;
+
 	require_once('AccesControl.php');
-	require('./models/FormLogin.php');
-	$formLogin = new FormLogin([]);
+	require('./models/classe/Form.php');
+	$formLogin = new Form();
+
 	
 ?>
 <!DOCTYPE html>

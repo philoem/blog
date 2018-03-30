@@ -1,14 +1,16 @@
 <?php
+
+namespace Forteroche\classe;
 /**
- * class FormLogin
- * Génère le formulaire pour se connecter 
+ * class FormLogin parente
+ * Génère le formulaire de la page login.php pour se connecter 
  */
-class FormLogin {
+class Form {
 
     /**
      * @var array données utilisées pour le formulaire
      */
-    private $data;
+    protected $data;
 
     /**
      * @param array $data

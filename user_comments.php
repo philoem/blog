@@ -1,9 +1,12 @@
 <?php
-	require_once('./models/model.php');
-	$db = dbConnect();
-	// Appel du formulaire de création d'un nouveau billet
-	require('./models/FormUserComments.php');
-	$formUser = new FormUserComments();
+use Forteroche\classe\FormUserComments;
+
+require_once('./models/model.php');
+$db = dbConnect();
+// Appel du formulaire de création d'un nouveau billet
+require('./models/classe/Form.php');
+require('./models/classe/FormUserComments.php');
+$formUser = new FormUserComments();
 	
 ?>
 <!DOCTYPE html>

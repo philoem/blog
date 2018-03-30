@@ -1,31 +1,18 @@
 <?php
-
+namespace Forteroche\classe;
 /**
- * class FormUserComments
- * Génère le formulaire pour editer des commentaires
+ * class FormUserComments enfante de Form
+ * Génère le formulaire de la page userComments.php pour editer des commentaires
  */
-class FormUserComments {
+class FormUserComments extends Form {
 
     /**
-     * @var array données utilisées pour le formulaire
-     */
-    private $data;
-
-    /**
-     * @param array $data
-     */
-	public function __construct($data = array()) {
-        
-        $this->data = $data;
-	}
-
-     /**
      * @param array $name
      * @param array $commentary
      * @return la dénomination du 1er champs input du formulaire
      * @return la dénomination du 2ème champs input du formulaire
      */
-	public function label($name = [], $commentary = []) {
+	public function labelUser($name = [], $commentary = []) {
         
         return '<label for="exampleInputPseudo">'. $name .'</label>';
         return '<label for="exampleFormControlTextarea1">'. $commentary .'</label>';
