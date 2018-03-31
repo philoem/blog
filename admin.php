@@ -4,11 +4,11 @@
 	// Appel du formulaire de création d'un nouveau billet - autoloading
 	require 'vendor/autoload.php';
 	use Forteroche\FormAdmin;
+	//use Forteroche\DbConnect;
 
-	require 'AccesControl.php';
 	require_once './models/model.php';
 	$db = dbConnect();
-	
+	//$db = new DbConnect('projet_4');
 	$formAdmin = new FormAdmin();
 ?>
 <!DOCTYPE html>

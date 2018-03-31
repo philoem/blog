@@ -1,7 +1,9 @@
-
 <?php
+namespace Forteroche;
 
-class Connect {
+use \PDO;
+
+class DbConnect {
     private $_db_name;
     private $_db_user;
     private $_db_pass;
@@ -28,12 +30,6 @@ class Connect {
         $this->pdo = $pdo;
         return $pdo;
     }
-    public function query($statement) {
-        $req = $this->getPDO()->query($statement);
-        $data = $req->fetchALL(PDO::FETCH_OBJ);
-        return $data;
-    
-    }
-
+   
 }
 

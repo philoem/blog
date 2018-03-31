@@ -3,11 +3,13 @@
 	
 	// Appel du formulaire de connexion - autoloading
 	require 'vendor/autoload.php';
-	use \Forteroche\Form;
-
 	require_once 'AccesControl.php';
-	
+	use \Forteroche\Form;
+	//use \Forteroche\DbConnect;
+		
+	//$db = new DbConnect('projet_4');
 	$formLogin = new Form();
+	
 	
 ?>
 <!DOCTYPE html>

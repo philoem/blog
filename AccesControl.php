@@ -1,4 +1,11 @@
 <?php
+	// Connexion à la base de données
+	//require 'vendor/autoload.php';
+	//use \Forteroche\DbConnect;
+	//$db = new DbConnect('projet_4');
+	
+	
+	
 	//	Utilisation du bouton "se souvenir de moi" et crypter les données (prénom, nom et mot de passe) dans les cookies d'une durée de 3 jours
 	if (isset($_POST['remember'])) {
 		if (isset($_POST['pseudo'])) {
@@ -14,8 +21,6 @@
 			echo 'pas de mot de passe';
 		}
 	}
-
-	// Connexion à la base de données
 	require_once('./models/model.php');
 	$db = dbConnect();
 
