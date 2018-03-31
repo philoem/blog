@@ -1,70 +1,70 @@
 <?php
-	use Forteroche\classe\FormRegister;
+// Appel de la classe FormRegister pour le formulaire - autoloading
+require '../vendor/autoload.php';
+use Forteroche\FormRegister;
 
-	// Connexion à la base de données
-	require_once('../models/model.php');
-	$db = dbConnect();
-	// Appel de la classe FormRegister pour le formulaire
-	require('../models/classe/Form.php');
-	require('../models/classe/FormRegister.php');
-	$formRegister = new FormRegister([]);
+// Connexion à la base de données
+require_once '../models/model.php';
+$db = dbConnect();
+
+$formRegister = new FormRegister();
+
+if (isset($_POST['submit_register'])) {
+	$prenom = htmlspecialchars($_POST['prenom']);
+	$nom = htmlspecialchars($_POST['nom']);
+	$pseudo = htmlspecialchars($_POST['pseudo']);
+	$mail = htmlspecialchars($_POST['mail']);
+	$mail_confirm = htmlspecialchars($_POST['mail_confirm']);
+	$passwordRegister = sha1($_POST['passwordRegister']);
+	$confirmPasswordRegister = sha1($_POST['confirmPasswordRegister']);
 	
-	if (isset($_POST['submit_register'])) {
-		$prenom = htmlspecialchars($_POST['prenom']);
-		$nom = htmlspecialchars($_POST['nom']);
-		$pseudo = htmlspecialchars($_POST['pseudo']);
-		$mail = htmlspecialchars($_POST['mail']);
-		$mail_confirm = htmlspecialchars($_POST['mail_confirm']);
-		$passwordRegister = sha1($_POST['passwordRegister']);
-		$confirmPasswordRegister = sha1($_POST['confirmPasswordRegister']);
+	if (!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail_confirm']) AND !empty($_POST['passwordRegister']) AND !empty($_POST['confirmPasswordRegister'])) {
+		$pseudolength = strlen($pseudo);
 		
-		if (!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail_confirm']) AND !empty($_POST['passwordRegister']) AND !empty($_POST['confirmPasswordRegister'])) {
-			$pseudolength = strlen($pseudo);
+		if ($pseudolength <= 60) {
+			$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?'); // Ici vérification que le pseudo n'existe pas déjà
+			$reqpseudo->execute([$pseudo]);
+			$pseudoexist = $reqpseudo->rowCount();
 			
-			if ($pseudolength <= 60) {
-				$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?'); // Ici vérification que le pseudo n'existe pas déjà
-				$reqpseudo->execute([$pseudo]);
-				$pseudoexist = $reqpseudo->rowCount();
+			if ($pseudoexist == 0) {
 				
-				if ($pseudoexist == 0) {
+				if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+					$reqmail = $db->prepare('SELECT * FROM login_admin WHERE mail_admin = ?'); // Ici vérification que le mail n'existe pas déjà
+					$reqmail->execute([$mail]);
+					$mailexist = $reqmail->rowCount();
 					
-					if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-						$reqmail = $db->prepare('SELECT * FROM login_admin WHERE mail_admin = ?'); // Ici vérification que le mail n'existe pas déjà
-						$reqmail->execute([$mail]);
-						$mailexist = $reqmail->rowCount();
+					if ($mailexist == 0) {
 						
-						if ($mailexist == 0) {
+						if ($mail == $mail_confirm) {
 							
-							if ($mail == $mail_confirm) {
-								
-								if ($passwordRegister == $confirmPasswordRegister) {
-									$req = $db->prepare('INSERT INTO login_admin(prenom, nom, pseudo, mail_admin, password_admin, date_login) VALUES(?, ?, ?, ?, ?, NOW())');
-									$req->execute([$prenom, $nom, $pseudo, $mail, $passwordRegister]);
-									$error = "VOTRE COMPTE A BIEN ETE CREE !";
-									header('Location: ../login.php');
-								} else {
-									$error = "Vos mots de passes ne sont pas identiques !";
-								}
+							if ($passwordRegister == $confirmPasswordRegister) {
+								$req = $db->prepare('INSERT INTO login_admin(prenom, nom, pseudo, mail_admin, password_admin, date_login) VALUES(?, ?, ?, ?, ?, NOW())');
+								$req->execute([$prenom, $nom, $pseudo, $mail, $passwordRegister]);
+								$error = "VOTRE COMPTE A BIEN ETE CREE !";
+								header('Location: ../login.php');
 							} else {
-								$error = "Vos adresses mail ne sont pas identiques !";
+								$error = "Vos mots de passes ne sont pas identiques !";
 							}
 						} else {
-							$error = "Ce mail est déjà utlisé !";
+							$error = "Vos adresses mail ne sont pas identiques !";
 						}
 					} else {
-						$error = "Votre adresse mail n'est pas bonne !";
+						$error = "Ce mail est déjà utlisé !";
 					}
 				} else {
-					$error = "Ce pseudo est déjà utilisé !";
+					$error = "Votre adresse mail n'est pas bonne !";
 				}
 			} else {
-				$error = "Votre pseudo ne doit pas dépasser 60 caractères !";
+				$error = "Ce pseudo est déjà utilisé !";
 			}
 		} else {
-			$error = "Veuillez remplir les champs ci-dessus pour valider votre inscription";
+			$error = "Votre pseudo ne doit pas dépasser 60 caractères !";
 		}
+	} else {
+		$error = "Veuillez remplir les champs ci-dessus pour valider votre inscription";
 	}
-	?>
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

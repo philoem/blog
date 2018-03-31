@@ -1,5 +1,5 @@
 <?php
-namespace Forteroche\classe;
+namespace Forteroche;
 /**
  * class FormUserComments enfante de Form
  * Génère le formulaire de la page userComments.php pour editer des commentaires

@@ -1,6 +1,6 @@
 <?php
 
-namespace Forteroche\classe;
+namespace Forteroche;
 /**
  * class FormLogin parente
  * Génère le formulaire de la page login.php pour se connecter 

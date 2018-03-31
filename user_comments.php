@@ -1,11 +1,12 @@
 <?php
-use Forteroche\classe\FormUserComments;
-
-require_once('./models/model.php');
-$db = dbConnect();
 // Appel du formulaire de création d'un nouveau billet
-require('./models/classe/Form.php');
-require('./models/classe/FormUserComments.php');
+use Forteroche\FormUserComments;
+require 'vendor/autoload.php';
+
+// Connexion à la base de données
+require_once './models/model.php';
+$db = dbConnect();
+
 $formUser = new FormUserComments();
 	
 ?>

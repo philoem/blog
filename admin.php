@@ -1,14 +1,14 @@
 <?php
 	session_start();
 
-	use Forteroche\classe\FormAdmin;
+	// Appel du formulaire de création d'un nouveau billet - autoloading
+	require 'vendor/autoload.php';
+	use Forteroche\FormAdmin;
 
-	require('AccesControl.php');
-	require_once('./models/model.php');
+	require 'AccesControl.php';
+	require_once './models/model.php';
 	$db = dbConnect();
-	// Appel du formulaire de création d'un nouveau billet
-	require('./models/classe/Form.php');
-	require('./models/classe/FormAdmin.php');
+	
 	$formAdmin = new FormAdmin();
 ?>
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-namespace Forteroche\classe;
+namespace Forteroche;
 /**
  * class FormRegister enfante de Form
  * Génère le formulaire de la page register.php pour s'inscrire

@@ -1,6 +1,6 @@
 <?php
 
-namespace Forteroche\classe;
+namespace Forteroche;
 /**
  * class FormAdmin enfante de Form
  * Génère le formulaire de la page admin.php pour la création de nouveaux billets

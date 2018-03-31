@@ -1,12 +1,13 @@
 <?php
 	session_start();
+	
+	// Appel du formulaire de connexion - autoloading
+	require 'vendor/autoload.php';
+	use \Forteroche\Form;
 
-	use \Forteroche\classe\Form;
-
-	require_once('AccesControl.php');
-	require('./models/classe/Form.php');
+	require_once 'AccesControl.php';
+	
 	$formLogin = new Form();
-
 	
 ?>
 <!DOCTYPE html>
