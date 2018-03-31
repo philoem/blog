@@ -21,7 +21,7 @@
 			echo 'pas de mot de passe';
 		}
 	}
-	require_once('./models/model.php');
+	require_once('../models/model.php');
 	$db = dbConnect();
 
 	// Vérification du pseudo et du mot de passe pour se connecter

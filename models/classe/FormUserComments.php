@@ -7,24 +7,24 @@ namespace Forteroche;
 class FormUserComments extends Form {
 
     /**
-     * @param array $name
+     * @param array $name_user
      * @param array $commentary
      * @return la dénomination du 1er champs input du formulaire
      * @return la dénomination du 2ème champs input du formulaire
      */
-	public function labelUser($name = [], $commentary = []) {
+	public function labelUser($name_user = [], $commentary = []) {
         
-        return '<label for="exampleInputPseudo">'. $name .'</label>';
+        return '<label for="exampleInputPseudo">'. $name_user .'</label>';
         return '<label for="exampleFormControlTextarea1">'. $commentary .'</label>';
     }
 
     /**
-     * @param string $name
+     * @param string $name_user
      * @return contenu du 1er champs input qui est le nom du commentateur
      */
-	public function inputName($name) {
+	public function inputName($name_user) {
         
-        return '<input type="text" class="form-control" name="'. $name .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" name="'. $name_user .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
     }
 
     /**

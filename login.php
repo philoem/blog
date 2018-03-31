@@ -44,6 +44,9 @@
 							?>
 						</div>
 						<?php
+						echo $formLogin->redirect();
+						?>
+						<?php
 						echo $formLogin->submit();
 						?>
 					</form>

@@ -92,7 +92,7 @@ class FormRegister extends Form {
      */
 	public function inputConfirmPassword($confirmPasswordRegister) {
 		
-		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm"><br>';
+		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm">';
 	}
 
 	/**

@@ -20,7 +20,7 @@ $db = dbConnect();
 				<div class="card text-center">
 					<div class="card-header" id="card_header_user_title_billet">
 						<?php 
-							$reponse = $db->query('SELECT title FROM book ORDER BY date_billet DESC LIMIT 0, 1');
+							$reponse = $db->query('SELECT id, title FROM book ORDER BY date_billet DESC LIMIT 0, 1');
 							while ($donnees = $reponse->fetch()) {
 								echo '<p><strong>'.htmlspecialchars($donnees['title']).'</strong></p>';
 							}
@@ -30,7 +30,7 @@ $db = dbConnect();
 					<div class="card-body">
 						<h5 class="card-title">
 							<?php 
-								$reponse = $db->query('SELECT billet FROM book ORDER BY date_billet DESC LIMIT 0, 1');
+								$reponse = $db->query('SELECT id, billet FROM book ORDER BY date_billet DESC LIMIT 0, 1');
 								while ($donnees = $reponse->fetch()) {
 									echo '<p>'.htmlspecialchars($donnees['billet']).'</p>';
 								}
@@ -44,7 +44,7 @@ $db = dbConnect();
 						<?php 
 							$reponse = $db->query('SELECT DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY date_billet DESC LIMIT 0, 1');
 							while ($donnees = $reponse->fetch()) {
-								echo '<p><strong>Publié le '.htmlspecialchars($donnees['date_billet']).'</strong></p>';
+								echo '<p><strong>Publié le <em>'.htmlspecialchars($donnees['date_billet']).'</em></strong></p>';
 							}
 							$reponse->closeCursor();
 						?>

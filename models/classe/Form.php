@@ -63,11 +63,21 @@ class Form {
     }
     
     /**
+     * @return si l'utilisateur n'est pas encore inscrit, il est redirigé vers la page register.php
+     */	
+    public function redirect() {
+        
+        return '<a href="register.php" class="btn btn-info" name="redirect_login" role="button">Cliquez ici pour vous inscrire</a>';
+	}
+
+    /**
      * @return si le pseudo et le mot de passe existent dans la base de donnée, l'utilisateur peut se connecter
      */	
 	public function submit() {
         
         return '<button type="submit" class="btn btn-primary" name="submit_login">Se connecter</button>';
-	}
+    }
+    
+    
 
 }
