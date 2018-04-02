@@ -7,7 +7,7 @@
 	//use Forteroche\DbConnect;
 	$formAdmin = new FormAdmin();
 	
-	require_once './models/model.php';
+	require './models/model.php';
 	$db = dbConnect();
 	//$db = new DbConnect('projet_4');
 
@@ -50,9 +50,9 @@
 							/**
 							 * Affichage des 3 derniers commentaires
 							*/
-							$reponse = $db->query('SELECT name_user, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 5');
+							$reponse = $db->query('SELECT name_user, commentary, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 5 ');
 							while ($donnees = $reponse->fetch()) {
-								echo'<p><strong>'.htmlspecialchars($donnees['name_user']). ', publié le ' .htmlspecialchars($donnees['date_commentary']).'</p></strong><p>'.htmlspecialchars($donnees['commentary']).'</p>';
+								echo'<p><strong>'.htmlspecialchars($donnees['name_user']). '</strong>,<em> publié le ' .htmlspecialchars($donnees['date_commentary']).'</em></p><p>'.htmlspecialchars($donnees['commentary']).'</p>';
 							}
 
 							$reponse->closeCursor();
@@ -65,9 +65,9 @@
 							/**
 							 * Affichage des 3 derniers billets
 							*/
-							$reponse = $db->query('SELECT id, title, billet, approuved, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY date_billet DESC LIMIT 0, 3');
+							$reponse = $db->query('SELECT id, title, billet, approuved, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY date_billet LIMIT 0, 2');
 							while ($donnees = $reponse->fetch()) { ?>
-								<p><strong><?= htmlspecialchars($donnees['title']) ?></strong>, billet créé le <?= htmlspecialchars($donnees['date_billet']) ?></p><p><?= htmlspecialchars($donnees['billet']) ?></p><?php if($donnees['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $donnees['id'] ?>"><strong>Conserver</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $donnees['id'] ?>"><em>Supprimer</em></a><?php } ?>
+								<p><strong><?= htmlspecialchars($donnees['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($donnees['date_billet']) ?></em></p><p><?= htmlspecialchars($donnees['billet']) ?></p><?php if($donnees['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $donnees['id'] ?>"><strong>Conserver</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $donnees['id'] ?>"><em>Supprimer</em></a><?php } ?>
 							<?php } 
 							$reponse->closeCursor();
 						?>

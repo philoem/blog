@@ -24,7 +24,7 @@ class FormUserComments extends Form {
      */
 	public function inputName($name_user) {
         
-        return '<input type="text" class="form-control" name="'. $name_user .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" name="'. $name_user .'" id="exampleInputPseudo" aria-describedby="prenomHelp" required>';
     }
 
     /**
@@ -33,7 +33,16 @@ class FormUserComments extends Form {
      */
     public function inputCommentary($commentary) {
 		
-        return '<textarea class="form-control" name="'. $commentary .'" id="exampleFormControlTextarea1" rows="20"></textarea>';
+        return '<textarea class="form-control" name="'. $commentary .'" id="exampleFormControlTextarea1" rows="20" required></textarea>';
+    }
+
+    /**
+     * @param string $book_id
+     * @return contenu caché qui va récupérer l'id du billet pour "accrocher" les commentaires dessus
+     */
+	public function inputHidden($book_id) {
+
+        return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
     }
 
     /**
