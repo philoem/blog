@@ -6,8 +6,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="fr">
 	
-<!-- Ici le header  -->
-		<?php include ('../views/inc/head_html.php'); ?>
+<!-- Ici le head  -->
+	<?php include ('../views/inc/head_html.php'); ?>
 
 	<body>
 		<div class="container-fluid">
@@ -18,6 +18,6 @@ session_start();
 			<?php include ('../controlers/index_dispatch.php'); ?>
 
 		</div>
-		
+	
 	</body>
 </html>

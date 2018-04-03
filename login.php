@@ -31,12 +31,10 @@
 					<form method="post" action="#">
 						<fieldset class="fieldset_login">
 							<div class="form-group">
-								<?php
-								echo $formLogin->label('Votre pseudo :');
-								echo $formLogin->inputText('pseudo');
-								echo $formLogin->label('Votre mot de passe :');
-								echo $formLogin->inputPassword('password');
-								?>
+								<div class="row justify-content-center"><?= $formLogin->label('Votre pseudo :');?></div>
+								<div class="row justify-content-center"><?= $formLogin->inputText('pseudo');?></div>
+								<div class="row justify-content-center"><?= $formLogin->label('Votre mot de passe :');?></div>
+								<div class="row justify-content-center"><?= $formLogin->inputPassword('password');?></div>
 							</div>
 							<div class="form-check">
 								<?php

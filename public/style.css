@@ -8,8 +8,8 @@ header {
 /* Encadré du formulaire */ 
 .fieldset_login {
 	border: 1px solid grey;
-	border-radius: 10px;
-	padding: 5px 15px 15px 15px;
+	border-radius: 5px;
+	padding: 5px 25px 15px 25px;
 	margin-bottom: 15px;
 }
 /* Page user.php */
@@ -68,8 +68,8 @@ header {
 /* Encadré du formulaire et sont titre*/ 
 .fieldset_register {
 	border: 1px solid grey;
-	border-radius: 10px;
-	padding: 5px 15px 15px 15px;
+	border-radius: 5px;
+	padding: 5px 25px 15px 25px;
 }
 #title_form_register {
 	margin-bottom: 15px;

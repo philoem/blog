@@ -87,34 +87,28 @@ if (isset($_POST['submit_register'])) {
 						</div>
 						<div class="form-group">
 							<fieldset class="fieldset_register">
-								<?php
-								echo $formRegister->label('Votre prénom :');
-								echo $formRegister->inputPrenom('prenom');
-								echo $formRegister->label('Votre nom :');
-								echo $formRegister->inputNom('nom');
-								echo $formRegister->label('Votre pseudo :');
-								echo $formRegister->inputPseudo('pseudo');
-								?>
+								<div class="row justify-content-center"><?= $formRegister->label('Votre prénom :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputPrenom('prenom');?></div>
+								<div class="row justify-content-center"><?= $formRegister->label('Votre nom :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputNom('nom');?></div>
+								<div class="row justify-content-center"><?= $formRegister->label('Votre pseudo :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputPseudo('pseudo');?></div>
 							</fieldset>
 						</div>
 						<div class="form-group">
 							<fieldset class="fieldset_register">
-								<?php
-								echo $formRegister->label('Votre mail :');
-								echo $formRegister->inputMail('mail');
-								echo $formRegister->label('Confirmez votre mail :');
-								echo $formRegister->inputConfirmMail('mail_confirm');
-								?>
+								<div class="row justify-content-center"><?= $formRegister->label('Votre mail :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputMail('mail');?></div>
+								<div class="row justify-content-center"><?= $formRegister->label('Confirmez votre mail :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputConfirmMail('mail_confirm');?></div>
 							</fieldset>
 						</div>
 						<div class="form-group">
 							<fieldset class="fieldset_register">
-								<?php
-								echo $formRegister->label('Votre mot de passe :');
-								echo $formRegister->inputPassword('passwordRegister');
-								echo $formRegister->label('Confirmez votre mot de passe :');
-								echo $formRegister->inputConfirmPassword('confirmPasswordRegister');
-								?>
+								<div class="row justify-content-center"><?= $formRegister->label('Votre mot de passe :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputPassword('passwordRegister');?></div>
+								<div class="row justify-content-center"><?= $formRegister->label('Confirmez votre mot de passe :');?></div>
+								<div class="row justify-content-center"><?= $formRegister->inputConfirmPassword('confirmPasswordRegister');?></div>
 							</fieldset>
 						</div>
 						<div class="row justify-content-center">
