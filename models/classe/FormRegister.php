@@ -22,7 +22,7 @@ class FormRegister extends Form {
 	 * @return la dénomination du 6ème champs input du formulaire
 	 * @return la dénomination du 7ème champs input du formulaire
      */
-	public function label($prenom = [], $nom = [], $pseudo = [], $mail = [], $mail_confirm = [], $passwordRegister = [], $confirmPasswordRegister = []) {
+	public function label($prenom =[], $nom = [], $pseudo = [], $mail = [], $mail_confirm = [], $passwordRegister = [], $confirmPasswordRegister = []) {
 		return '<label for="exampleInputPrenom1">'. $prenom .'</label>';
 		return '<label for="exampleInputNom">'. $nom .'</label>';
 		return '<label for="exampleInputPrenom">'. $pseudo .'</label>';
@@ -36,7 +36,7 @@ class FormRegister extends Form {
      * @param string $prenom
      * @return contenu du 1er champs input qui est le prenom
      */
-	public function inputPrenom($prenom) {
+	public function inputPrenom(string $prenom) {
 		
 		return '<input type="text" class="form-control" id="exampleInputPrenom1" aria-describedby="prenomHelp" name="'. $prenom .'">';
 	}
@@ -98,7 +98,7 @@ class FormRegister extends Form {
 	/**
      * @return envoie les données du formulaire dans la base de données
      */	
-	public function submit() {
+	public function submit(): string {
 		return '<button type="submit" class="btn btn-primary" name="submit_register">Validez votre inscription</button>';
 	}
 	

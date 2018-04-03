@@ -84,13 +84,14 @@ if (isset($_POST['submit_register'])) {
 					<form method="post" action="#">
 						<div class="form-group">
 							<?php
-							echo $formRegister->label('Votre prenom :');
+							echo $formRegister->label('Votre prénom :');
 							echo $formRegister->inputPrenom('prenom');
 							echo $formRegister->label('Votre nom :');
 							echo $formRegister->inputNom('nom');
 							echo $formRegister->label('Votre pseudo :');
 							echo $formRegister->inputPseudo('pseudo');
 							?>
+						</div>
 						<div class="form-group">
 							<?php
 							echo $formRegister->label('Votre mail :');
