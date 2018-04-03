@@ -5,6 +5,13 @@ header nav h1 {
 header {
 	padding-top: 150px;
 }
+/* Encadré du formulaire */ 
+.fieldset_login {
+	border: 1px solid grey;
+	border-radius: 10px;
+	padding: 5px 15px 15px 15px;
+	margin-bottom: 15px;
+}
 /* Page user.php */
 #content_header {
 	display: flex;
@@ -57,4 +64,14 @@ header {
 	color: red;
 	font-weight: bold;
 	text-align: center;
+}
+/* Encadré du formulaire et sont titre*/ 
+.fieldset_register {
+	border: 1px solid grey;
+	border-radius: 10px;
+	padding: 5px 15px 15px 15px;
+}
+#title_form_register {
+	margin-bottom: 15px;
+	margin-top: -10px;
 }
