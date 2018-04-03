@@ -3,6 +3,10 @@ RewriteEngine On
 RewriteRule ^register.php$ views/register.php
 RewriteRule ^register$ views/register.php
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ public/index.php
 RewriteRule ^index.php$ public/index.php
 RewriteRule ^index$ public/index.php
+
 

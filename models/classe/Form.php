@@ -41,7 +41,7 @@ class Form {
      */
 	public function inputText($pseudo) {
         
-        return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPseudo" aria-describedby="prenomHelp" required>';
     }
 
     /**
@@ -50,7 +50,7 @@ class Form {
      */
     public function inputPassword($password) {
 		
-        return '<input type="password" class="form-control" name="'. $password .'" id="exampleInputPassword" >';
+        return '<input type="password" class="form-control" name="'. $password .'" id="exampleInputPassword" required>';
     }
 
     /**

@@ -5,6 +5,9 @@ header nav h1 {
 header {
 	padding-top: 150px;
 }
+#link_login_index {
+	margin-left: -115px;
+}
 /* Encadré du formulaire */ 
 .fieldset_login {
 	border: 1px solid grey;
@@ -46,6 +49,9 @@ header {
 	color: white;
 }
 /* Page register.php */
+#link_register_index {
+	margin-left: 40px;
+}
 #content_header_register {
 	display: flex;
 	justify-content: space-between;

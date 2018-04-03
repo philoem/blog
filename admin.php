@@ -16,12 +16,8 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="./public/style.css" rel="stylesheet" type="text/css" >
-		<title>Espace administrateur</title>
-	</head>
+<!-- Ici le head  -->
+	<?php include ('./views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header -->	 	
@@ -67,7 +63,7 @@
 							*/
 							$reponse = $db->query('SELECT id, title, billet, approuved, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY date_billet LIMIT 0, 2');
 							while ($donnees = $reponse->fetch()) { ?>
-								<p><strong><?= htmlspecialchars($donnees['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($donnees['date_billet']) ?></em></p><p><?= htmlspecialchars($donnees['billet']) ?></p><?php if($donnees['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $donnees['id'] ?>"><strong>Conserver</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $donnees['id'] ?>"><em>Supprimer</em></a><?php } ?>
+								<p><strong><?= htmlspecialchars($donnees['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($donnees['date_billet']) ?></em></p><p><?= htmlspecialchars($donnees['billet']) ?></p><?php if($donnees['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $donnees['id'] ?>"><strong>Editer</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $donnees['id'] ?>"><em>Supprimer</em></a><?php } ?>
 							<?php } 
 							$reponse->closeCursor();
 						?>

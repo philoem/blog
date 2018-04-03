@@ -39,6 +39,7 @@ class FormRegister extends Form {
 	public function inputPrenom(string $prenom) {
 		
 		return '<input type="text" class="form-control" id="exampleInputPrenom1" aria-describedby="prenomHelp" name="'. $prenom .'">';
+		
 	}
 
 	/**
