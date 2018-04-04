@@ -2,7 +2,7 @@
 	session_start();
 	
 	// Appel du formulaire de création d'un nouveau billet - autoloading
-	require 'vendor/autoload.php';
+	require '../vendor/autoload.php';
 	use Forteroche\FormAdmin;
 	use Forteroche\CommentarysManager;
 	use Forteroche\BilletsManager;
@@ -12,11 +12,11 @@
 	$commentarys = new CommentarysManager();
 	$billets = new BilletsManager();
 
-	require './models/model.php';
+	require '../models/model.php';
 	$db = dbConnect();
 
 	// Pour la gestion des commentaires avec les boutons "Conserver" et "Supprimer"
-	require'models/gestion_admin.php';
+	require'../models/gestion_admin.php';
 
 	//require './models/classe/CommentarysManager.php';
 
@@ -24,11 +24,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header 	 -->	
-			<?php include 'views/inc/header_admin.php'; ?>	
+			<?php include '../views/inc/header_admin.php'; ?>	
 			
 			<div class="container-fluid">
 				<div class="row">

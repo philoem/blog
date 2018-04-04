@@ -1,10 +1,10 @@
 <?php
 // Appel du formulaire de création d'un nouveau billet
 use Forteroche\FormUserComments;
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 // Connexion à la base de données
-require_once './models/model.php';
+require_once '../models/model.php';
 $db = dbConnect();
 
 $formUser = new FormUserComments();
@@ -29,12 +29,12 @@ if (isset($_POST['submit_commentary'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<?php include ('../views/inc/head_html.php'); ?>
 	
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header --> 
-			<?php include './views/inc/header_user_comments.php'; ?>
+			<?php include '../views/inc/header_user_comments.php'; ?>
 
 			<div class="container">	
 				<div class="row">

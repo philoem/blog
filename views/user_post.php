@@ -8,7 +8,7 @@
 			<?php include '../views/inc/header_user_post.php'; ?>
 
 			<?php
-				require_once('model.php');
+				require_once('../models/model.php');
 				$db = dbConnect();
 													
 				$reponse = $db->query('SELECT billet FROM book ORDER BY date_billet DESC');

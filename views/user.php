@@ -1,5 +1,5 @@
 <?php
-require_once('./models/model.php');
+require_once('../models/model.php');
 
 $db = dbConnect();
 
@@ -8,11 +8,11 @@ $db = dbConnect();
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header  -->
-			<?php include 'views/inc/header_user.php'; ?>
+			<?php include '../views/inc/header_user.php'; ?>
 			
 			<div class="container" id="card_user_vedette">
 				<div class="card text-center">
@@ -34,7 +34,7 @@ $db = dbConnect();
 							?>
 						</h5>
 						<a href="user_comments.php?id=<?= $donnees['id']  ?>" class="btn btn-primary">Laissez votre commentaire</a>
-						<a href="../models/user_post.php" class="btn btn-info">Lire tous les billets</a>
+						<a href="../views/user_post.php" class="btn btn-info">Lire tous les billets</a>
 					</div>
 						<div class="card-footer text-muted">
 						<?php 

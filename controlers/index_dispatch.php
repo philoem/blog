@@ -14,9 +14,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Que souhaitez-vous faire ?</li>
             <li class="list-group-item"><a href="../views/register.php" class="card-link"><em>Vous inscrire ?</em></a></li>
-            <li class="list-group-item"><a href="../login.php" class="card-link"><em>Vous connecter ?</em></a></li>
-            <li class="list-group-item"><a href="../models/user_post.php" class="card-link"><em>Lire le roman ?</em></a></li>
-            <li class="list-group-item"><a href="../user.php" class="card-link"><em>Lire les derniers billets ?</em></a></li>
+            <li class="list-group-item"><a href="../views/login.php" class="card-link"><em>Vous connecter ?</em></a></li>
+            <li class="list-group-item"><a href="../views/user_post.php" class="card-link"><em>Lire le roman ?</em></a></li>
+            <li class="list-group-item"><a href="../views/user.php" class="card-link"><em>Lire les derniers billets ?</em></a></li>
         </ul>
         <div class="card-body">
             <div class="row justify-content-center">

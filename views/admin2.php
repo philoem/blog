@@ -2,23 +2,23 @@
 	session_start();
 
 	// Appel du formulaire de création d'un nouveau billet - autoloading
-	require 'vendor/autoload.php';
+	require '../vendor/autoload.php';
 	use Forteroche\FormAdmin;
 	//use Forteroche\DbConnect;
 	$formAdmin = new FormAdmin();
 
-	require_once './models/model.php';
+	require_once '../models/model.php';
 	$db = dbConnect();
 	//$db = new DbConnect('projet_4');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header -->	 	
-			<?php include 'views/inc/header_admin2.php'; ?>	
+			<?php include '../views/inc/header_admin2.php'; ?>	
 			
 			<div class="container-fluid">
 				<div class="row justify-content-center">

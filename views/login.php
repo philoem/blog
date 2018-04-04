@@ -2,8 +2,8 @@
 	session_start();
 	
 	// Appel du formulaire de connexion - autoloading
-	require 'vendor/autoload.php';
-	require_once 'AccesControl.php';
+	require '../vendor/autoload.php';
+	require_once '../controlers/AccesControl.php';
 	use \Forteroche\Form;
 	//use \Forteroche\DbConnect;
 		
@@ -15,11 +15,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header  -->
-			<?php include 'views/inc/header_login.php'; ?>
+			<?php include '../views/inc/header_login.php'; ?>
 			
 <!-- Ici le formulaire pour se connecter  -->			
 			<div class="col-xs-12">
