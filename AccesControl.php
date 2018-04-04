@@ -24,29 +24,23 @@
 		}
 	}
 
-	// Vérification du pseudo et du mot de passe pour se connecter
+	// Vérification du pseudo et du mot de passe pour se connecter de la page login.php
 	if (isset($_POST['submit_login'])) {
-		$pseudo = htmlspecialchars($_POST['pseudo']);
-		$password = htmlspecialchars($_POST['password']);
-		if (isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) {
-			$reqpseudo = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ?'); 
-			$reqpseudo->execute([$pseudo]);
-			$pseudoexist = $reqpseudo->rowCount(); 
-			if ($pseudoexist == 1) {
-				
-				if (isset($_POST['password']) AND !empty($_POST['password'])) {
-					$reqpassword = $db->prepare('SELECT * FROM login_admin WHERE password_admin = ?'); 
-					$reqpassword->execute([$password]);
-					$passwordexist = $reqpassword->rowCount(); 
-					if ($pseudoexist == 1) {
-						$_SESSION['pseudo'] = $_POST['pseudo'];
-						$_SESSION['mail'] = $_POST['mail'];
-						header('Location: admin.php');
-					}
-				}
+		$pseudo2 = htmlspecialchars($_POST['pseudo']);
+		$password2 = sha1($_POST['password']);
+			
+		if (isset($_POST['pseudo']) AND !empty($_POST['pseudo']) AND isset($_POST['password']) AND !empty($_POST['password'])) {
+			$reqadmin = $db->prepare('SELECT * FROM login_admin WHERE pseudo = ? AND password_admin = ?'); 
+			$reqadmin->execute([$pseudo2, $password2]);
+			$adminexist = $reqadmin->rowCount(); 
+			if ($adminexist == 1) {
+				$_SESSION['pseudo'] = $_POST['pseudo'];
+				$_SESSION['password'] = $_POST['password'];
+				header('Location: admin.php');
 			} 
 		} 
 	}
+				
 
 	 
 

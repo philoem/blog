@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,7 +10,7 @@ session_start();
 
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header  -->
+<!-- Ici le header --> 
 			<?php include ('../views/inc/header_index.php'); ?>
 
 <!-- Ici le header  -->
