@@ -1,0 +1,7 @@
+Todo List :
+
+- coder les boutons : 
+    - "signaler ce commentaire" de la page user_comments.php
+    - "Conserver" et "Supprimer" de la page admin.php
+    - "Editer" et "Supprimer" de la page admin.php
+en faisant des classes avec des méthodes
