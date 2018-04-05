@@ -1,0 +1,15 @@
+{
+    "name": "philippe/oc_projet4",
+    "authors": [
+        {
+            "name": "philoem",
+            "email": "philoem@nexgate.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Forteroche\\": "models/classe"
+        }
+    },
+    "require": {}
+}
