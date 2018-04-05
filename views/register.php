@@ -4,7 +4,7 @@ require '../vendor/autoload.php';
 use Forteroche\FormRegister;
 
 // Connexion à la base de données
-require_once '../models/model.php';
+require_once '../controlers/model.php';
 $db = dbConnect();
 
 $formRegister = new FormRegister();

@@ -1,13 +1,18 @@
 <?php
 // Appel du formulaire de création d'un nouveau billet
-use Forteroche\FormUserComments;
 require '../vendor/autoload.php';
+use Forteroche\FormUserComments;
+use Forteroche\BilletsManager;
+use Forteroche\CommentarysManager;
 
 // Connexion à la base de données
-require_once '../models/model.php';
+require_once '../controlers/model.php';
 $db = dbConnect();
 
 $formUser = new FormUserComments();
+$billetsUserComments = new BilletsManager();
+$commentarysUserComments = new CommentarysManager();
+
 
 // Ici traitement du formulaire
 if (isset($_POST['submit_commentary'])) {
@@ -46,14 +51,10 @@ if (isset($_POST['submit_commentary'])) {
 									/**
 									 * Affichage du billet
 									*/
-									$id = htmlspecialchars($_GET['id']);
-									//var_dump($id);
+									$postBilletId = htmlspecialchars($_GET['id']);
 									
-									$reponse = $db->query("SELECT id, title, billet, DATE_FORMAT(date_billet, '%d/%m/%Y à %Hh%imin%ss') AS date_billet FROM book WHERE id='$id' ");
-									$donnees = $reponse->fetch(); ?>
-									<p><strong><?= ($donnees['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($donnees['date_billet']) ?></em></p><p><?= htmlspecialchars($donnees['billet']) ?></p>
-									<?php  
-									$reponse->closeCursor();
+									$billetUserComments = $billetsUserComments->getPostBillets($postBilletId);
+									echo '<p><strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'</em></p><p>'.htmlspecialchars($billetUserComments['billet']).'</p>'; 
 									?>
 								</h5>
 							</div>
@@ -62,13 +63,16 @@ if (isset($_POST['submit_commentary'])) {
 								/**
 								 * Affichage des 3 derniers commentaires 
 								*/
-								$reponse = $db->query('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary LIMIT 0, 3');
-								while ($donnees = $reponse->fetch()) { ?>
-									<p><strong><?= htmlspecialchars($donnees['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($donnees['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($donnees['commentary']) ?></p><?php if($donnees['signaled'] == 0) { ?> <a class="btn btn-outline-danger" role="button" href="user_comments.php?signaled=<?= $donnees['id'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
-								<?php } 
-								$reponse->closeCursor();
+								$postId = htmlspecialchars($_GET['id']);
+								
+								$commentarysUserComment = $commentarysUserComments->getPosts('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 3');
+								
+								foreach ($commentarysUserComment as $comment):
+									if ($postId == $comment['book_id']) {?>
+										<p><strong><?= htmlspecialchars($comment['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($comment['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($comment['commentary']) ?></p><?php if($comment['signaled'] == 0){?><a class="btn btn-outline-danger" name ="btnSignaled" role="button" href="../controlers/user_comments_post.php?id=<?= $postId ?>&amp;signaled=<?= $comment['signaled'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
+										<?php }
+								endforeach;
 								?>
-								</p>
 							</div>
 						</div>
 	<!-- Formulaire de création de nouveau billet  -->						

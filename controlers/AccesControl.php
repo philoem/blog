@@ -4,7 +4,7 @@
 	//use \Forteroche\DbConnect;
 	//$db = new DbConnect('projet_4');
 	
-	require_once('../models/model.php');
+	require_once('model.php');
 	$db = dbConnect();
 	
 	

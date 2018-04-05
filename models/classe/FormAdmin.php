@@ -42,7 +42,7 @@ class FormAdmin extends Form {
      */	
 	public function submit() {
         
-        return '<button type="submit" class="btn btn-primary" name="submit_login">Créez votre billet</button>';
+        return '<button type="submit" class="btn btn-primary" name="submit_admin">Créez votre billet</button>';
     }
     
     /**

@@ -43,6 +43,7 @@ class FormUserComments extends Form {
 	public function inputHidden($book_id) {
 
         return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+
     }
 
     /**
@@ -60,5 +61,6 @@ class FormUserComments extends Form {
         
         return '<button type="reset" class="btn btn-danger">Tout effacer</button>';
     }
+    
 
 }

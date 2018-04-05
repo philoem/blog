@@ -7,7 +7,7 @@
 	//use Forteroche\DbConnect;
 	$formAdmin = new FormAdmin();
 
-	require_once '../models/model.php';
+	require_once '../controlers/model.php';
 	$db = dbConnect();
 	//$db = new DbConnect('projet_4');
 ?>
@@ -26,7 +26,7 @@
 <!-- Formulaire de création de nouveau billet  -->						
 					<div class="col-xs-12 col-lg-8">
 						<h3 class="row justify-content-center">Création d'un nouveau billet</h3>
-						<form action="admin_post.php" method="post">
+						<form action="../controlers/admin_post.php" method="post">
 							<div class="form-group">
 								<?php
 								echo $formAdmin->label('Titre du billet :');
