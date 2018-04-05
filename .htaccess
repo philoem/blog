@@ -1,11 +1,28 @@
 RewriteEngine On
 
+RewriteRule ^admin.php$ views/admin.php
+RewriteRule ^admin$ views/admin.php
+
+RewriteRule ^admin2.php$ views/admin2.php
+RewriteRule ^admin2$ views/admin2.php
+
+RewriteRule ^login.php$ views/login.php
+RewriteRule ^login$ views/login.php
+
 RewriteRule ^register.php$ views/register.php
 RewriteRule ^register$ views/register.php
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php
+RewriteRule ^user_comments.php$ views/user_comments.php
+RewriteRule ^user_comments$ views/user_comments.php
+
+RewriteRule ^user_post.php$ views/user_post.php
+RewriteRule ^user_post$ views/user_post.php
+
+RewriteRule ^user.php$ views/user.php
+RewriteRule ^user$ views/user.php
+
 RewriteRule ^index$ index.php
+
+#RewriteRule ^(.*)$ index.php
 
 

@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="card" style="width: 55rem;">
-    <img class="card-img-top" src="../img/alaska.png" alt="Paysage de l'Alaska pour le blog de Jean Forteroche : 'Billet simple pour l'Alaska'">
+    <img class="card-img-top" src="../public/img/alaska.png" alt="Paysage de l'Alaska pour le blog de Jean Forteroche : 'Billet simple pour l'Alaska'">
         <div class="card-body">
             <h5 class="card-title">
                 <div class="row justify-content-center">
