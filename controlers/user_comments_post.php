@@ -14,9 +14,10 @@ $db = dbConnect();
 
 $postBilletId = htmlspecialchars($_GET['id']);
 
+// Traitement ici des commentaires signalés avec le bouton
 if (isset($_POST['btnSignaled'])) {
     if (isset($_GET['id'] ) AND $_GET['id'] > 0) {
-        $req = $db->exec("UPDATE commentarys SET signaled = 1 WHERE signaled = 0 ");
+        $req = $db->exec("UPDATE commentarys SET signaled = 1 WHERE id = $postBilletId ");
         //$CommentarySignaled->setPostSignaled($_GET['id']);
                 
         header('Location: ../views/user_comments.php');

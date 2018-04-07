@@ -65,7 +65,7 @@ if (isset($_POST['submit_commentary'])) {
 								*/
 								$postId = htmlspecialchars($_GET['id']);
 								
-								$commentarysUserComment = $commentarysUserComments->getPosts('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC LIMIT 0, 3');
+								$commentarysUserComment = $commentarysUserComments->getComments('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC ');
 								
 								foreach ($commentarysUserComment as $comment):
 									if ($postId == $comment['book_id']) {?>

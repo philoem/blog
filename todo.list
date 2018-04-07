@@ -4,4 +4,13 @@ Todo List :
     - "signaler ce commentaire" de la page user_comments.php
     - "Conserver" et "Supprimer" de la page admin.php
     - "Editer" et "Supprimer" de la page admin.php
-en faisant des classes avec des méthodes
+en faisant des classes avec des méthodes.
+
+Rajouter dans la page amin.php, pour les commentaires signalés et commentaires l'appartenance du commentaire au billet (avec une jointure interne entre les 2 tables).
+Ex: 
+
+Liste des commentaires signalés:
+Jeanne, a commenté(e) le 05/04/2018 à 15h53min09s le billet ...
+
+Améliorer le responsive dans les titres et textes des headers des pages.
+

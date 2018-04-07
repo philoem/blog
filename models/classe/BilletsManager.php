@@ -8,6 +8,11 @@ use \PDO;
 
 class BilletsManager {
 
+    /**
+     * @param $postBilletId string ici la requête SQL
+     * @return string
+     * Récupère les billets, ici les 2derniers pour la page admin.php
+     */
     public function getPostsBillets()
     {
         $db = $this->dbConnect();
@@ -19,7 +24,7 @@ class BilletsManager {
     /**
      * @param $statement string ici la requête SQL
      * @return string
-     * Renvoi la requête pour afficher le titre du dernier billet en vedette dans la carte de Bootstrap
+     * Affiche le titre du dernier billet en vedette dans la carte de Bootstrap
      */
     public function getPostsBilletsUserTitle($statement)
     {
@@ -30,31 +35,10 @@ class BilletsManager {
     }
 
     /**
-     * @param $statement string ici la requête SQL
+     * @param $postBilletId int / Ici l'id du billet récupéré via l'url
      * @return string
-     * Renvoi la requête pour afficher le contenu du dernier billet en vedette dans la carte de Bootstrap
+     * Affiche le billet seléctionné, de la page user.php, pour l'afficher sur la page user_comments.php 
      */
-    public function getPostsBilletsUserContent($statement)
-    {
-        $db = $this->dbConnect();
-        $req = $db->query($statement);
-
-        return $req;
-    }
-
-    /**
-     * @param $statement string ici la requête SQL
-     * @return string
-     * Renvoi la requête pour afficher la date du dernier billet en vedette dans la carte de Bootstrap
-     */
-    public function getPostsBilletsUserDate($statement)
-    {
-        $db = $this->dbConnect();
-        $req = $db->query($statement);
-
-        return $req;
-    }
-
     public function getPostBillets($postBilletId)
     {
         $db = $this->dbConnect();
@@ -65,7 +49,10 @@ class BilletsManager {
         return $post;
     }
 
-
+    /**
+     * @return $db private
+     * Connexion à la base de données "projet_4" , pas de modification possible
+     */
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');

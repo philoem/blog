@@ -17,6 +17,6 @@ session_start();
 			<?php include ('./controlers/index_dispatch.php'); ?>
 
 		</div>
-	
+
 	</body>
 </html>
