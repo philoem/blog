@@ -71,7 +71,6 @@ header {
 	font-weight: bold;
 	text-align: center;
 }
-
 /* Encadré du formulaire et sont titre*/ 
 .fieldset_register {
 	border: 1px solid grey;
@@ -81,4 +80,8 @@ header {
 #title_form_register {
 	margin-bottom: 15px;
 	margin-top: -10px;
+}
+/* Les formulaires de saisies */ 
+.form_style {
+	color: rebeccapurple;
 }

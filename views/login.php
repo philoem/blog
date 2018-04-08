@@ -22,9 +22,9 @@
 			<?php include '../views/inc/header_login.php'; ?>
 			
 <!-- Ici le formulaire pour se connecter  -->			
-			<div class="col-xs-12">
-				<div class="row justify-content-center">
-					<form method="post" action="#">
+			<div class="col-xs-12" id="form_style">
+				<div class="row justify-content-center" >
+					<form method="post" action="#" >
 						<fieldset class="fieldset_login">
 							<div class="form-group">
 								<div class="row justify-content-center"><?= $formLogin->label('Votre pseudo :');?></div>

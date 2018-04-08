@@ -12,10 +12,10 @@ class CommentarySignaled {
      * Assesseur pour enregistrer un commentaire signalé
      * @return le champs "signaled" et "book_id" de la table
      */
-    public function setPostSignaled() {
+    public function setPostSignaled($statement) {
     
         $db = $this->dbConnect();
-        $req = $db->exec("UPDATE commentarys SET signaled = 1 WHERE signaled = 0 ");
+        $req = $db->prepare($statement);
         
         return $req;
     }

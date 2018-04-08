@@ -42,7 +42,7 @@
 						FROM commentarys c INNER JOIN book b ON c.book_id = b.id 
 						WHERE signaled = 1 ORDER BY date_commentary DESC') as $commentSignaled):?>
 							
-							<p><strong><?= htmlspecialchars($commentSignaled['name_user']) ?></strong>, a commenté(e) le <?= htmlspecialchars($commentSignaled['date_commentary']) ?> le billet:<strong> <?= htmlspecialchars($commentSignaled['title']) ?></strong></p><p><?= htmlspecialchars($commentSignaled['commentary']) ?></p><?php if($commentSignaled['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $commentSignaled['approuved'] ?>"><strong>Conserver</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $commentSignaled['signaled'] ?>"><em>Supprimer</em></a><?php } 
+							<p><strong><?= htmlspecialchars($commentSignaled['name_user']) ?></strong>, a commenté(e) le <?= htmlspecialchars($commentSignaled['date_commentary']) ?> le billet "<strong><em> <?= htmlspecialchars($commentSignaled['title']) ?></em></strong> "</p><p><?= htmlspecialchars($commentSignaled['commentary']) ?></p><?php if($commentSignaled['approuved'] == 0) { ?> <a class="btn btn-outline-warning" role="button" href="admin.php?approuved=<?= $commentSignaled['approuved'] ?>"><strong>Conserver</strong></a> <a class="btn btn-outline-danger" role="button" href="admin.php?delete=<?= $commentSignaled['signaled'] ?>"><em>Supprimer</em></a><?php } 
 
 						endforeach;
 						?>
@@ -56,7 +56,7 @@
 						foreach ($commentarys->getComments('SELECT c.name_user name_user, c.approuved approuved, DATE_FORMAT(c.date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') date_commentary, c.commentary  commentary, c.signaled signaled, b.title title, b.date_billet date_billet 
 						FROM commentarys c INNER JOIN book b ON c.book_id = b.id 
 						ORDER BY date_commentary DESC LIMIT 0, 5 ') as $comment):
-							echo'<p><strong>'.htmlspecialchars($comment['name_user']). '</strong>,<em> a publié le ' .htmlspecialchars($comment['date_commentary']).' pour le billet:<strong> '.htmlspecialchars($comment['title']).'</strong></em></p><p>'.htmlspecialchars($comment['commentary']).'</p>';
+							echo'<p><strong>'.htmlspecialchars($comment['name_user']). '</strong>,<em> a publié le ' .htmlspecialchars($comment['date_commentary']).' pour le billet "<strong> '.htmlspecialchars($comment['title']).'</strong> "</em></p><p>'.htmlspecialchars($comment['commentary']).'</p>';
 						endforeach;
 						?>
 					</div>
