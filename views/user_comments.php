@@ -69,7 +69,7 @@ if (isset($_POST['submit_commentary'])) {
 								
 								foreach ($commentarysUserComment as $comment):
 									if ($postId == $comment['book_id']) {?>
-										<p><strong><?= htmlspecialchars($comment['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($comment['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($comment['commentary']) ?></p><?php if($comment['signaled'] == 0){?><a class="btn btn-outline-danger" name ="btnSignaled" role="button" href="../controlers/user_comments_post.php?id=<?= $postId ?>&amp;signaled=<?= $comment['signaled'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
+										<p><strong><?= htmlspecialchars($comment['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($comment['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($comment['commentary']) ?></p><?php if($comment['signaled'] == 0){?><a class="btn btn-outline-danger" name ="btnSignaled" role="button" href="../controlers/user_comments_post.php?id=<?= $postId ?>&amp;id_commentary=<?= $comment['id'] ?>&amp;signaled=<?= $comment['signaled'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
 										<?php }
 								endforeach;
 								?>

@@ -15,8 +15,8 @@ class CommentarySignaled {
     public function setPostSignaled($statement) {
     
         $db = $this->dbConnect();
-        $req = $db->prepare($statement);
-        
+        $req = $db->exec($statement);
+                
         return $req;
     }
     
