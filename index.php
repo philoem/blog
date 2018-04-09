@@ -13,7 +13,7 @@ session_start();
 <!-- Ici le header --> 
 			<?php include ('./views/inc/header_index.php'); ?>
 
-<!-- Ici le header  -->
+<!-- Ici le dispatch  -->
 			<?php include ('./controlers/index_dispatch.php'); ?>
 
 		</div>

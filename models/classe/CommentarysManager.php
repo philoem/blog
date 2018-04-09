@@ -22,16 +22,6 @@ class CommentarysManager {
         return $req;
     }
 
-    //public function getPost($postId) {
-   //
-    //    $db = $this->dbConnect();
-    //    $req = $db->prepare('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentary FROM //commentarys WHERE id = ?');
-    //    $req->execute(array($postId));
-    //    $post = $req->fetch();
-//
-    //    return $post;
-    //}
-
     /**
      * @return $req string
      * Pour la page admin.php, l'affichage des commentaires signalés
@@ -43,6 +33,19 @@ class CommentarysManager {
         
         return $req;
     }
+
+      /**
+     * Assesseur pour enregistrer un commentaire signalé
+     * @return le champs "signaled" et "book_id" de la table
+     */
+    public function getPostSignaled($statement) {
+    
+        $db = $this->dbConnect();
+        $req = $db->exec($statement);
+                
+        return $req;
+    }
+    
 
     /**
      * @return $db private

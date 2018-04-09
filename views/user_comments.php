@@ -61,7 +61,7 @@ if (isset($_POST['submit_commentary'])) {
 							<div class="card-body">
 								<?php
 								/**
-								 * Affichage des 3 derniers commentaires 
+								 * Affichage des commentaires 
 								*/
 								$postId = htmlspecialchars($_GET['id']);
 								

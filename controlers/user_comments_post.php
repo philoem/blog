@@ -1,13 +1,13 @@
 <?php
 require '../vendor/autoload.php';
-use Forteroche\CommentarySignaled;
+use Forteroche\CommentarysManager;
 
 require_once('../controlers/model.php');
 require_once('../controlers/AccesControl.php');
 $db = dbConnect();
 
 // Instanciation
-$CommentarySignaled = new CommentarySignaled();
+$CommentarysManager = new CommentarysManager();
 
 $postBilletId = htmlspecialchars($_GET['id']);
 $signaled = htmlspecialchars($_GET['signaled']);
@@ -17,7 +17,7 @@ $îd_commentary = htmlspecialchars($_GET['id_commentary']);
 if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
     
   
-    $CommentarySignaled->setPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
+    $CommentarysManager->getPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
    
     var_dump($postBilletId);
     

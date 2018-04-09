@@ -4,7 +4,9 @@
 	// Appel du formulaire de création d'un nouveau billet - autoloading
 	require '../vendor/autoload.php';
 	use Forteroche\FormAdmin;
-	//use Forteroche\DbConnect;
+	
+	
+	
 	$formAdmin = new FormAdmin();
 
 	require_once '../controlers/model.php';
