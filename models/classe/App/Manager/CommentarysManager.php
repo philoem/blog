@@ -29,7 +29,7 @@ class CommentarysManager {
      */
     public function __construct() {
 
-
+        $this->pdo = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
 
     }
 
@@ -45,13 +45,46 @@ class CommentarysManager {
     }
 
     /**
-     * Méthode CRUD, ici la fonction lit les commentaires
-     * @param int $commentary Identifiant d'un commentaire
-     * @return bool | commentary | false en cas d'erreur de lecture de la bdd ou un objet commentary si ok et qui sera affiché 
+     * Méthode CRUD, ici la fonction lit les commentaires signalés de la page user.php 
+     * 
+     * @return  
      */
-    public function read($commentary) {
+    public function readSignaled() {
 
+        $this->pdoStatement = $this->pdo->query('SELECT c.name_user name_user, c.approuved approuved, DATE_FORMAT(c.date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') date_commentary, c.commentary  commentary, c.signaled signaled, b.title title, b.date_billet date_billet 
+        FROM commentarys c INNER JOIN book b ON c.book_id = b.id 
+        WHERE signaled = 1 ORDER BY date_commentary DESC');
+       
+       return $this->pdoStatement;
 
+    }
+
+    /**
+     * Méthode CRUD, ici la fonction lit le ou les commentaire(s) selectionné(s) dans la page user_comments.php 
+     * @param int $statement requête SQL
+     * @return 
+     */
+    public function readId($statement) {
+
+        $this->pdoStatement = $this->pdo->query($statement);
+        
+
+        return $this->pdoStatement;
+        
+    }
+    
+    /**
+     * Méthode CRUD, ici la fonction lit les 5 derniers commentaires
+     * 
+     * @return  
+     */
+    public function read() {
+
+        $this->pdoStatement = $this->pdo->query('SELECT c.name_user name_user, c.approuved approuved, DATE_FORMAT(c.date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') date_commentary, c.commentary  commentary, c.signaled signaled, b.title title, b.date_billet date_billet 
+        FROM commentarys c INNER JOIN book b ON c.book_id = b.id 
+        ORDER BY date_commentary DESC LIMIT 0, 5 ');
+       
+       return $this->pdoStatement;
 
     }
 

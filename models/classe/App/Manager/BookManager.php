@@ -41,35 +41,40 @@ class BookManager {
      */
     public function create(&$billet) {
 
-        
+       
 
 
 
     }
 
     /**
-     * Méthode CRUD, ici la fonction lit les billets
-     * @param int $id Identifiant d'un billet
+     * Méthode CRUD, ici la fonction lit les 4 billets selectionnés de la page user.php 
+     * @param int $statement Correspond à la requête SQL
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
-    public function read($id) {
+    public function readStatement($statement) {
 
-        $this->pdoStatement = $this->pdo->prepare('SELECT * FROM book WHERE id = :id');
-        $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
-        $executeOk = $this->pdoStatement->execute();
-
-        if ($executeOk) {
-            $billet = $this->pdoStatement->fetchObject('classe\App\Entity\Book');
-
-
-        } else {
-            return false;
-        }
-
+        $this->pdoStatement = $this->pdo->query($statement);
+        return $this->pdoStatement;
 
     }
+    
     /**
-     * Méthode CRUD, ici la fonction lit tous les billets du roman
+     * Méthode CRUD, ici la fonction lit le billet selectionné dans la page user.php pour pouvoir l'afficher dans la page user_comments.php
+     * @param int $postBilletId Identifiant d'un billet
+     * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
+     */
+    public function read($postBilletId) {
+
+        $this->pdoStatement = $this->pdo->prepare('SELECT id, title, billet, approuved, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
+        $post = $this->pdoStatement->execute([$postBilletId]);
+        $post = $this->pdoStatement->fetch();
+
+        return $post;
+        
+    }
+    /**
+     * Méthode CRUD, ici la fonction lit tous les billets du roman dans la page user_post.php
      * 
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */

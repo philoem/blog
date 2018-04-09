@@ -2,16 +2,23 @@
 // Appel du formulaire de création d'un nouveau billet
 require '../vendor/autoload.php';
 use Forteroche\FormUserComments;
-use Forteroche\BilletsManager;
-use Forteroche\CommentarysManager;
+//use Forteroche\BilletsManager;
+//use Forteroche\CommentarysManager;
 
 // Connexion à la base de données
-require_once '../controlers/model.php';
-$db = dbConnect();
+//require_once '../controlers/model.php';
+//$db = dbConnect();
 
 $formUser = new FormUserComments();
-$billetsUserComments = new BilletsManager();
-$commentarysUserComments = new CommentarysManager();
+//$billetsUserComments = new BilletsManager();
+//$commentarysUserComments = new CommentarysManager();
+
+require '../models/classe/App/Manager/BookManager.php';
+use classe\App\Manager\BookManager;
+$bookManager = new BookManager();
+require '../models/classe/App/Manager/CommentarysManager.php';
+use classe\App\Manager\CommentarysManager;
+$commentarysManager = new CommentarysManager();
 
 
 // Ici traitement du formulaire
@@ -53,7 +60,7 @@ if (isset($_POST['submit_commentary'])) {
 									*/
 									$postBilletId = htmlspecialchars($_GET['id']);
 									
-									$billetUserComments = $billetsUserComments->getPostBillets($postBilletId);
+									$billetUserComments = $bookManager->read($postBilletId);
 									echo '<p><strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'</em></p><p>'.htmlspecialchars($billetUserComments['billet']).'</p>'; 
 									?>
 								</h5>
@@ -65,7 +72,7 @@ if (isset($_POST['submit_commentary'])) {
 								*/
 								$postId = htmlspecialchars($_GET['id']);
 								
-								$commentarysUserComment = $commentarysUserComments->getComments('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC ');
+								$commentarysUserComment = $commentarysManager->readId('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC ');
 								
 								foreach ($commentarysUserComment as $comment):
 									if ($postId == $comment['book_id']) {?>

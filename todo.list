@@ -12,3 +12,6 @@ Au 09/04/2018
 - modifier le fichier index_dispatch.php comme un routeur en php qui envoie ou actionne les controleurs
 - donner un autre nom pour le namespace. Qui porte le nom du dossier. Changer l’autoload de Composer.(App/Manager ou App/Entity)
 - réalisation de la fonction “mot de passe perdu” en utilisant les fonctions de php en natif comme Mail ou SendMail. Mais aussi utiliser SwiftMailer (créateur de Symphony) car il gère tous les types de mails 
+
+Ce jour 09/04 : 
+ - lecture des billets de la table book ok pour les différentes pages (admin, user, user_comment, user_post) avec BookManager
