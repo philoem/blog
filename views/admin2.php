@@ -1,17 +1,16 @@
 <?php
-	session_start();
+session_start();
 
-	// Appel du formulaire de création d'un nouveau billet - autoloading
-	require '../vendor/autoload.php';
-	use Forteroche\FormAdmin;
-	
-	
-	
-	$formAdmin = new FormAdmin();
+// Appel du formulaire de création d'un nouveau billet - autoloading
+require '../vendor/autoload.php';
+use Forteroche\FormAdmin;
+$formAdmin = new FormAdmin();
 
-	require_once '../controlers/model.php';
-	$db = dbConnect();
-	//$db = new DbConnect('projet_4');
+//require_once '../controlers/model.php';
+//$db = dbConnect();
+//$db = new DbConnect('projet_4');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

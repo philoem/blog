@@ -1,14 +1,20 @@
 <?php
-	session_start();
+session_start();
 
-	require_once('model.php');
-	$db = dbConnect();
-	
-	// Redirection 
-	header('Location: ../views/admin2.php');
-	
-	// Gestion du formulaire de créations de nouveaux billets
-	if (!empty($_POST['title']) AND !empty($_POST['billet'])) {
-		$req = $db->prepare('INSERT INTO book(title, billet, approuved, date_billet) VALUES(?, ?, 0, NOW())');
-		$req->execute(array($_POST['title'], $_POST['billet']));
-	}
+//require_once('model.php');
+//$db = dbConnect();
+
+require '../models/classe/App/Manager/BookManager.php';
+use classe\App\Manager\BookManager;
+$bookManager = new BookManager();
+
+// Redirection 
+header('Location: ../views/admin2.php');
+
+// Gestion du formulaire de créations de nouveaux billets
+$title = htmlspecialchars($_POST['title']);
+$billet = htmlspecialchars($_POST['billet']);
+if (!empty($title) AND !empty($billet)) {
+	$req = $bookManager->create('INSERT INTO book(title, billet, approuved, date_billet) VALUES(?, ?, 0, NOW())');
+	$req->execute(array($title, $billet));
+}

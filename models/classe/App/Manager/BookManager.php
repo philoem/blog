@@ -18,7 +18,7 @@ class BookManager {
     private $_pdo;
 
     /**
-     * Variable qui va servir à stocker les requêtes (query et prepare)
+     * Variable qui va servir à stocker les requêtes (query, prepare et exec)
      */
     private $pdoStatement;
 
@@ -35,15 +35,17 @@ class BookManager {
     }
 
     /**
-     * Méthode CRUD, ici la fonction création de billet
-     * @param string $billet passé par référence pour avoir un id sur le billet
-     * @return bool true si le billet a bien été créé dans la table book
+     * Méthode CRUD, ici la fonction création de billet qui ne pourra se faire que sur la page admin2.php par l'administrateur
+     * 
+     * @return 
      */
-    public function create(&$billet) {
+    public function create() {
 
-       
-
-
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO book(title, billet, approuved, date_billet) VALUES(?, ?, 0, NOW())');
+        $this->pdoStatement->bindValue(':title', PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':billet', PDO::PARAM_STR);
+        
+       return $this->pdoStatement;     
 
     }
 
@@ -88,6 +90,20 @@ class BookManager {
         return $billets;
 
     }
+
+      /**
+     * Méthode CRUD, ici la fonction lit tous les billets du roman dans la page user_post.php
+     * 
+     * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
+     */
+    public function readId($id) {
+
+        $this->pdoStatement = $this->pdo->prepare('SELECT * FROM book WHERE id = :id ');
+        $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+        $executeOk = $this->pdoStatement->execute();
+
+    }
+
 
     /**
      * Méthode CRUD, ici modification des billets

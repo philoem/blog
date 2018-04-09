@@ -35,11 +35,16 @@ class CommentarysManager {
 
     /**
      * Méthode CRUD, ici la fonction création de commentaire
-     * @param string $commentary
-     * @return bool true si le commentaire a bien été créé dans la table commentarys
+     *
+     * @return 
      */
-    public function create(&$commentary) {
+    public function create() {
 
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, book_id, date_commentary) VALUES(?, ?, 0, 0, ?, NOW())');
+        //$this->pdoStatement->bindValue(':name_user', PDO::PARAM_STR);
+        //$this->pdoStatement->bindValue(':commentary', PDO::PARAM_STR);
+        
+        return $this->pdoStatement;     
 
 
     }
