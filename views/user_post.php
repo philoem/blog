@@ -4,7 +4,7 @@
 <?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container">
-<!-- Ici le header  -->
+<!-- Ici le header --> 
 			<?php include '../views/inc/header_user_post.php'; ?>
 
 			<?php
@@ -13,10 +13,14 @@
 			use classe\App\Manager\BookManager;
 			$bookManager = new BookManager();
 
-			foreach($bookManager->readAll() as $donnees):
-				echo'<p>'.htmlspecialchars($donnees['billet']).'</p>';
-			endforeach;
-
+			
+			
+				foreach($bookManager->readAll() as $donnees):
+					if ($donnees['approuved'] == 1) {
+						echo'<p>'.htmlspecialchars($donnees['billet']).'</p>';
+					}
+				endforeach;
+			
 			
 			?>
 			

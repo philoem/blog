@@ -41,8 +41,8 @@ class CommentarysManager {
     public function create() {
 
         $this->pdoStatement = $this->pdo->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, book_id, date_commentary) VALUES(?, ?, 0, 0, ?, NOW())');
-        //$this->pdoStatement->bindValue(':name_user', PDO::PARAM_STR);
-        //$this->pdoStatement->bindValue(':commentary', PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':name_user', PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':commentary', PDO::PARAM_STR);
         
         return $this->pdoStatement;     
 
@@ -56,7 +56,7 @@ class CommentarysManager {
      */
     public function readSignaled() {
 
-        $this->pdoStatement = $this->pdo->query('SELECT c.name_user name_user, c.approuved approuved, DATE_FORMAT(c.date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') date_commentary, c.commentary  commentary, c.signaled signaled, b.title title, b.date_billet date_billet 
+        $this->pdoStatement = $this->pdo->query('SELECT c.id id, c.name_user name_user, c.approuved approuved, c.delete_commentary delete_commentary, DATE_FORMAT(c.date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') date_commentary, c.commentary  commentary, c.signaled signaled, b.title title, b.date_billet date_billet 
         FROM commentarys c INNER JOIN book b ON c.book_id = b.id 
         WHERE signaled = 1 ORDER BY date_commentary DESC');
        
@@ -95,23 +95,30 @@ class CommentarysManager {
 
     /**
      * Méthode CRUD, ici modification des commentaires
-     * @param int $id Identifiant d'un commentaire
-     * @return bool true ou false en cas d'erreur de modification du commentaire dans la bdd ou ok si le commentaire a bien été modifié 
+     * @param int $statement Requête SQL
+     * @return 
      */
-    public function update($id) {
+    public function update($statement) {
 
+        $this->pdoStatement = $this->pdo->prepare($statement);
+        
+
+        return $this->pdoStatement;
 
 
     }
 
     /**
      * Méthode CRUD, ici suppression des commentaires
-     * @param int $id Identifiant d'un commentaire
-     * @return bool true ou false en cas d'erreur de suppression dans la bdd ou ok si le commentaire a bien été supprimé 
+     * @param int $statement Requête SQL
+     * @return 
      */
-    public function delete($id) {
+    public function delete($statement) {
 
+        $this->pdoStatement = $this->pdo->prepare($statement);
+        
 
+        return $this->pdoStatement;
 
     }
 

@@ -2,9 +2,9 @@
 require '../vendor/autoload.php';
 use Forteroche\CommentarysManager;
 
-require_once('../controlers/model.php');
+//require_once('../controlers/model.php');
 require_once('../controlers/AccesControl.php');
-$db = dbConnect();
+//$db = dbConnect();
 
 // Instanciation
 $CommentarysManager = new CommentarysManager();
@@ -19,8 +19,7 @@ if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['s
   
     $CommentarysManager->getPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
    
-    var_dump($postBilletId);
-    
+       
     header('Location: ../views/user_comments.php?id=' .$postBilletId );
 
 } else {

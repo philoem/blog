@@ -68,7 +68,7 @@ class BookManager {
      */
     public function read($postBilletId) {
 
-        $this->pdoStatement = $this->pdo->prepare('SELECT id, title, billet, approuved, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
+        $this->pdoStatement = $this->pdo->prepare('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
         $post = $this->pdoStatement->execute([$postBilletId]);
         $post = $this->pdoStatement->fetch();
 
@@ -107,22 +107,29 @@ class BookManager {
 
     /**
      * Méthode CRUD, ici modification des billets
-     * @param int $id Identifiant d'un billet
-     * @return bool true ou false en cas d'erreur de modification du billet dans la bdd ou ok si le billet a bien été modifié 
+     * @param int $statement Requête SQL
+     * @return 
      */
-    public function update($id) {
+    public function update($statement) {
 
+        $this->pdoStatement = $this->pdo->prepare($statement);
+        
 
+        return $this->pdoStatement;
 
     }
 
     /**
      * Méthode CRUD, ici suppression des billets
-     * @param int $id Identifiant d'un billet
-     * @return bool true ou false en cas d'erreur de suppression dans la bdd ou ok si le billet a bien été supprimé 
+     * @param int $statement Requête SQL
+     * @return 
      */
-    public function delete($id) {
+    public function delete($statement) {
 
+        $this->pdoStatement = $this->pdo->prepare($statement);
+        
+
+        return $this->pdoStatement;
 
 
     }
