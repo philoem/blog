@@ -33,19 +33,19 @@ class BookManager {
 
 
     }
-
     /**
      * Méthode CRUD, ici la fonction création de billet qui ne pourra se faire que sur la page admin2.php par l'administrateur
      * 
      * @return 
      */
-    public function create() {
+    public function create(Book $book) {
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO book(title, billet, approuved, date_billet) VALUES(?, ?, 0, NOW())');
-        $this->pdoStatement->bindValue(':title', PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':billet', PDO::PARAM_STR);
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO book(title, billet, approuved, delete_book, date_billet) VALUES(:title, :billet, 0, 0, NOW())');
+        $this->pdoStatement->bindValue(':title', $book->getTitle(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':billet', $book->getBillet(), PDO::PARAM_STR);
         
-       return $this->pdoStatement;     
+        
+        return $this->pdoStatement->execute();     
 
     }
 

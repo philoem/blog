@@ -1,27 +1,78 @@
 <?php
-require '../vendor/autoload.php';
-use Forteroche\CommentarysManager;
+/**
+ * 
+ * Gestion du formulaire de la page user_comments.php pour le formulaire de création des commentaires et des boutons de signalements des commentaires
+ * 
+ */
+
+//require '../vendor/autoload.php';
+//use Forteroche\CommentarysManager;
 
 //require_once('../controlers/model.php');
-require_once('../controlers/AccesControl.php');
+//require_once('../controlers/AccesControl.php');
 //$db = dbConnect();
 
+require '../models/classe/App/Manager/BookManager.php';
+use classe\App\Manager\BookManager;
 // Instanciation
-$CommentarysManager = new CommentarysManager();
+$bookManager = new BookManager();
+require '../models/classe/App/Entity/Book.php';
+use classe\App\Entity\Book;
+// Instanciation
+$book = new Book();
 
-$postBilletId = htmlspecialchars($_GET['id']);
-$signaled = htmlspecialchars($_GET['signaled']);
-$îd_commentary = htmlspecialchars($_GET['id_commentary']);
+require '../models/classe/App/Manager/CommentarysManager.php';
+use classe\App\Manager\CommentarysManager;
+// Instanciation
+$commentarysManager = new CommentarysManager();
+require '../models/classe/App/Entity/Commentarys.php';
+use classe\App\Entity\Commentarys;
+// Instanciation
+$commentarys = new Commentarys();
+
+
+// Ici traitement du formulaire
+
+
+if (isset($_POST['submit_commentary'])) {
+    
+    if(isset($_POST['book_id'])) {
+        $postId = $commentarys->setBookId(htmlspecialchars($_POST['book_id']));
+    } else {
+        
+        echo "Pas d'id passée dans l'url via le champs 'book_id'";
+        echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+    }
+    
+	$name_user = $commentarys->setNameUser(htmlspecialchars($_POST['name_user']));
+    $commentary = $commentarys->setCommentary(htmlspecialchars($_POST['commentary']));
+    var_dump($name_user, $commentary, $postId);
+    
+	if (isset($name_user) AND isset($commentary)) {
+				
+        $commentarysManager->create($commentarys);
+        
+        header('Location: ../views/user_comments.php' . $postId );
+		
+    
+    } else {
+    
+        echo "La requête demandée n'a pas aboutie! ";
+        echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+    }
+}
 
 // Traitement ici des commentaires signalés avec le bouton
-if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
-    
-  
-    $CommentarysManager->getPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
-   
-       
-    header('Location: ../views/user_comments.php?id=' .$postBilletId );
-
-} else {
-    echo 'Commentaire non signalé !';
-} 
+//$postBilletId = htmlspecialchars($_GET['id']);
+//$signaled = htmlspecialchars($_GET['signaled']);
+//$îd_commentary = htmlspecialchars($_GET['id_commentary']);
+//
+//if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
+//      
+//    $CommentarysManager->getPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
+//   
+//    header('Location: ../views/user_comments.php?id=' .$postBilletId );
+//
+//} else {
+//    echo 'Commentaire non signalé !';
+//} 

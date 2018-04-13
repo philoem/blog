@@ -1,20 +1,33 @@
 <?php
 session_start();
 
-//require_once('model.php');
-//$db = dbConnect();
+/**
+ * Gestion du formulaire de la page admin2.php pour la création d'un nouveau billet
+ * 
+ */
 
-require '../models/classe/App/Manager/BookManager.php';
+// Appel ici de BookManager.php le manager d'entité Book
+require_once '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;
 $bookManager = new BookManager();
 
-// Redirection 
-header('Location: ../views/admin2.php');
+// Appel ici de l'entité Book
+require_once '../models/classe/App/Entity/Book.php';
+use classe\App\Entity\Book;
+$book = new Book();
 
-// Gestion du formulaire de créations de nouveaux billets
-$title = htmlspecialchars($_POST['title']);
-$billet = htmlspecialchars($_POST['billet']);
+$title = $book->setTitle(htmlspecialchars($_POST['title']));
+$billet = $book->setBillet(htmlspecialchars($_POST['billet']));
+
+// Traitement du formulaire pour créer un nouveau billet
 if (!empty($title) AND !empty($billet)) {
-	$req = $bookManager->create('INSERT INTO book(title, billet, approuved, date_billet) VALUES(?, ?, 0, NOW())');
-	$req->execute(array($title, $billet));
+	
+	$bookManager->create($book);
+	
+	header('Location: ../views/admin2.php');
+
+} else {
+	
+	echo 'Error 404';
+	echo '<p><a href="../views/admin2.php"><strong>Retour</strong></a></p>';
 }

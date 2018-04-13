@@ -40,9 +40,9 @@ class FormUserComments extends Form {
      * @param string $book_id
      * @return contenu caché qui va récupérer l'id du billet pour "accrocher" les commentaires dessus
      */
-	public function inputHidden($book_id) {
+	public function inputBookId($book_id) {
 
-        return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+        return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputBookId" aria-describedby="prenomHelp">';
 
     }
 
@@ -52,6 +52,7 @@ class FormUserComments extends Form {
 	public function submit() {
         
         return '<button type="submit" class="btn btn-primary" name="submit_commentary">Envoyez votre commentaire</button>';
+        //return '<a class="btn btn-primary" name ="submit_commentary" role="button" href="../controlers/user_comments_post.php?id="'. $_POST['book_id'].'" >Envoyez votre commentaire</a>';
     }
     
     /**

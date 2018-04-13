@@ -34,10 +34,16 @@ class Book {
     private $_approuved;
 
     /**
+     * @var int $_delete_book
+     * Champs servant à envoyer dans l'url un 0 ou un 1
+     */
+    private $_delete_book;
+
+    /**
      * Uniquement le getter et pas de setter
      * @return int
      */
-    public function getBookId() {
+    public function getIdBook() {
 
         return $this->id;
 
@@ -103,6 +109,27 @@ class Book {
     public function getApprouved() {
         
         return $this->approuved;
+
+    }
+
+    /**
+     * Setter du champs delete_book
+     * @param int $delete_book
+     * @return Book
+     */
+    public function setDeleteBook($delete_book) {
+
+        $this->delete_book = $delete_book;
+        return $this;
+
+    }
+    /**
+     * Getter du champs delete_book
+     * @return 0 ou 1
+     */
+    public function getDeleteBook() {
+        
+        return $this->delete_book;
 
     }
 

@@ -34,17 +34,18 @@ class CommentarysManager {
     }
 
     /**
-     * Méthode CRUD, ici la fonction création de commentaire
+     * Méthode CRUD, ici la fonction création de commentaire de la page user_comments.php
      *
      * @return 
      */
-    public function create() {
+    public function create(Commentarys $commentarys) {
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, book_id, date_commentary) VALUES(?, ?, 0, 0, ?, NOW())');
-        $this->pdoStatement->bindValue(':name_user', PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':commentary', PDO::PARAM_STR);
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, delete_commentary, book_id, date_commentary) VALUES(:name_user, :commentary, 0, 0, 0, :book_id, NOW)');
+        $this->pdoStatement->bindValue(':name_user', $commentarys->getNameUser(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':commentary', $commentarys->getCommentary(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':book_id', $commentarys->getBookId(), PDO::PARAM_INT);
         
-        return $this->pdoStatement;     
+        return $this->pdoStatement->execute();     
 
 
     }
@@ -69,12 +70,13 @@ class CommentarysManager {
      * @param int $statement requête SQL
      * @return 
      */
-    public function readId($statement) {
+    public function readId($postId) {
 
-        $this->pdoStatement = $this->pdo->query($statement);
-        
+        $this->pdoStatement = $this->pdo->prepare('SELECT id, name_user, commentary, approuved, signaled, delete_commentary, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentary FROM commentarys WHERE id = ? ORDER BY date_commentary DESC');
+        $post = $this->pdoStatement->execute([$postId]);
+        $post = $this->pdoStatement->fetch();
 
-        return $this->pdoStatement;
+        return $post;
         
     }
     
@@ -93,6 +95,16 @@ class CommentarysManager {
 
     }
 
+    public function updateTest(Commentarys $commentarys) {
+
+        $this->pdoStatement = $this->pdo->prepare('UPDATE commentarys SET approuved = :1 WHERE id =:id LIMIT 1');
+        $this->pdoStatement->bindValue(':1', $commentarys->getApprouved(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':id', $commentarys->getId(), PDO::PARAM_INT);
+                
+        return $this->pdoStatement->execute();
+
+    }
+
     /**
      * Méthode CRUD, ici modification des commentaires
      * @param int $statement Requête SQL
@@ -105,6 +117,15 @@ class CommentarysManager {
 
         return $this->pdoStatement;
 
+
+    }
+
+    public function deleteTest(Commentarys $commentarys) {
+
+        $this->pdoStatement = $this->pdo->prepare('DELETE FROM commentarys WHERE id = :id LIMIT 1');
+        $this->pdoStatement->bindValue(':id', $commentarys->getId(), PDO::PARAM_INT);
+                
+        return $this->pdoStatement->execute();
 
     }
 

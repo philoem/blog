@@ -7,7 +7,7 @@ use \PDO;
  * Entitée correspondante à la table commentarys
  */
 
-class Commentary {
+class Commentarys {
 
     /**
      * @var int $_id
@@ -41,6 +41,12 @@ class Commentary {
     private $_signaled;
 
     /**
+     * @var int $_delete_commentary
+     * Champs pour gérer les boutons qui signalent les commentaires, et pour faire passer dans l'url un 0 ou un 1
+     */
+    private $_delete_commentary;
+
+    /**
      * @var int $_book_id
      * Identifiant du billet de la table book 
      */
@@ -50,9 +56,9 @@ class Commentary {
      * Uniquement le getter et pas de setter
      * @return int
      */
-    public function getCommentaryId() {
+    public function getId() {
 
-        return $this->id;
+        return $this->_id;
 
     }
 
@@ -138,6 +144,27 @@ class Commentary {
     public function getSignaled() {
         
         return $this->signaled;
+
+    }
+
+    /**
+     * Setter du champs delete_commentary
+     * @param  int $delete_commentary
+     * @return Commentarys
+     */
+    public function setDeleteCommentary($delete_commentary) {
+
+        $this->delete_commentary = $delete_commentary;
+        return $this;
+
+    }
+    /**
+     * Getter du champs delete_commentary
+     * @return int  
+     */
+    public function getDeleteCommentary() {
+        
+        return $this->delete_commentary;
 
     }
 

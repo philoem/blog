@@ -21,20 +21,6 @@ use classe\App\Manager\CommentarysManager;
 $commentarysManager = new CommentarysManager();
 
 
-// Ici traitement du formulaire
-if (isset($_POST['submit_commentary'])) {
-	$name_user = htmlspecialchars($_POST['name_user']);
-	$commentary = htmlspecialchars($_POST['commentary']);
-	if (!empty($name_user) AND !empty($commentary) AND (isset($name_user)) AND (isset($commentary))) {
-		$_POST['book_id'] = htmlspecialchars($_GET['id']);
-		$id = $_POST['book_id'];
-		
-		$req = $commentarysManager->create();
-				
-		$req->execute(array($name_user, $commentary, $id));
-	} 
-}
-
 ?>				
 <!DOCTYPE html>
 <html lang="fr">
@@ -67,12 +53,17 @@ if (isset($_POST['submit_commentary'])) {
 								<?php
 								/**
 								 * Affichage des commentaires 
-								*/
+								 */
 								$postId = htmlspecialchars($_GET['id']);
+								if ($postId) {
+									$_POST['book_id'] = $postId;
+									
+								}
+								var_dump($_POST['book_id']);
 								
-								$commentarysUserComment = $commentarysManager->readId('SELECT id, name_user, commentary, approuved, signaled, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_commentary FROM commentarys ORDER BY date_commentary DESC ');
+								$commentarysUserComment[] = $commentarysManager->readId($postId);
 								
-								foreach ($commentarysUserComment as $comment):
+								foreach($commentarysUserComment as $comment):
 									if ($postId == $comment['book_id']) {?>
 										<p><strong><?= htmlspecialchars($comment['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($comment['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($comment['commentary']) ?></p><?php if($comment['signaled'] == 0){?><a class="btn btn-outline-danger" name ="btnSignaled" role="button" href="../controlers/user_comments_post.php?id=<?= $postId ?>&amp;id_commentary=<?= $comment['id'] ?>&amp;signaled=<?= $comment['signaled'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
 										<?php }
@@ -84,7 +75,7 @@ if (isset($_POST['submit_commentary'])) {
 					</div>
 					<div class="col-xs-5 col-lg-5">
 						<h3>Création d'un nouveau commentaire:</h3>
-						<form action="#" method="post">
+						<form action="../controlers/user_comments_post.php" method="post">
 							<div class="form-group">
 								<?php
 								echo $formUser->labelUser('Tapez ici votre nom :');
@@ -95,7 +86,7 @@ if (isset($_POST['submit_commentary'])) {
 								<?php
 								echo $formUser->labelUser('Ecrivez ici votre commentaire :');
 								echo $formUser->inputCommentary('commentary');
-								echo $formUser->inputHidden('$book_id');
+								echo $formUser->inputBookId('book_id');
 								?>
 							</div>
 							<div>

@@ -1,15 +1,15 @@
 <?php
-	session_start();
+session_start();
+
+// Appel du formulaire de connexion - autoloading
+require '../vendor/autoload.php';
+require_once '../controlers/AccesControl.php';
+use \Forteroche\Form;
+//use \Forteroche\DbConnect;
 	
-	// Appel du formulaire de connexion - autoloading
-	require '../vendor/autoload.php';
-	require_once '../controlers/AccesControl.php';
-	use \Forteroche\Form;
-	//use \Forteroche\DbConnect;
-		
-	//$db = new DbConnect('projet_4');
-	$formLogin = new Form();
-	
+//$db = new DbConnect('projet_4');
+$formLogin = new Form();
+
 	
 ?>
 <!DOCTYPE html>

@@ -1,9 +1,6 @@
 Todo List :
 
-- coder les boutons : 
-    - "Conserver" et "Supprimer" de la page admin.php
-    - "Editer" et "Supprimer" de la page admin.php
-en faisant des classes avec des méthodes.
+
 
 Améliorer le responsive dans les titres et textes des headers des pages.
 
@@ -13,5 +10,4 @@ Au 09/04/2018
 - donner un autre nom pour le namespace. Qui porte le nom du dossier. Changer l’autoload de Composer.(App/Manager ou App/Entity)
 - réalisation de la fonction “mot de passe perdu” en utilisant les fonctions de php en natif comme Mail ou SendMail. Mais aussi utiliser SwiftMailer (créateur de Symphony) car il gère tous les types de mails 
 
-Ce jour 09/04 : 
- - lecture des billets de la table book ok pour les différentes pages (admin, user, user_comment, user_post) avec BookManager
+
