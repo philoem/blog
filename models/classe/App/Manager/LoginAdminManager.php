@@ -15,12 +15,12 @@ class LoginAdminManager {
      * @var $pdo Objet servant à toutes les classes dnas plusieurs méthodes pour accéder à la base de données "projet_4"
      * 
      */
-    private $_pdo;
+    protected $_pdo;
 
     /**
      * Variable qui va servir à stocker les requêtes (query et prepare)
      */
-    private $pdoStatement;
+    protected $pdoStatement;
 
     
     /**
@@ -29,7 +29,7 @@ class LoginAdminManager {
      */
     public function __construct() {
 
-
+        $this->pdo = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
 
     }
 

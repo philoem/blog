@@ -42,7 +42,7 @@ class FormUserComments extends Form {
      */
 	public function inputBookId($book_id) {
 
-        return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputBookId" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" value="'. $_GET['id'] .'" id="exampleInputBookId" aria-describedby="prenomHelp">';
 
     }
 

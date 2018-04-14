@@ -8,10 +8,6 @@
 //require '../vendor/autoload.php';
 //use Forteroche\CommentarysManager;
 
-//require_once('../controlers/model.php');
-//require_once('../controlers/AccesControl.php');
-//$db = dbConnect();
-
 require '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;
 // Instanciation
@@ -30,36 +26,41 @@ use classe\App\Entity\Commentarys;
 // Instanciation
 $commentarys = new Commentarys();
 
-
 // Ici traitement du formulaire
-
-
 if (isset($_POST['submit_commentary'])) {
-    
-    if(isset($_POST['book_id'])) {
-        $postId = $commentarys->setBookId(htmlspecialchars($_POST['book_id']));
-    } else {
+    if(isset($_POST['book_id']) AND !empty($_POST['book_id'])) {
+        $_POST['book_id'] = (int) $_POST['book_id'];
         
-        echo "Pas d'id passée dans l'url via le champs 'book_id'";
-        echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
-    }
-    
-	$name_user = $commentarys->setNameUser(htmlspecialchars($_POST['name_user']));
-    $commentary = $commentarys->setCommentary(htmlspecialchars($_POST['commentary']));
-    var_dump($name_user, $commentary, $postId);
-    
-	if (isset($name_user) AND isset($commentary)) {
-				
-        $commentarysManager->create($commentarys);
+        $name_user = $commentarys->setNameUser(htmlspecialchars($_POST['name_user']));
+        $commentary = $commentarys->setCommentary(htmlspecialchars($_POST['commentary']));
+        $book_id = $commentarys->setBookId(htmlspecialchars($_POST['book_id']));
+        var_dump($book_id);
         
-        header('Location: ../views/user_comments.php' . $postId );
-		
-    
-    } else {
-    
-        echo "La requête demandée n'a pas aboutie! ";
-        echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+        //if(isset($_POST['book_id'])) {
+        //    $postId = $commentarys->setBookId(htmlspecialchars($_POST['book_id']));
+        //} else {
+        //    
+        //    echo "Pas d'id passée dans l'url via le champs 'book_id'";
+        //    echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+        //}
+
+        
+        if (isset($name_user) AND isset($commentary)) {
+                    
+            $commentarysManager->create($commentarys);
+            
+            header('Location: ../views/user_comments.php'. $_GET['id'] );
+            
+        
+        } else {
+        
+            echo "La requête demandée n'a pas aboutie! ";
+            echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+        }
     }
+} else {
+    echo "Pas de billet sélectionné !";
+    echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
 }
 
 // Traitement ici des commentaires signalés avec le bouton

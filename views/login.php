@@ -5,9 +5,7 @@ session_start();
 require '../vendor/autoload.php';
 require_once '../controlers/AccesControl.php';
 use \Forteroche\Form;
-//use \Forteroche\DbConnect;
-	
-//$db = new DbConnect('projet_4');
+
 $formLogin = new Form();
 
 	
@@ -45,7 +43,11 @@ $formLogin = new Form();
 						<?php
 						echo $formLogin->submit();
 						?>
+						<p>
+							<a href="./controlers/lostPwControl.php?action=forgotten_password" type="text" name="forgotten_password">Mot de passe oublié ?</a>
+						</p>
 					</form>
+
 				</div>
 			</div>
 			
