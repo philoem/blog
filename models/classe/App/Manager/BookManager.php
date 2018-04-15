@@ -3,19 +3,20 @@ namespace classe\App\Manager;
 
 use \PDO;
 use classe\App\Entity\Book;
+use classe\App\Manager\DbConnect;
 
 /**
  * classe BookManager 
  * Pour la page admin2.php
  */
 
-class BookManager {
+class BookManager extends DbConnect {
 
-    /**
-     * @var $pdo Objet servant à toutes les classes dnas plusieurs méthodes pour accéder à la base de données "projet_4"
-     * 
-     */
-    private $_pdo;
+    ///**
+    // * @var $pdo Objet servant à toutes les classes dnas plusieurs méthodes pour accéder à la base de données "projet_4"
+    // * 
+    // */
+    //private $_pdo;
 
     /**
      * Variable qui va servir à stocker les requêtes (query, prepare et exec)
@@ -27,12 +28,12 @@ class BookManager {
      * Le constructeur de la classe BookManger
      * Connexion à la base de données
      */
-    public function __construct() {
-
-        $this->pdo = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
-
-
-    }
+    //public function __construct() {
+//
+    //    $this->pdo = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
+//
+//
+    //}
     /**
      * Méthode CRUD, ici la fonction création de billet qui ne pourra se faire que sur la page admin2.php par l'administrateur
      * 

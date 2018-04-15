@@ -1,25 +1,41 @@
 <?php
 namespace classe\App\Manager;
-use \PDO;
 
+use \PDO;
+/**
+ * class DbConnect parente
+ * Connexion à la base de donnée via PDO 
+ */
 
 class DbConnect {
 
-    const HOST = 'localhost';
-    const DBNAME = 'projet_4';
-    const USERNAME = 'root';
-    const PASSWORD = '';
+    protected $db_name;
+    protected $db_user;
+    protected $db_pass;
+    protected $db_host;
+
+    protected $pdo;
 
 
-    private function connect() {
+
+    public function __construct($db_name, $db_user = 'root', $db_pass = '', $db_host ='localhost') {
         
-        $db = new PDO('mysql:host='.self::HOST.';dbname='.self::DBNAME.';charset=utf8,' .self::USERNAME.','.self::PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-       
-		return $db;
+        $this->db_name = $db_name;
+        $this->db_user = $db_user;
+        $this->db_pass = $db_pass;
+        $this->db_host = $db_host;
+
     }
-    
-    public function getConnect() {
-        return $this->connect();
+
+    public function getPDO() {
+
+        $pdo = new PDO('mysql:dbname=projet_4; host=localhost', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = $pdo;
+        return $pdo;
+
     }
-       
+
+
+
 }
