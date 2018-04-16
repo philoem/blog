@@ -1,6 +1,7 @@
 <?php
 // Autoloading Composer
-//require './vendor/autoload.php';
+require '../vendor/autoload.php';
+header('Location: ../views/login.php');			
 
 // Connexion à la table login_admin
 require '../models/classe/App/Manager/LoginAdminManager.php';
@@ -28,9 +29,9 @@ if (isset($_POST['remember'])) {
 }
 
 // Vérification du pseudo et du mot de passe pour se connecter de la page login.php
-$pseudo = $login->setPseudo(htmlspecialchars($_POST['pseudo']));
-$password = $login->setPasswordAdmin(sha1($_POST['password']));
 if (isset($_POST['submit_login'])) {
+	$pseudo = $login->setPseudo(htmlspecialchars($_POST['pseudo']));
+	$password = $login->setPasswordAdmin(sha1($_POST['password']));
 	//$pseudo2 = htmlspecialchars($_POST['pseudo']);
 	//$password2 = sha1($_POST['password']);
 		
@@ -46,7 +47,6 @@ if (isset($_POST['submit_login'])) {
 		} 
 	} 
 }
-			
 
 	 
 

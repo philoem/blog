@@ -3,7 +3,7 @@ session_start();
 
 // Appel du formulaire de connexion - autoloading
 require '../vendor/autoload.php';
-require '../controlers/AccesControl.php';
+//require '../controlers/AccesControl.php';
 //require '../models/classe/App/Form/Form';
 use classe\App\Form\Form;
 $formLogin = new Form();
@@ -16,8 +16,8 @@ $formLogin = new Form();
 	<?php include ('../views/inc/head_html.php'); ?>
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header  -->
-			<?php include '../views/inc/header_login.php'; ?>
+<!-- Ici le header -->
+			<?php include '../views/inc/header_login.php'; ?> 
 			
 <!-- Ici le formulaire pour se connecter  -->			
 			<div class="col-xs-12" id="form_style">

@@ -39,111 +39,132 @@ class LoginAdmin {
      */
     private $_password_admin;
 
+    /**
+     * Get $_prenom
+     *
+     * @return  string
+     */ 
+    public function get_prenom()
+    {
+        return $this->_prenom;
+    }
 
     /**
-     * Setter du champs prenom
-     * @param  string $prenom
-     * @return LoginAdmin
-     */
-    public function setPrenom($prenom) {
+     * Set $_prenom
+     *
+     * @param  string  $_prenom  $_prenom
+     *
+     * @return  self
+     */ 
+    public function set_prenom(string $_prenom)
+    {
+        $this->_prenom = $_prenom;
 
-        $this->prenom = $prenom;
         return $this;
-
-    }
-    /**
-     * Getter du champs prenom
-     * @return string  
-     */
-    public function getPrenom() {
-        
-        return $this->prenom;
-
     }
 
-    /**
-     * Setter du champs nom
-     * @param  string $nom
-     * @return LoginAdmin
-     */
-    public function setNom($nom) {
+        /**
+     * Get $_nom
+     *
+     * @return  string
+     */ 
+    public function get_nom()
+    {
+        return $this->_nom;
+    }
 
-        $this->nom = $nom;
+    /**
+     * Set $_nom
+     *
+     * @param  string  $_nom  $_nom
+     *
+     * @return  self
+     */ 
+    public function set_nom(string $_nom)
+    {
+        $this->_nom = $_nom;
+
         return $this;
-
     }
+    
     /**
-     * Getter du champs nom
-     * @return string  
-     */
-    public function getNom() {
-        
-        return $this->nom;
-
+     * Get $_pseudo
+     *
+     * @return  string
+     */ 
+    public function get_pseudo()
+    {
+        return $this->_pseudo;
     }
 
     /**
-     * Setter du champs pseudo
-     * @param  string $pseudo
-     * @return LoginAdmin
-     */
-    public function setPseudo($pseudo) {
+     * Set $_pseudo
+     *
+     * @param  string  $_pseudo  $_pseudo
+     *
+     * @return  self
+     */ 
+    public function set_pseudo(string $_pseudo)
+    {
+        $this->_pseudo = $_pseudo;
 
-        $this->pseudo = $pseudo;
         return $this;
-
     }
-    /**
-     * Getter du champs pseudo
-     * @return string  
-     */
-    public function getPseudo() {
+    
         
-        return $this->pseudo;
-
-    }
 
     /**
-     * Setter du champs mail_admin
-     * @param  string $mail_admin
-     * @return LoginAdmin
-     */
-    public function setMailAdmin($mail_admin) {
+     * Set $_mail_admin
+     *
+     * @param  string  $_mail_admin  $_mail_admin
+     *
+     * @return  self
+     */ 
+    public function set_mail_admin(string $_mail_admin)
+    {
+        $this->_mail_admin = $_mail_admin;
 
-        $this->mail_admin = $mail_admin;
         return $this;
-
     }
     /**
-     * Getter du champs mail_admin
-     * @return string  
-     */
-    public function getMailAdmin() {
+     * Get $_mail_admin
+     *
+     * @return  int
+     */ 
+    public function get_mail_admin()
+    {
+        return $this->_mail_admin;
+    }
+
         
-        return $this->mail_admin;
 
+    /**
+     * Get $_password_admin
+     *
+     * @return  string
+     */ 
+    public function get_password_admin()
+    {
+        return $this->_password_admin;
     }
 
     /**
-     * Setter du champs password_admin
-     * @param  string $password_admin
-     * @return LoginAdmin
-     */
-    public function setPasswordAdmin($password_admin) {
+     * Set $_password_admin
+     *
+     * @param  string  $_password_admin  $_password_admin
+     *
+     * @return  self
+     */ 
+    public function set_password_admin(string $_password_admin)
+    {
+        $this->_password_admin = $_password_admin;
 
-        $this->password_admin = $password_admin;
         return $this;
-
-    }
-    /**
-     * Getter du champs password_admin
-     * @return string  
-     */
-    public function getPasswordAdmin() {
-        
-        return $this->password_admin;
-
     }
 
+    
 
+
+
+    
 }
