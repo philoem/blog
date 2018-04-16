@@ -39,6 +39,9 @@ class LoginAdmin {
      */
     private $_password_admin;
 
+
+    private $_error;
+
     /**
      * Get $_prenom
      *
@@ -129,7 +132,7 @@ class LoginAdmin {
     /**
      * Get $_mail_admin
      *
-     * @return  int
+     * @return  string
      */ 
     public function get_mail_admin()
     {
@@ -161,10 +164,25 @@ class LoginAdmin {
 
         return $this;
     }
+   
 
-    
+    /**
+     * Get the value of _error
+     */ 
+    public function get_error()
+    {
+        return $this->_error;
+    }
 
+    /**
+     * Set the value of _error
+     *
+     * @return  self
+     */ 
+    public function set_error($_error)
+    {
+        $this->_error = $_error;
 
-
-    
+        return $this;
+    }
 }

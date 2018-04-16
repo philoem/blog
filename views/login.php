@@ -3,7 +3,7 @@ session_start();
 
 // Appel du formulaire de connexion - autoloading
 require '../vendor/autoload.php';
-//require '../controlers/AccesControl.php';
+//require './controlers/AccesControl.php';
 //require '../models/classe/App/Form/Form';
 use classe\App\Form\Form;
 $formLogin = new Form();
@@ -22,7 +22,7 @@ $formLogin = new Form();
 <!-- Ici le formulaire pour se connecter  -->			
 			<div class="col-xs-12" id="form_style">
 				<div class="row justify-content-center" >
-					<form method="post" action="#" >
+					<form method="post" action="../controlers/AccesControl.php" >
 						<fieldset class="fieldset_login">
 							<div class="form-group">
 								<div class="row justify-content-center"><?= $formLogin->label('Votre pseudo :');?></div>

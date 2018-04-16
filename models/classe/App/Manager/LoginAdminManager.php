@@ -18,11 +18,7 @@ class LoginAdminManager extends DbConnect {
      */
     private $_pdoStatement;
 
-    /**
-     * Pour afficher les messages d'erreurs
-     */
-    private $_error;
-  
+      
 
     /**
      * Méthode CRUD, ici la fonction création d'un admin via la page register.php pour s'inscrire
@@ -45,9 +41,9 @@ class LoginAdminManager extends DbConnect {
 
     public function readLogin() {
 
-        $this->pdoStatement = $this->getPDO()->prepare('SELECT * FROM login_admin WHERE pseudo = :pseudo AND password_admin = :password_admin');
-        $this->pdoStatement->bindValue(':pseudo', $pseudo->getPseudo(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':password_admin', $password_admin->getPasswordAdmin(), PDO::PARAM_STR);
+        $this->pdoStatement = $this->getPDO()->prepare('SELECT pseudo, password_admin FROM login_admin WHERE pseudo = :pseudo AND password_admin = :password_admin');
+        $this->pdoStatement->bindValue(':pseudo', $pseudo->get_pseudo(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':password_admin', $password_admin->get_password_admin(), PDO::PARAM_STR);
         return $this->pdoStatement->execute();
 
 
@@ -70,23 +66,4 @@ class LoginAdminManager extends DbConnect {
 
     
 
-    /**
-     * @param string $error Affichage des messages d'erreurs
-     */ 
-    public function get_error()
-    {
-        return $this->_error;
-    }
-
-    /**
-     * Set pour afficher les messages d'erreurs
-     *
-     * @return  self
-     */ 
-    public function set_error($_error)
-    {
-        $this->_error = $_error;
-
-        return $this;
-    }
 }

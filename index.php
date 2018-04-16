@@ -2,7 +2,7 @@
 if (isset($_GET['action'])) {
 
 	if ($_GET['action'] == 'register') {
-		
+		header('Location: controlers/registerControl.php');
 
 	}
 	if ($_GET['action'] == 'login') {
@@ -27,8 +27,8 @@ if (isset($_GET['action'])) {
 	<?php include ('./views/inc/head_html.php'); ?>
 
 	<body>
-<!-- Ici le header  
-		<?php include ('./views/inc/header_index.php'); ?> -->
+<!-- Ici le header  -->
+		<?php include ('./views/inc/header_index.php'); ?> 
 
 <!-- Ici le body avec le formulaire  -->
 		<?php  require('./views/home.php'); ?>
