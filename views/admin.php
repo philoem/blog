@@ -3,20 +3,9 @@ session_start();
 
 // Appel du formulaire de création d'un nouveau billet - autoloading
 require '../vendor/autoload.php';
-use Forteroche\FormAdmin;
-//use Forteroche\CommentarysManager;
-//use Forteroche\BilletsManager;
-//use Forteroche\DbConnect;
-$formAdmin = new FormAdmin();
-//$db = new DbConnect('projet_4');
-//$commentarys = new CommentarysManager();
-//$billets = new BilletsManager();
 
-//require '../controlers/model.php';
-//$db = dbConnect();
 
 // Pour la gestion des commentaires avec les boutons "Conserver" et "Supprimer"
-//require'../controlers/gestion_admin.php';
 
 require '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;

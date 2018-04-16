@@ -1,17 +1,15 @@
 <?php
 // Appel du formulaire de création d'un nouveau billet
 require '../vendor/autoload.php';
-use Forteroche\FormUserComments;
-//use Forteroche\BilletsManager;
-//use Forteroche\CommentarysManager;
+require '../models/classe/App/Form/FormUserComments.php';
+use classe\App\Form\FormUserComments;
+$formUser = new FormUserComments();
+
 
 // Connexion à la base de données
 //require_once '../controlers/model.php';
 //$db = dbConnect();
 
-$formUser = new FormUserComments();
-//$billetsUserComments = new BilletsManager();
-//$commentarysUserComments = new CommentarysManager();
 
 require '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;

@@ -3,36 +3,21 @@ namespace classe\App\Manager;
 
 use \PDO;
 use classe\App\Entity\Book;
-
+use classe\App\Manager\DbConnect;
+require 'DbConnect.php';
 /**
- * classe BookManager 
+ * classe BookManager héritée de la classe DbConnect
  * Pour la page admin2.php
  */
 
-class BookManager {
-
-    /**
-     * @var $pdo Objet servant à toutes les classes dnas plusieurs méthodes pour accéder à la base de données "projet_4"
-     * 
-     */
-    private $_pdo;
+class BookManager extends DbConnect {
 
     /**
      * Variable qui va servir à stocker les requêtes (query, prepare et exec)
      */
     private $pdoStatement;
 
-    
-    /**
-     * Le constructeur de la classe BookManger
-     * Connexion à la base de données
-     */
-    public function __construct() {
-
-        $this->pdo = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
-
-
-    }
+  
     /**
      * Méthode CRUD, ici la fonction création de billet qui ne pourra se faire que sur la page admin2.php par l'administrateur
      * 
@@ -40,7 +25,7 @@ class BookManager {
      */
     public function create(Book $book) {
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO book(title, billet, approuved, delete_book, date_billet) VALUES(:title, :billet, 0, 0, NOW())');
+        $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO book(title, billet, approuved, delete_book, date_billet) VALUES(:title, :billet, 0, 0, NOW())');
         $this->pdoStatement->bindValue(':title', $book->getTitle(), PDO::PARAM_STR);
         $this->pdoStatement->bindValue(':billet', $book->getBillet(), PDO::PARAM_STR);
         
@@ -56,7 +41,7 @@ class BookManager {
      */
     public function readStatement($statement) {
 
-        $this->pdoStatement = $this->pdo->query($statement);
+        $this->pdoStatement = $this->getPDO()->query($statement);
         return $this->pdoStatement;
 
     }
@@ -68,7 +53,7 @@ class BookManager {
      */
     public function read($postBilletId) {
 
-        $this->pdoStatement = $this->pdo->prepare('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
+        $this->pdoStatement = $this->getPDO()->prepare('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
         $post = $this->pdoStatement->execute([$postBilletId]);
         $post = $this->pdoStatement->fetch();
 
@@ -82,7 +67,7 @@ class BookManager {
      */
     public function readAll() {
 
-        $this->pdoStatement = $this->pdo->query('SELECT * FROM book ORDER BY date_billet DESC ');
+        $this->pdoStatement = $this->getPDO()->query('SELECT * FROM book ORDER BY date_billet DESC ');
         $billets = [];
         while($billet = $this->pdoStatement->fetch()) {
             $billets[] = $billet;
@@ -98,8 +83,8 @@ class BookManager {
      */
     public function readId($id) {
 
-        $this->pdoStatement = $this->pdo->prepare('SELECT * FROM book WHERE id = :id ');
-        $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+        $this->pdoStatement = $this->getPDO()->prepare('SELECT * FROM book WHERE id = :id ');
+        $this->pdoStatement->bindValue(':id', $id->getIdBook(), PDO::PARAM_INT);
         $executeOk = $this->pdoStatement->execute();
 
     }
@@ -112,7 +97,7 @@ class BookManager {
      */
     public function update($statement) {
 
-        $this->pdoStatement = $this->pdo->prepare($statement);
+        $this->pdoStatement = $this->getPDO()->prepare($statement);
         
 
         return $this->pdoStatement;
@@ -126,7 +111,7 @@ class BookManager {
      */
     public function delete($statement) {
 
-        $this->pdoStatement = $this->pdo->prepare($statement);
+        $this->pdoStatement = $this->getPDO()->prepare($statement);
         
 
         return $this->pdoStatement;

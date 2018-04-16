@@ -1,7 +1,8 @@
 <?php
 // Appel de la classe FormRegister pour le formulaire - autoloading
 require '../vendor/autoload.php';
-use Forteroche\FormRegister;
+require_once '../models/classe/App/Form/FormRegister.php';
+use classe\App\Form\FormRegister;
 
 // Connexion à la base de données
 require_once '../controlers/model.php';

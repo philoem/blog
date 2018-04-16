@@ -3,11 +3,9 @@ session_start();
 
 // Appel du formulaire de connexion - autoloading
 require '../vendor/autoload.php';
-require_once '../controlers/AccesControl.php';
-use \Forteroche\Form;
-//use \Forteroche\DbConnect;
-	
-//$db = new DbConnect('projet_4');
+require '../controlers/AccesControl.php';
+//require '../models/classe/App/Form/Form';
+use classe\App\Form\Form;
 $formLogin = new Form();
 
 	

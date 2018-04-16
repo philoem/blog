@@ -3,35 +3,21 @@ namespace classe\App\Manager;
 
 use \PDO;
 use classe\App\Entity\LoginAdmin;
+use classe\App\Manager\DbConnect;
+
 
 /**
- * classe LoginAdminManager 
+ * classe LoginAdminManager héritée de la classe parent DbConnect
  * 
  */
 
-class LoginAdminManager {
-
-    /**
-     * @var $pdo Objet servant à toutes les classes dnas plusieurs méthodes pour accéder à la base de données "projet_4"
-     * 
-     */
-    private $_pdo;
+class LoginAdminManager extends DbConnect {
 
     /**
      * Variable qui va servir à stocker les requêtes (query et prepare)
      */
     private $pdoStatement;
-
-    
-    /**
-     * Le constructeur de la classe LoginAdminManager
-     * Connexion à la base de données
-     */
-    public function __construct() {
-
-
-
-    }
+  
 
     /**
      * Méthode CRUD, ici la fonction création d'un admin via la page register.php pour s'inscrire
@@ -48,17 +34,12 @@ class LoginAdminManager {
 
     }
 
-    /**
-     * Méthode CRUD, ici la fonction lecture d'un admin pour notamment la page login.php, se connecter
-     * @param string $prenom Lecture du prenom dans la table login_admin
-     * @param string $nom Lecture du nom dans la table login_admin
-     * @param string $pseudo Lecture du pseudo dans la table login_admin
-     * @param string $mail_admin Lecture du mail dans la table login_admin
-     * @param string $password_admin Lecture du mot de passe crypté dans la table login_admin
-     * @return bool true si le commentaire a bien été créé dans la table commentarys
-     */
-    public function read($prenom, $nom, $pseudo, $mail_admin, $password_admin) {
+    public function readLogin() {
 
+        $this->pdoStatement = $this->getPDO()->prepare('SELECT * FROM login_admin WHERE pseudo = :pseudo AND password_admin = :password_admin');
+        $this->pdoStatement->bindValue(':pseudo', $pseudo->getPseudo(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':password_admin', $password_admin->getPasswordAdmin(), PDO::PARAM_STR);
+        return $this->pdoStatement->execute();
 
 
     }

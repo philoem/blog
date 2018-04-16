@@ -8,7 +8,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "Forteroche\\": "models/classe"
+            "classe\\App\\Manager\\": "models/classe/App/Manager",
+            "classe\\App\\Entity\\": "models/classe/App/Entity",
+            "classe\\App\\Form\\": "models/classe/App/Form"
         }
     },
     "require": {}

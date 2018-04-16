@@ -5,12 +5,7 @@
  * 
  */
 
-//require '../vendor/autoload.php';
-//use Forteroche\CommentarysManager;
-
-//require_once('../controlers/model.php');
-//require_once('../controlers/AccesControl.php');
-//$db = dbConnect();
+require '../vendor/autoload.php';
 
 require '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;
@@ -32,8 +27,6 @@ $commentarys = new Commentarys();
 
 
 // Ici traitement du formulaire
-
-
 if (isset($_POST['submit_commentary'])) {
     
     if(isset($_POST['book_id'])) {
