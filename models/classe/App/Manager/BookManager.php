@@ -3,8 +3,7 @@ namespace classe\App\Manager;
 
 use \PDO;
 use classe\App\Entity\Book;
-use classe\App\Manager\DbConnect;
-require 'DbConnect.php';
+
 /**
  * classe BookManager héritée de la classe DbConnect
  * Pour la page admin2.php
@@ -54,6 +53,7 @@ class BookManager extends DbConnect {
     public function read($postBilletId) {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
+        
         $post = $this->pdoStatement->execute([$postBilletId]);
         $post = $this->pdoStatement->fetch();
 

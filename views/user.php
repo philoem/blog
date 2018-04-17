@@ -1,11 +1,9 @@
 <?php
-//require_once('../controlers/model.php');
-//$db = dbConnect();
-//require '../vendor/autoload.php';
-//use Forteroche\BilletsManager;
-//$billetsUser = new BilletsManager();
+// Chargement autoloading Composer
+require '../vendor/autoload.php';
 
-require '../models/classe/App/Manager/BookManager.php';
+// Chargement de la Classe BookManager, gestionnaire d'entité pour les billets
+require_once '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;
 $bookManager = new BookManager();
 
@@ -36,8 +34,8 @@ $bookManager = new BookManager();
 						<h5 class="card-title">
 							<?='<p>'.htmlspecialchars($donneesUser['billet']).'</p>';	?>
 						</h5>
-						<a href="user_comments.php?id=<?= $donneesUser['id']  ?>" class="btn btn-primary">Laissez votre commentaire</a>
-						<a href="../views/user_post.php" class="btn btn-info">Lire tous les billets</a>
+						<a href="user_comments.php?id=<?= $donneesUser['id']  ?>" class="btn btn-info">Laissez votre commentaire</a>
+						<a href="../views/user_post.php" class="btn btn-primary"><em>Lecture du récit en entier</em></a>
 					</div>
 						<div class="card-footer text-muted">
 							<?= '<p><strong>Publié le <em>'.htmlspecialchars($donneesUser['date_billet']).'</em></strong></p>';	?>

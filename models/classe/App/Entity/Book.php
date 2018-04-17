@@ -40,14 +40,24 @@ class Book {
     private $_delete_book;
 
     /**
-     * Uniquement le getter et pas de setter
-     * @return int
-     */
-    public function getIdBook() {
-
-        return $this->id;
-
+     * Get $_id
+     *
+     * @return  int
+     */ 
+    public function get_id()
+    {
+        return $this->_id;
     }
+
+    ///**
+    // * Uniquement le getter et pas de setter
+    // * @return int
+    // */
+    //public function getIdBook() {
+//
+    //    return $this->id;
+//
+    //}
 
     /**
      * Setter du champs title
@@ -134,4 +144,6 @@ class Book {
     }
 
 
+
+    
 }

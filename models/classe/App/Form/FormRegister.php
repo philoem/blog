@@ -38,7 +38,7 @@ class FormRegister extends Form {
      */
 	public function inputPrenom(string $prenom) {
 		
-		return '<input type="text" class="form-control" id="exampleInputPrenom1" aria-describedby="prenomHelp" name="'. $prenom .'">';
+		return '<input type="text" class="form-control" id="exampleInputPrenom1" aria-describedby="prenomHelp" name="'. $prenom .'"  >';
 		
 	}
 
@@ -48,7 +48,7 @@ class FormRegister extends Form {
      */
 	public function inputNom($nom) {
 		
-		return '<input type="text" class="form-control" name="'. $nom .'" id="exampleInputNom">';
+		return '<input type="text" class="form-control" name="'. $nom .'" id="exampleInputNom" >';
 	}
 
 	/**
@@ -57,7 +57,7 @@ class FormRegister extends Form {
      */
 	public function inputPseudo($pseudo) {
 		
-		return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPrenom" aria-describedby="prenomHelp">';
+		return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPrenom" aria-describedby="prenomHelp" >';
 	}
 
 	/**
@@ -66,7 +66,7 @@ class FormRegister extends Form {
      */
 	public function inputMail($mail) {
 	
-		return '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="'. $mail .'">';
+		return '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="'. $mail .'" >';
 	}
 
 	/**
@@ -75,7 +75,7 @@ class FormRegister extends Form {
      */
 	public function inputConfirmMail($mail_confirm) {
 		
-		return '<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" name="'. $mail_confirm .'">';
+		return '<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" name="'. $mail_confirm .'" >';
 	}
 
 	/**
@@ -93,8 +93,9 @@ class FormRegister extends Form {
      */
 	public function inputConfirmPassword($confirmPasswordRegister) {
 		
-		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm">';
+		return '<input type="password" class="form-control" name="'. $confirmPasswordRegister .'" id="exampleInputPasswordConfirm" >';
 	}
+	
 
 	/**
      * @return envoie les données du formulaire dans la base de données

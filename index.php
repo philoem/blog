@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
 	
 	}
 	if ($_GET['action'] == 'lastBillets') {
-
+		header('Location: ./views/user.php');
 
 	}
 

@@ -3,8 +3,7 @@ namespace classe\App\Manager;
 
 use \PDO;
 use classe\App\Entity\Commentarys;
-use classe\App\Manager\DbConnect;
-require 'DbConnect.php';
+
 /**
  * classe CommentarysManager héritée de la classe parent DbConnect
  * 
@@ -25,10 +24,10 @@ class CommentarysManager extends DbConnect  {
      */
     public function create(Commentarys $commentarys) {
 
-        $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, delete_commentary, book_id, date_commentary) VALUES(:name_user, :commentary, 0, 0, 0, :book_id, NOW)');
-        $this->pdoStatement->bindValue(':name_user', $commentarys->getNameUser(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':commentary', $commentarys->getCommentary(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':book_id', $commentarys->getBookId(), PDO::PARAM_INT);
+        $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO commentarys(name_user, commentary, approuved, signaled, delete_commentary, book_id, date_commentary) VALUES(:name_user, :commentary, 0, 0, 0, :book_id, NOW())');
+        $this->pdoStatement->bindValue(':name_user', $commentarys->get_name_user(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':commentary', $commentarys->get_commentary(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':book_id', $commentarys->get_book_id(), PDO::PARAM_INT);
         
         return $this->pdoStatement->execute();     
 
@@ -57,10 +56,10 @@ class CommentarysManager extends DbConnect  {
      */
     public function readId($postId) {
 
-        $this->pdoStatement = $this->getPDO()->prepare('SELECT id, name_user, commentary, approuved, signaled, delete_commentary, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentary FROM commentarys WHERE id = ? ORDER BY date_commentary DESC');
-        $post = $this->pdoStatement->execute([$postId]);
+        $this->pdoStatement = $this->getPDO()->prepare('SELECT id, name_user, commentary, approuved, signaled, delete_commentary, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentary FROM commentarys WHERE id = :id ORDER BY date_commentary DESC');
+        $post = $this->pdoStatement->execute(['id' => $postId]);
         $post = $this->pdoStatement->fetch();
-
+        //var_dump($post);
         return $post;
         
     }
@@ -83,8 +82,8 @@ class CommentarysManager extends DbConnect  {
     public function updateTest(Commentarys $commentarys) {
 
         $this->pdoStatement = $this->getPDO()->prepare('UPDATE commentarys SET approuved = :1 WHERE id =:id LIMIT 1');
-        $this->pdoStatement->bindValue(':1', $commentarys->getApprouved(), PDO::PARAM_INT);
-        $this->pdoStatement->bindValue(':id', $commentarys->getId(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':1', $commentarys->get_approuved(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':id', $commentarys->get_id(), PDO::PARAM_INT);
                 
         return $this->pdoStatement->execute();
 
@@ -108,7 +107,7 @@ class CommentarysManager extends DbConnect  {
     public function deleteTest(Commentarys $commentarys) {
 
         $this->pdoStatement = $this->getPDO()->prepare('DELETE FROM commentarys WHERE id = :id LIMIT 1');
-        $this->pdoStatement->bindValue(':id', $commentarys->getId(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':id', $commentarys->get_id(), PDO::PARAM_INT);
                 
         return $this->pdoStatement->execute();
 

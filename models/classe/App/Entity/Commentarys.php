@@ -52,142 +52,162 @@ class Commentarys {
      */
     private $_book_id;
 
+    
     /**
-     * Uniquement le getter et pas de setter
-     * @return int
-     */
-    public function getId() {
-
+     * Get $_id
+     *
+     * @return  int
+     */ 
+    public function get_id()
+    {
         return $this->_id;
+    }
 
+    
+    /**
+     * Get $_name_user
+     *
+     * @return  string
+     */ 
+    public function get_name_user()
+    {
+        return $this->_name_user;
     }
 
     /**
-     * Setter du champs name_user
-     * @param $name_user
-     * @return Book
-     */
-    public function setNameUser($name_user) {
+     * Set $_name_user
+     *
+     * @param  string  $_name_user  $_name_user
+     *
+     * @return  self
+     */ 
+    public function set_name_user(string $_name_user)
+    {
+        $this->_name_user = $_name_user;
 
-        $this->name_user = $name_user;
         return $this;
-
-    }
-    /**
-     * Getter du champs name_user
-     * @return string  
-     */
-    public function getNameUser() {
-        
-        return $this->name_user;
-
     }
 
     /**
-     * Setter du champs commentary
-     * @param $commentary
-     * @return Commentarys
-     */
-    public function setCommentary($commentary) {
+     * Get $_commentary
+     *
+     * @return  string
+     */ 
+    public function get_commentary()
+    {
+        return $this->_commentary;
+    }
 
-        $this->commentary = $commentary;
+    /**
+     * Set $_commentary
+     *
+     * @param  string  $_commentary  $_commentary
+     *
+     * @return  self
+     */ 
+    public function set_commentary(string $_commentary)
+    {
+        $this->_commentary = $_commentary;
+
         return $this;
-
-    }
-    /**
-     * Getter du champs commentary
-     * @return string  
-     */
-    public function getCommentary() {
-        
-        return $this->commentary;
-
     }
 
+    /**
+     * Get $_approuved
+     *
+     * @return  int
+     */ 
+    public function get_approuved()
+    {
+        return $this->_approuved;
+    }
 
     /**
-     * Setter du champs approuved
-     * @param  int $approuved
-     * @return Commentarys
-     */
-    public function setApprouved($approuved) {
+     * Set $_approuved
+     *
+     * @param  int  $_approuved  $_approuved
+     *
+     * @return  self
+     */ 
+    public function set_approuved(int $_approuved)
+    {
+        $this->_approuved = $_approuved;
 
-        $this->approuved = $approuved;
         return $this;
-
-    }
-    /**
-     * Getter du champs approuved
-     * @return int  
-     */
-    public function getApprouved() {
-        
-        return $this->approuved;
-
     }
 
+    
     /**
-     * Setter du champs signaled
-     * @param  int $signaled
-     * @return Commentarys
-     */
-    public function setSignaled($signaled) {
+     * Get $_signaled
+     *
+     * @return  int
+     */ 
+    public function get_signaled()
+    {
+        return $this->_signaled;
+    }
 
-        $this->signaled = $signaled;
+    /**
+     * Set $_signaled
+     *
+     * @param  int  $_signaled  $_signaled
+     *
+     * @return  self
+     */ 
+    public function set_signaled(int $_signaled)
+    {
+        $this->_signaled = $_signaled;
+
         return $this;
-
-    }
-    /**
-     * Getter du champs signaled
-     * @return int  
-     */
-    public function getSignaled() {
-        
-        return $this->signaled;
-
     }
 
+    
     /**
-     * Setter du champs delete_commentary
-     * @param  int $delete_commentary
-     * @return Commentarys
-     */
-    public function setDeleteCommentary($delete_commentary) {
+     * Get $_delete_commentary
+     *
+     * @return  int
+     */ 
+    public function get_delete_commentary()
+    {
+        return $this->_delete_commentary;
+    }
 
-        $this->delete_commentary = $delete_commentary;
+    /**
+     * Set $_delete_commentary
+     *
+     * @param  int  $_delete_commentary  $_delete_commentary
+     *
+     * @return  self
+     */ 
+    public function set_delete_commentary(int $_delete_commentary)
+    {
+        $this->_delete_commentary = $_delete_commentary;
+
         return $this;
-
-    }
-    /**
-     * Getter du champs delete_commentary
-     * @return int  
-     */
-    public function getDeleteCommentary() {
-        
-        return $this->delete_commentary;
-
     }
 
+    
     /**
-     * Setter du champs book_id
-     * @param  int $book_id
-     * @return Commentarys
-     */
-    public function setBookId($book_id) {
+     * Get $_book_id
+     *
+     * @return  int
+     */ 
+    public function get_book_id()
+    {
+        return $this->_book_id;
+    }
 
-        $this->book_id = $book_id;
+    /**
+     * Set $_book_id
+     *
+     * @param  int  $_book_id  $_book_id
+     *
+     * @return  self
+     */ 
+    public function set_book_id(int $_book_id)
+    {
+        $this->_book_id = $_book_id;
+
         return $this;
-
     }
-    /**
-     * Getter du champs book_id
-     * @return int  
-     */
-    public function getBookId() {
-        
-        return $this->book_id;
-
-    }
-
-
 }

@@ -1,5 +1,6 @@
 <?php
 namespace classe\App\Form;
+require 'Form.php';
 /**
  * class FormUserComments enfante de Form
  * Génère le formulaire de la page userComments.php pour editer des commentaires
@@ -42,7 +43,7 @@ class FormUserComments extends Form {
      */
 	public function inputBookId($book_id) {
 
-        return '<input type="hidden" class="form-control" name="'. $book_id .'" id="exampleInputBookId" aria-describedby="prenomHelp">';
+        return '<input type="hidden" class="form-control" name="'. $book_id .'" value="'.$_GET['id'].'" id="exampleInputBookId" aria-describedby="prenomHelp">';
 
     }
 
