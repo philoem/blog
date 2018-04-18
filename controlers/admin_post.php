@@ -5,6 +5,8 @@ session_start();
  * Gestion du formulaire de la page admin2.php pour la création d'un nouveau billet
  * 
  */
+// Chargement autoloading Composer
+require '../vendor/autoload.php';
 
 // Appel ici de BookManager.php le manager d'entité Book
 require_once '../models/classe/App/Manager/BookManager.php';

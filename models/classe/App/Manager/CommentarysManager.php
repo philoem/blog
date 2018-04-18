@@ -78,14 +78,19 @@ class CommentarysManager extends DbConnect  {
        return $this->pdoStatement;
 
     }
+    /**
+     * Méthode CRUD, ici la fonction lit tous les commentaires liés au billets dans la page user_comments.php
+     * 
+     * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
+     */
+    public function readAll() {
 
-    public function updateTest(Commentarys $commentarys) {
-
-        $this->pdoStatement = $this->getPDO()->prepare('UPDATE commentarys SET approuved = :1 WHERE id =:id LIMIT 1');
-        $this->pdoStatement->bindValue(':1', $commentarys->get_approuved(), PDO::PARAM_INT);
-        $this->pdoStatement->bindValue(':id', $commentarys->get_id(), PDO::PARAM_INT);
-                
-        return $this->pdoStatement->execute();
+        $this->pdoStatement = $this->getPDO()->query('SELECT * FROM commentarys ORDER BY date_commentary DESC ');
+        $commentarys = [];
+        while($comment = $this->pdoStatement->fetch()) {
+            $commentarys[] = $comment;
+        }
+        return $commentarys;
 
     }
 
@@ -96,7 +101,7 @@ class CommentarysManager extends DbConnect  {
      */
     public function update($statement) {
 
-        $this->pdoStatement = $this->getPDO()->prepare($statement);
+        $this->pdoStatement = $this->getPDO()->exec($statement);
         
 
         return $this->pdoStatement;
@@ -120,7 +125,7 @@ class CommentarysManager extends DbConnect  {
      */
     public function delete($statement) {
 
-        $this->pdoStatement = $this->getPDO()->prepare($statement);
+        $this->pdoStatement = $this->getPDO()->exec($statement);
         
 
         return $this->pdoStatement;

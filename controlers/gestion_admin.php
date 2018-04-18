@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Chargement autoloading Composer
+require '../vendor/autoload.php';
+
 require '../models/classe/App/Manager/BookManager.php';
 use classe\App\Manager\BookManager;
 $bookManager = new BookManager();
@@ -15,27 +18,25 @@ $commentarysManager = new CommentarysManager();
  * De la page admin.php
  */
 
-// Traitement ici des boutons "Conserver" et "Supprimer" des commentaires signalés
-$id_commentary = htmlspecialchars($_GET['id_commentary']);
-$id = htmlspecialchars($_GET['id']);
-$approuved_commentary = htmlspecialchars($_GET['approuved_commentary']);
-$approuved_billet= htmlspecialchars($_GET['approuved_billet']);
-$delete_commentary =  htmlspecialchars($_GET['delete_commentary']);
-$delete_book =  htmlspecialchars($_GET['delete_book']);
 
-if (isset($id)) {
+
+if (isset($_GET['btn_conserver_commentary']) OR isset($_GET['btn_supprimer_commentary']) OR isset($_GET['btn_conserver_billet']) OR isset($_GET['btn_supprimer_billet']) ) {
     
+    $id_commentary = htmlspecialchars($_GET['id_commentary']);
+    $id = htmlspecialchars($_GET['id']);
+    $approuved_commentary = htmlspecialchars($_GET['approuved_commentary']);
+    $approuved_billet= htmlspecialchars($_GET['approuved_billet']);
+    $delete_commentary =  htmlspecialchars($_GET['delete_commentary']);
+    $delete_book =  htmlspecialchars($_GET['delete_book']);
     
-    if (isset($_GET['btn_conserver_commentary'])) {
+    if (isset($_GET['btn_conserver_commentary']) ) {
         
         $req1 = $commentarysManager->update("UPDATE commentarys SET approuved = 1 WHERE id = $id_commentary");
-        $req1->execute([$approuved]);
         header('Location: ../views/admin.php');  
         
     } else if (isset($_GET['btn_supprimer_commentary'])) {
         
         $req2 = $commentarysManager->delete("DELETE FROM commentarys WHERE id = $id_commentary ");
-        $req2->execute([$delete]);
         header('Location: ../views/admin.php');      
     }
     

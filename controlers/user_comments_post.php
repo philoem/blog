@@ -29,50 +29,48 @@ $commentarys = new Commentarys();
 
 
 // Ici traitement du formulaire
-$postId =  $_POST['book_id'];
-if (isset($_POST['submit_commentary'])) {
-    if(isset($postId)) {
-        var_dump($postId);
-        $postId = $commentarys->set_book_id(htmlspecialchars($postId));
-        
-        $name_user = $commentarys->set_name_user(htmlspecialchars($_POST['name_user']));
-        $commentary = $commentarys->set_commentary(htmlspecialchars($_POST['commentary']));
-        $book_id = $commentarys->set_book_id(htmlspecialchars($_POST['book_id']));
-
-        //var_dump($name_user, $commentary, $_POST['book_id']);
-        
-	    if (isset($name_user) AND isset($commentary) AND isset($book_id)) {
-			$postId = (int) $postId;	
-            $commentarysManager->create($commentarys);
-        
-            header('Location: ../views/user_comments.php?id='. $_POST['book_id'] );
-		
+if (isset($_POST['book_id'])) {
+    $postId =  $_POST['book_id'];
     
+    if (isset($_POST['submit_commentary'])) {
+        if(isset($postId)) {
+            var_dump($postId);
+            $postId = $commentarys->set_book_id(htmlspecialchars($postId));
+            
+            $name_user = $commentarys->set_name_user(htmlspecialchars($_POST['name_user']));
+            $commentary = $commentarys->set_commentary(htmlspecialchars($_POST['commentary']));
+            $book_id = $commentarys->set_book_id(htmlspecialchars($_POST['book_id']));
+
+            if (isset($name_user) AND isset($commentary) AND isset($book_id)) {
+                $postId = (int) $postId;	
+                $commentarysManager->create($commentarys);
+            
+                header('Location: ../views/user_comments.php?id='. $_POST['book_id'] );
+              
+            } else {
+            
+                echo "La requête demandée n'a pas aboutie! ";
+                echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+            }
+
         } else {
-        
-            echo "La requête demandée n'a pas aboutie! ";
+            echo "Pas d'id passée dans l'url via le champs 'book_id'";
             echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
+        }
     }
-
-    } else {
-        echo "Pas d'id passée dans l'url via le champs 'book_id'";
-        echo '<p><a href="../views/user_comments.php"><strong>Retour</strong></a></p>';
-    }
-    
-	
 }
 
 // Traitement ici des commentaires signalés avec le bouton
-//$postBilletId = htmlspecialchars($_GET['id']);
-//$signaled = htmlspecialchars($_GET['signaled']);
-//$îd_commentary = htmlspecialchars($_GET['id_commentary']);
-//
-//if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
-//      
-//    $CommentarysManager->getPostSignaled("UPDATE commentarys SET signaled = 1 WHERE id = $îd_commentary ");
-//   
-//    header('Location: ../views/user_comments.php?id=' .$postBilletId );
-//
-//} else {
-//    echo 'Commentaire non signalé !';
-//} 
+$postBilletId = htmlspecialchars($_GET['id']);
+$signaled = $commentarys->set_signaled(htmlspecialchars($_GET['signaled']));
+$id_commentary = htmlspecialchars($_GET['id_commentary']);
+
+if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
+      
+    $commentarysManager->update("UPDATE commentarys SET signaled = 1 WHERE id = $id_commentary ");
+   
+    header('Location: ../views/user_comments.php?id=' .$postBilletId );
+
+} else {
+    echo 'Commentaire non signalé !';
+} 

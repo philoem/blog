@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-// Appel du formulaire de création d'un nouveau billet - autoloading
+// Chargement autoloading Composer
 require '../vendor/autoload.php';
+
+// Chargement du formulaire de création des billets
 require '../models/classe/App/Form/FormAdmin.php';
 use classe\App\Form\FormAdmin;
 $formAdmin = new FormAdmin();
