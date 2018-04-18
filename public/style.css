@@ -1,3 +1,6 @@
+html {
+	text-decoration-color: #212121;
+}
 /* Page login.php */
 header nav h1 {
 	color: white;
@@ -27,7 +30,7 @@ header {
 	color: white;
 }
 #paragraph_header:hover {
-	font-weight: bold;
+	color: #fdd835;
 	text-decoration: none;
 }
 #card_user_vedette {

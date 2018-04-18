@@ -3,10 +3,8 @@ session_start();
 // Chargement autoloading Composer
 require '../vendor/autoload.php';
 
-//require './controlers/AccesControl.php';
-//require '../models/classe/App/Form/Form';
-
 // Chargement du formulaire de connexion
+require '../models/classe/App/Form/Form.php';
 use classe\App\Form\Form;
 $formLogin = new Form();
 

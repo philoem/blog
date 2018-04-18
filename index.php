@@ -1,12 +1,14 @@
 <?php
 if (isset($_GET['action'])) {
-
+	
 	if ($_GET['action'] == 'register') {
 		header('Location: controlers/registerControl.php');
-
+		
 	}
 	if ($_GET['action'] == 'login') {
 		header('Location: controlers/AccesControl.php');
+		require './controlers/AccesControl.php';
+		//login();
 
 	}
 	if ($_GET['action'] == 'reading') {
@@ -20,6 +22,7 @@ if (isset($_GET['action'])) {
 
 } 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,7 +33,7 @@ if (isset($_GET['action'])) {
 <!-- Ici le header  -->
 		<?php include ('./views/inc/header_index.php'); ?> 
 
-<!-- Ici le body avec le formulaire  -->
+<!-- Ici le body avec le formulaire d'accueil  -->
 		<?php  require('./views/home.php'); ?>
 		<?php echo $content;  ?>
 		
