@@ -8,7 +8,7 @@ require '../models/classe/App/Form/Form.php';
 use classe\App\Form\Form;
 $formLogin = new Form();
 
-	
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -31,7 +31,6 @@ class CommentarysManager extends DbConnect  {
         
         return $this->pdoStatement->execute();     
 
-
     }
 
     /**

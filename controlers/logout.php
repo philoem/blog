@@ -1,6 +1,10 @@
 <?php
-	session_start();
-	session_destroy();
+session_start();
+session_destroy();
 
-	header('location:../index.php');
+// Ici destruction des cookies existants
+setcookie('pseudo', '', time() -3600);
+setcookie('password', '', time() -3600);	
+
+header('location:../index.php');
 
