@@ -40,7 +40,6 @@ if (isset($_POST['remember'])) {
 }
 
 // Vérification du pseudo et du mot de passe pour se connecter de la page login.php
-//function login() {
 if (isset($_POST['submit_login'])) {
 	$pseudo = $login->set_pseudo(htmlspecialchars($_POST['pseudo']));
 	$password = $login->set_password_admin(sha1($_POST['password']));
@@ -58,7 +57,11 @@ if (isset($_POST['submit_login'])) {
 		
 	} 
 } 
-//}
+// Vérificationpour savoir si un administré s'est connecté et savoir si une session est déjà en cours. Dans ce cas-là, l'administrateur peut accéder à la page admin.php
+if(isset($_SESSION['pseudo']) AND isset($_SESSION['password']) OR isset($_COOKIE['pseudo']) AND isset($_COOKIE['password']) ) {
+
+	header('Location: ../views/admin.php');
+}
 	 
 
 	

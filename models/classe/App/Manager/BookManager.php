@@ -69,7 +69,7 @@ class BookManager extends DbConnect {
 
         $this->pdoStatement = $this->getPDO()->query('SELECT * FROM book ORDER BY date_billet DESC ');
         $billets = [];
-        while($billet = $this->pdoStatement->fetch()) {
+        while($billet = $this->pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $billets[] = $billet;
         }
         return $billets;

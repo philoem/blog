@@ -57,7 +57,7 @@ class CommentarysManager extends DbConnect  {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT id, name_user, commentary, approuved, signaled, delete_commentary, book_id, DATE_FORMAT(date_commentary, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentary FROM commentarys WHERE id = :id ORDER BY date_commentary DESC');
         $post = $this->pdoStatement->execute(['id' => $postId]);
-        $post = $this->pdoStatement->fetch();
+        $post = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
         //var_dump($post);
         return $post;
         
@@ -86,7 +86,7 @@ class CommentarysManager extends DbConnect  {
 
         $this->pdoStatement = $this->getPDO()->query('SELECT * FROM commentarys ORDER BY date_commentary DESC ');
         $commentarys = [];
-        while($comment = $this->pdoStatement->fetch()) {
+        while($comment = $this->pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $commentarys[] = $comment;
         }
         return $commentarys;

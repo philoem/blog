@@ -52,6 +52,20 @@ class Commentarys {
      */
     private $_book_id;
 
+    public function hydrate(array $datas) {
+
+        foreach ($datas as $key =>$Value) {
+
+            $method = 'set'.ucfirst($key);
+
+            if(method_exist($this, $method)) {
+
+                $this->$method($value);
+            }
+
+        }
+    }
+
     
     /**
      * Get $_id
@@ -83,9 +97,11 @@ class Commentarys {
      */ 
     public function set_name_user(string $_name_user)
     {
-        $this->_name_user = $_name_user;
+        if(is_string($_name_user)) {
 
-        return $this;
+            $this->_name_user = $_name_user;
+            return $this;
+        }
     }
 
     /**
@@ -107,9 +123,11 @@ class Commentarys {
      */ 
     public function set_commentary(string $_commentary)
     {
-        $this->_commentary = $_commentary;
+        if(is_string($_commentary)) {
 
-        return $this;
+            $this->_commentary = $_commentary;
+            return $this;
+        }
     }
 
     /**
@@ -131,9 +149,13 @@ class Commentarys {
      */ 
     public function set_approuved(int $_approuved)
     {
-        $this->_approuved = $_approuved;
-
-        return $this;
+        $_approuved = 0;
+       
+        if($_approuved = 0) {
+       
+            $this->_approuved = $_approuved;
+            return $this;
+        }
     }
 
     
@@ -156,9 +178,13 @@ class Commentarys {
      */ 
     public function set_signaled(int $_signaled)
     {
-        $this->_signaled = $_signaled;
-
-        return $this;
+        $_signaled = 0;
+        
+        if($_signaled = 0) {
+        
+            $this->_signaled = $_signaled;
+            return $this;
+        }
     }
 
     
@@ -181,9 +207,13 @@ class Commentarys {
      */ 
     public function set_delete_commentary(int $_delete_commentary)
     {
-        $this->_delete_commentary = $_delete_commentary;
-
-        return $this;
+        $_delete_commentary = 0;
+        
+        if($_delete_commentary = 0) {
+           
+            $this->_delete_commentary = $_delete_commentary;
+            return $this;
+        }
     }
 
     
@@ -206,8 +236,12 @@ class Commentarys {
      */ 
     public function set_book_id(int $_book_id)
     {
-        $this->_book_id = $_book_id;
-
-        return $this;
+        $_book_id = (int) $_book_id;
+        
+        if($_book_id > 0) {
+           
+            $this->_book_id = $_book_id;
+            return $this;
+        }
     }
 }

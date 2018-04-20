@@ -7,8 +7,7 @@ if (isset($_GET['action'])) {
 	}
 	if ($_GET['action'] == 'login') {
 		header('Location: controlers/AccesControl.php');
-		require './controlers/AccesControl.php';
-		//login();
+				
 
 	}
 	if ($_GET['action'] == 'reading') {
@@ -19,7 +18,7 @@ if (isset($_GET['action'])) {
 		header('Location: ./views/user.php');
 
 	}
-
+	
 } 
 
 

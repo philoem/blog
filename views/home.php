@@ -22,7 +22,7 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">Que souhaitez-vous faire ?</li>
 						<li class="list-group-item"><a href="index.php?action=register" class="card-link"><em>Vous inscrire ?</em></a></li>
-						<li class="list-group-item"><a href="index.php?action=login" class="card-link"><em>Vous connecter ?</em></a></li>
+						<li class="list-group-item"><a href="index.php?action=login" class="card-link"><em>Vous connecter ou accéder directement ?</em></a></li>
 						<li class="list-group-item"><a href="index.php?action=reading" class="card-link"><em>Lire le roman ?</em></a></li>
 						<li class="list-group-item"><a href="index.php?action=lastBillets" class="card-link"><em>Lire les derniers billets ?</em></a></li>
 					</ul>

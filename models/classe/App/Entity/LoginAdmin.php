@@ -39,8 +39,34 @@ class LoginAdmin {
      */
     private $_password_admin;
 
+    /**
+     * Pour récupérer un mot de passe
+     *
+     * @var [string]
+     */
+    private $_key_recup_mail;
 
+    /**
+     * Stockage des messages d'erreurs
+     *
+     * @var [string] $_error
+     */
     private $_error;
+
+    public function hydrate(array $datas) {
+
+        foreach ($datas as $key =>$Value) {
+
+            $method = 'set'.ucfirst($key);
+
+            if(method_exist($this, $method)) {
+
+                $this->$method($value);
+            }
+
+        }
+    }
+
 
     /**
      * Get $_prenom
@@ -61,9 +87,11 @@ class LoginAdmin {
      */ 
     public function set_prenom(string $_prenom)
     {
-        $this->_prenom = $_prenom;
-
-        return $this;
+        if (is_string($_prenom) AND strlen($_prenom) <= 60) {
+        
+            $this->_prenom = $_prenom;
+            return $this;
+        }
     }
 
         /**
@@ -85,9 +113,11 @@ class LoginAdmin {
      */ 
     public function set_nom(string $_nom)
     {
-        $this->_nom = $_nom;
-
-        return $this;
+        if (is_string($_nom) AND strlen($_nom) <= 60) {
+           
+            $this->_nom = $_nom;
+            return $this;
+        }
     }
     
     /**
@@ -109,9 +139,11 @@ class LoginAdmin {
      */ 
     public function set_pseudo(string $_pseudo)
     {
-        $this->_pseudo = $_pseudo;
-
-        return $this;
+        if (is_string($_pseudo) AND strlen($_pseudo) <= 60) {
+           
+            $this->_pseudo = $_pseudo;
+            return $this;
+        }
     }
     
         
@@ -125,9 +157,11 @@ class LoginAdmin {
      */ 
     public function set_mail_admin(string $_mail_admin)
     {
-        $this->_mail_admin = $_mail_admin;
-
-        return $this;
+        if (is_string($_mail_admin) AND strlen($_mail_admin) <= 255) {
+           
+            $this->_mail_admin = $_mail_admin;
+            return $this;
+        }
     }
     /**
      * Get $_mail_admin
@@ -160,11 +194,35 @@ class LoginAdmin {
      */ 
     public function set_password_admin(string $_password_admin)
     {
-        $this->_password_admin = $_password_admin;
-
-        return $this;
+        if (is_string($_password_admin) AND strlen($_password_admin) <= 255) {
+           
+            $this->_password_admin = $_password_admin;
+            return $this;
+        }
     }
-   
+      
+
+    /**
+     * Get the value of _key_recup_mail
+     */ 
+    public function get_key_recup_mail()
+    {
+        return $this->_key_recup_mail;
+    }
+
+    /**
+     * Set the value of _key_recup_mail
+     *
+     * @return  self
+     */ 
+    public function set_key_recup_mail($_key_recup_mail)
+    {
+        if (is_string($_key_recup_mail) AND strlen($_key_recup_mail) <= 60) {
+            
+            $this->_key_recup_mail = $_key_recup_mail;
+            return $this;
+        }
+    }
 
     /**
      * Get the value of _error

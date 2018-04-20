@@ -39,6 +39,22 @@ class Book {
      */
     private $_delete_book;
 
+    public function hydrate(array $datas) {
+
+        foreach ($datas as $key =>$Value) {
+
+            $method = 'set'.ucfirst($key);
+
+            if(method_exist($this, $method)) {
+
+                $this->$method($value);
+            }
+
+        }
+    }
+
+
+
     /**
      * Get $_id
      *
@@ -66,8 +82,11 @@ class Book {
      */
     public function setTitle($title) {
 
-        $this->title = $title;
-        return $this;
+        if(is_string($title)) {
+            
+            $this->title = $title;
+            return $this;
+        }
 
     }
     /**
@@ -87,8 +106,12 @@ class Book {
      */
     public function setBillet($billet) {
 
-        $this->billet = $billet;
-        return $this;
+        if(is_string($billet)) {
+
+            $this->billet = $billet;
+            return $this;
+           
+        }
 
     }
     /**
@@ -108,8 +131,13 @@ class Book {
      */
     public function setApprouved($approuved) {
 
-        $this->approuved = $approuved;
-        return $this;
+        $approuved = 0;
+        if($approuved == 0) {
+            
+            $this->approuved = $approuved;
+            return $this;
+        
+        }
 
     }
     /**
@@ -129,8 +157,11 @@ class Book {
      */
     public function setDeleteBook($delete_book) {
 
-        $this->delete_book = $delete_book;
-        return $this;
+        $delete_book = 0;
+        if($delete_book == 0) {
+            $this->delete_book = $delete_book;
+            return $this;
+        }
 
     }
     /**

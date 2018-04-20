@@ -53,7 +53,7 @@ class LoginAdminManager extends DbConnect {
         $this->pdoStatement->bindValue(':password_admin', $password_admin->get_password_admin(), PDO::PARAM_STR);
 
         $this->pdoStatement->execute();
-        //$this->pdoStatement->fetch();
+        
 
         return $this->pdoStatement;
 
