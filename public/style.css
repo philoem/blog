@@ -86,3 +86,22 @@ header {
 .form_style {
 	color: rebeccapurple;
 }
+/* RESPONSIVITE  */
+@media (min-width: 300px) and (max-width: 992px) {
+	
+	.navbar-brand {
+		flex-direction: column;
+	}
+	header h1 {
+		display: inline-flex;
+		overflow-wrap: break-word;
+		font-size: xx-large;
+	}
+	header a {
+		overflow-wrap: break-word;
+		font-size: medium;
+		width: auto;
+	}
+
+
+}

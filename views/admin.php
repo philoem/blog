@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Chargement autoloading Composer
 require '../vendor/autoload.php';
 
