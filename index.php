@@ -30,10 +30,10 @@ if (isset($_GET['action'])) {
 
 	<body>
 <!-- Ici le header  -->
-		<?php include ('./views/inc/header_index.php'); ?> 
+		<?php include './views/inc/header_index.php'; ?> 
 
 <!-- Ici le body avec le formulaire d'accueil  -->
-		<?php  require('./views/home.php'); ?>
+		<?php  require './views/home.php'; ?>
 		<?php echo $content;  ?>
 		
 	</body>

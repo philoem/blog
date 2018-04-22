@@ -67,7 +67,7 @@ class Form {
      */	
     public function redirect() {
         
-        return '<a href="register.php" class="btn btn-info" name="redirect_login" role="button">Cliquez ici pour vous inscrire</a>';
+        return '<a href="../controlers/registerControl.php" class="btn btn-info" name="redirect_login" role="button">Cliquez ici pour vous inscrire</a>';
 	}
 
     /**

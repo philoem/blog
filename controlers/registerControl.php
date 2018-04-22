@@ -23,9 +23,6 @@ require_once '../models/classe/App/Entity/LoginAdmin.php';
 use classe\App\Entity\LoginAdmin;
 $loginAdmin = new LoginAdmin();
 
-// Connexion à la base de données
-require_once '../controlers/model.php';
-$db = dbConnect();
 
 include_once '../views/register.php';
 
