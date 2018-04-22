@@ -1,21 +1,21 @@
 <?php
 if (isset($_GET['action'])) {
 	
-	if ($_GET['action'] == 'register') {
-		header('Location: controlers/registerControl.php');
+	if ($_GET['action'] === 'register') {
+		header('Location: ./controlers/registerControl.php');
 		
 	}
-	if ($_GET['action'] == 'login') {
-		header('Location: controlers/AccesControl.php');
+	if ($_GET['action'] === 'login') {
+		header('Location: ./controlers/AccesControl.php');
 				
 
 	}
-	if ($_GET['action'] == 'reading') {
+	if ($_GET['action'] === 'reading') {
 		header('Location: ./controlers/user_postControl.php');
 	
 	}
-	if ($_GET['action'] == 'lastBillets') {
-		header('Location: ./views/user.php');
+	if ($_GET['action'] === 'lastBillets') {
+		header('Location: ./controlers/userControl.php');
 
 	}
 	

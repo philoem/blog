@@ -34,8 +34,8 @@ $bookManager = new BookManager();
 						<h5 class="card-title">
 							<?='<p>'.htmlspecialchars($donneesUser['billet']).'</p>';	?>
 						</h5>
-						<a href="user_comments.php?id=<?= $donneesUser['id']  ?>" class="btn btn-info">Laissez votre commentaire</a>
-						<a href="../views/user_post.php" class="btn btn-primary"><em>Lecture du récit en entier</em></a>
+						<a href="../controlers/user_comments_post.php?id=<?= $donneesUser['id']  ?>" class="btn btn-info">Laissez votre commentaire</a>
+						<a href="../controlers/user_postControl.php" class="btn btn-primary"><em>Lecture du récit en entier</em></a>
 					</div>
 						<div class="card-footer text-muted">
 							<?= '<p><strong>Publié le <em>'.htmlspecialchars($donneesUser['date_billet']).'</em></strong></p>';	?>
@@ -58,7 +58,7 @@ $bookManager = new BookManager();
 							<p class="card-text">
 								<?= '<p>'.htmlspecialchars($donneesUser2['billet']).'</p>';	?>
 							</p>
-							<a href="user_comments.php?id=<?= $donneesUser2['id'] ?>" class="btn btn-info" >Commentez</a>
+							<a href="./user_comments_post.php?id=<?= $donneesUser2['id'] ?>" class="btn btn-info" >Commentez</a>
 						</div>
 					</div>
 				</div>
@@ -76,7 +76,7 @@ $bookManager = new BookManager();
 							<p class="card-text">
 								<?= '<p>'.htmlspecialchars($donneesUser3['billet']).'</p>'; ?>
 							</p>
-							<a href="user_comments.php?id=<?= $donneesUser3['id']  ?>" class="btn btn-info">Commentez</a>
+							<a href="./user_comments_post.php?id=<?= $donneesUser3['id']  ?>" class="btn btn-info">Commentez</a>
 						</div>
 					</div>
 				</div>
@@ -94,7 +94,7 @@ $bookManager = new BookManager();
 							<p class="card-text">
 							<?= '<p>'.htmlspecialchars($donneesUser4['billet']).'</p>'; ?>
 							</p>
-							<a href="user_comments.php?id=<?= $donneesUser4['id']  ?>" class="btn btn-info">Commentez</a>
+							<a href="./user_comments_post.php?id=<?= $donneesUser4['id']  ?>" class="btn btn-info">Commentez</a>
 						</div>
 					</div>
 				</div>

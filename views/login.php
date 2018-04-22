@@ -1,7 +1,4 @@
 <?php
-session_start();
-// Chargement autoloading Composer
-require '../vendor/autoload.php';
 
 // Chargement du formulaire de connexion
 require '../models/classe/App/Form/Form.php';

@@ -1,12 +1,18 @@
 <?php
 session_start();
+/**
+ * 
+ * CONTROLE DE LA PAGE LOGIN.PHP
+ * 
+ */
 
 // Autoloading Composer
 require '../vendor/autoload.php';
 
-//Redirection sur la page login.php
-header('Location: ../views/login.php');	
-
+// Chargement du formulaire de connexion
+include_once '../models/classe/App/Form/Form.php';
+use classe\App\Form\Form;
+$formLogin = new Form();
 
 // Chargement de la Classe BookMLoginAdminManager, gestionnaire d'entité pour les connexions
 require '../models/classe/App/Manager/LoginAdminManager.php';
@@ -34,8 +40,7 @@ if (isset($_POST['remember'])) {
 		
 		setcookie('pseudo', $pseudo, time() + 2*24*3600, '/', null, false, true);
 		setcookie('password', $password, time() + 2*24*3600, '/', null, false, true);
-		//header('Location: ../views/login.php');	
-		
+				
 	} 
 }
 

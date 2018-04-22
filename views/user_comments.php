@@ -26,8 +26,8 @@ $commentarysManager = new CommentarysManager();
 	
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header --> 
-			<?php include '../views/inc/header_user_comments.php'; ?>
+<!-- Ici le header  -->
+			<?php include '../views/inc/header_user_comments.php'; ?> 
 
 			<div class="container">	
 				<div class="row">
@@ -60,6 +60,7 @@ $commentarysManager = new CommentarysManager();
 										if ($postId == $donnees['book_id']) {?>
 											<p><strong><?= htmlspecialchars($donnees['name_user']) ?>,</strong><em> a commenté(e) le <?= htmlspecialchars($donnees['date_commentary']) ?> :</em></p><p><?= htmlspecialchars($donnees['commentary']) ?></p><?php if($donnees['signaled'] == 0){?><a class="btn btn-outline-danger" name ="btnSignaled" role="button" href="../controlers/user_comments_post.php?id=<?= $postId ?>&amp;id_commentary=<?= $donnees['id'] ?>&amp;signaled=<?= $donnees['signaled'] ?>"><em>Signaler ce commentaire</em></a> <?php } ?>
 										<?php }
+										
 									}
 								endforeach;
 								

@@ -1,15 +1,3 @@
-<?php
-// Chargement autoloading Composer
-require '../vendor/autoload.php';
-
-// Chargement de la Classe BookManager, gestionnaire d'entité pour les billets
-require '../models/classe/App/Manager/BookManager.php';
-use classe\App\Manager\BookManager;
-$bookManager = new BookManager();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->

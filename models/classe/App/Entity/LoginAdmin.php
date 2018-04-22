@@ -53,20 +53,7 @@ class LoginAdmin {
      */
     private $_error;
 
-    public function hydrate(array $datas) {
-
-        foreach ($datas as $key =>$Value) {
-
-            $method = 'set'.ucfirst($key);
-
-            if(method_exist($this, $method)) {
-
-                $this->$method($value);
-            }
-
-        }
-    }
-
+    
 
     /**
      * Get $_prenom

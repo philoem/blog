@@ -1,11 +1,16 @@
 <?php
 /**
  * 
- * Gestion du formulaire de la page user_comments.php pour le formulaire de création des commentaires et des boutons de signalements des commentaires
+ * Contrôle et gestion du formulaire de la page user_comments.php pour le formulaire de création des commentaires et des boutons de signalements des commentaires
  * 
  */
 // Chargement autoloading Composer
 require '../vendor/autoload.php';
+
+// Chargement du formulaire de création des commentaires
+require_once '../models/classe/App/Form/FormUserComments.php';
+use classe\App\Form\FormUserComments;
+$formUser = new FormUserComments();
 
 // Chargement de la Classe BookManager, gestionnaire d'entité pour les billets
 require '../models/classe/App/Manager/BookManager.php';
@@ -60,17 +65,23 @@ if (isset($_POST['book_id'])) {
     }
 }
 
+
 // Traitement ici des commentaires signalés avec le bouton
 $postBilletId = htmlspecialchars($_GET['id']);
-$signaled = $commentarys->set_signaled(htmlspecialchars($_GET['signaled']));
-$id_commentary = htmlspecialchars($_GET['id_commentary']);
+if (isset($_GET['signaled']) AND isset($_GET['id_commentary']) ){
+    $signaled = $commentarys->set_signaled(htmlspecialchars($_GET['signaled']));
+    $id_commentary = htmlspecialchars($_GET['id_commentary']);
 
-if (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
-      
+//} elseif (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
+    
     $commentarysManager->update("UPDATE commentarys SET signaled = 1 WHERE id = $id_commentary ");
-   
-    header('Location: ../views/user_comments.php?id=' .$postBilletId );
-
+    
+    //header('Location: ../views/user_comments.php?id=' .$postBilletId );
+    
 } else {
     echo 'Commentaire non signalé !';
 } 
+
+
+
+include '../views/user_comments.php';

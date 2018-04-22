@@ -39,22 +39,7 @@ class Book {
      */
     private $_delete_book;
 
-    public function hydrate(array $datas) {
-
-        foreach ($datas as $key =>$Value) {
-
-            $method = 'set'.ucfirst($key);
-
-            if(method_exist($this, $method)) {
-
-                $this->$method($value);
-            }
-
-        }
-    }
-
-
-
+    
     /**
      * Get $_id
      *

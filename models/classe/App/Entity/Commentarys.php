@@ -52,21 +52,7 @@ class Commentarys {
      */
     private $_book_id;
 
-    public function hydrate(array $datas) {
-
-        foreach ($datas as $key =>$Value) {
-
-            $method = 'set'.ucfirst($key);
-
-            if(method_exist($this, $method)) {
-
-                $this->$method($value);
-            }
-
-        }
-    }
-
-    
+        
     /**
      * Get $_id
      *
@@ -151,7 +137,7 @@ class Commentarys {
     {
         $_approuved = 0;
        
-        if($_approuved = 0) {
+        if($_approuved == 0) {
        
             $this->_approuved = $_approuved;
             return $this;
@@ -176,15 +162,15 @@ class Commentarys {
      *
      * @return  self
      */ 
-    public function set_signaled(int $_signaled)
+    public function set_signaled($_signaled)
     {
-        $_signaled = 0;
+        //$_signaled = 0;
         
-        if($_signaled = 0) {
+        //if($_signaled == 0 OR $_signaled == 1) {
         
             $this->_signaled = $_signaled;
             return $this;
-        }
+        //}
     }
 
     
@@ -209,7 +195,7 @@ class Commentarys {
     {
         $_delete_commentary = 0;
         
-        if($_delete_commentary = 0) {
+        if($_delete_commentary == 0) {
            
             $this->_delete_commentary = $_delete_commentary;
             return $this;

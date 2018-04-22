@@ -95,7 +95,7 @@ class CommentarysManager extends DbConnect  {
 
     /**
      * Méthode CRUD, ici modification des commentaires
-     * @param int $statement Requête SQL
+     * @param string $statement Requête SQL
      * @return 
      */
     public function update($statement) {
