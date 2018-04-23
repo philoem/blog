@@ -39,7 +39,7 @@ class FormAdmin extends Form {
     public function inputBillet($billet)
     {
 		
-        return '<textarea class="form-control" name="'. $billet .'" id="exampleFormControlTextarea1" rows="20"></textarea>';
+        return '<textarea class="form-control" name="'. $billet .'" id="exampleFormControlTextarea1" rows="18"></textarea>';
 
     }
 

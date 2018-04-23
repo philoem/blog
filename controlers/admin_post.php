@@ -18,11 +18,12 @@ require_once '../models/classe/App/Entity/Book.php';
 use classe\App\Entity\Book;
 $book = new Book();
 
-$title = $book->setTitle(htmlspecialchars($_POST['title']));
-$billet = $book->setBillet(htmlspecialchars($_POST['billet']));
 
-// Traitement du formulaire pour créer un nouveau billet
-if (!empty($title) AND !empty($billet)) {
+// Traitement du formulaire pour créer un nouveau billet avec suppressions des balises html de l'éditeur TinyMce
+if (isset($_POST['title']) AND !empty($_POST['title']) AND isset($_POST['billet']) AND !empty($_POST['billet'])) {
+	
+	$title = $book->setTitle(strip_tags($_POST['title']));
+	$billet = $book->setBillet(strip_tags($_POST['billet']));
 	
 	$bookManager->create($book);
 	
@@ -30,6 +31,6 @@ if (!empty($title) AND !empty($billet)) {
 
 } else {
 	
-	echo 'Error 404';
-	echo '<p><a href="../views/admin2.php"><strong>Retour</strong></a></p>';
+	echo 'ERROR 409, LA REQUETE NE PEUT ETRE TRAITEE EN L\'ETAT ACTUEL';
+	echo '<p><a href="../views/admin2.php"><strong>Retour vers le formulaire de création des billets</strong></a></p>';
 }

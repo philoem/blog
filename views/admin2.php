@@ -13,8 +13,20 @@ $formAdmin = new FormAdmin();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Ici le head  -->
-	<?php include ('../views/inc/head_html.php'); ?>
+	<head>
+<!-- Ici TinyMCE  -->
+		<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+		<script>
+			tinymce.init({ 
+				selector:'textarea',
+				entity_encoding: 'raw',
+				encoding:'UTF-8',
+				plugins: 'wordcount',
+				branding: false
+			});
+		</script>
+		<?php include ('../views/inc/head_html.php'); ?>
+	</head>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header -->	 	

@@ -24,7 +24,7 @@ class BookManager extends DbConnect {
      */
     public function create(Book $book)
     {
-
+        
         $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO book(title, billet, approuved, delete_book, date_billet) VALUES(:title, :billet, 0, 0, NOW())');
         
         $this->pdoStatement->bindValue(':title', $book->getTitle(), PDO::PARAM_STR);

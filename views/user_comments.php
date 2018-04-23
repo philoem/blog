@@ -21,9 +21,9 @@ $commentarysManager = new CommentarysManager();
 ?>				
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Ici le head  -->
-	<?php include ('../views/inc/head_html.php'); ?>
-	
+	<head>
+		<?php include ('../views/inc/head_html.php'); ?>
+	</head>
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header  -->

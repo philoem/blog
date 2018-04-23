@@ -105,3 +105,8 @@ header {
 
 
 }
+/* Pour enlever la bannière commerciale dans le textarea du TinyMCE  */
+#mceu_30 {
+	display: none;
+}
+
