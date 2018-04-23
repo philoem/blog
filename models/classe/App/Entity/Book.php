@@ -10,44 +10,44 @@ use \PDO;
 class Book {
 
     /**
-     * @var int $_id
+     * @var int $id
      * Identifiant du billet 
      */
-    private $_id;
+    private $id;
 
     /**
-     * @var string $_title
+     * @var string $title
      * Titre du billet 
      */
-    private $_title;
+    private $title;
 
     /**
-     * @var string $_billet
+     * @var string $billet
      * Contenu du billet 
      */
-    private $_billet;
+    private $billet;
 
     /**
-     * @var int $_approuved
+     * @var int $approuved
      * Billet approuvé ou non par l'administrateur pour l'édition ou non du billet 
      */
-    private $_approuved;
+    private $approuved;
 
     /**
-     * @var int $_delete_book
+     * @var int $delete_book
      * Champs servant à envoyer dans l'url un 0 ou un 1
      */
-    private $_delete_book;
+    private $delete_book;
 
     
     /**
-     * Get $_id
+     * Get $id
      *
      * @return  int
      */ 
     public function get_id()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     ///**
@@ -65,20 +65,19 @@ class Book {
      * @param $title
      * @return Book
      */
-    public function setTitle($title) {
-
-        if(is_string($title)) {
-            
-            $this->title = $title;
-            return $this;
-        }
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+        return $this;
+       
 
     }
     /**
      * Getter du champs title
      * 
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         
         return $this->title;
 
@@ -89,21 +88,19 @@ class Book {
      * @param $billet
      * @return Book
      */
-    public function setBillet($billet) {
+    public function setBillet(string $billet)
+    {
 
-        if(is_string($billet)) {
-
-            $this->billet = $billet;
-            return $this;
-           
-        }
-
+        $this->billet = $billet;
+        return $this;
+    
     }
     /**
      * Getter du champs billet
      * 
      */
-    public function getBillet() {
+    public function getBillet()
+    {
         
         return $this->billet;
 
@@ -114,22 +111,19 @@ class Book {
      * @param int $approuved
      * @return Book
      */
-    public function setApprouved($approuved) {
-
-        $approuved = 0;
-        if($approuved == 0) {
-            
-            $this->approuved = $approuved;
-            return $this;
-        
-        }
-
+    public function setApprouved(int $approuved)
+    {
+    
+        $this->approuved = $approuved;
+        return $this;
+      
     }
     /**
      * Getter du champs approuved
      * @return 0 ou 1
      */
-    public function getApprouved() {
+    public function getApprouved()
+    {
         
         return $this->approuved;
 
@@ -140,26 +134,22 @@ class Book {
      * @param int $delete_book
      * @return Book
      */
-    public function setDeleteBook($delete_book) {
-
-        $delete_book = 0;
-        if($delete_book == 0) {
-            $this->delete_book = $delete_book;
-            return $this;
-        }
-
+    public function setDeleteBook(int $delete_book)
+    {
+     
+        $this->delete_book = $delete_book;
+        return $this;
+       
     }
     /**
      * Getter du champs delete_book
      * @return 0 ou 1
      */
-    public function getDeleteBook() {
+    public function getDeleteBook()
+    {
         
         return $this->delete_book;
 
     }
-
-
-
-    
+  
 }

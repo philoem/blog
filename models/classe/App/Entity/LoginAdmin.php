@@ -10,223 +10,221 @@ use \PDO;
 class LoginAdmin {
 
     /**
-     * @var string $_prenom
+     * @var string $prenom
      * Prénom de l'administrateur
      */
-    private $_prenom;
+    private $prenom;
 
     /**
-     * @var string $_nom
+     * @var string $nom
      * Nom de l'administrateur
      */
-    private $_nom;
+    private $nom;
 
     /**
-     * @var int $_pseudo
+     * @var string $pseudo
      * Pseudo de l'administrateur
      */
-    private $_pseudo;
+    private $pseudo;
 
     /**
-     * @var int $_mail_admin
+     * @var string $mail_admin
      * Mail de l'administrateur
      */
-    private $_mail_admin;
+    private $mail_admin;
 
     /**
-     * @var int $_password_admin
+     * @var string $password_admin
      * Mot de passe crypté de l'administrateur
      */
-    private $_password_admin;
+    private $password_admin;
 
     /**
      * Pour récupérer un mot de passe
      *
      * @var [string]
      */
-    private $_key_recup_mail;
+    private $key_recup_mail;
 
     /**
      * Stockage des messages d'erreurs
      *
-     * @var [string] $_error
+     * @var [string] $error
      */
-    private $_error;
+    private $error;
 
     
 
     /**
-     * Get $_prenom
+     * Get $prenom
      *
      * @return  string
      */ 
     public function get_prenom()
     {
-        return $this->_prenom;
+        return $this->prenom;
     }
 
     /**
-     * Set $_prenom
+     * Set $prenom
      *
-     * @param  string  $_prenom  $_prenom
+     * @param  string  $prenom  
      *
      * @return  self
      */ 
-    public function set_prenom(string $_prenom)
+    public function set_prenom(string $prenom)
     {
-        if (is_string($_prenom) AND strlen($_prenom) <= 60) {
+        if (strlen($prenom) <= 60) {
         
-            $this->_prenom = $_prenom;
+            $this->prenom = $prenom;
             return $this;
         }
     }
 
-        /**
-     * Get $_nom
+    /**
+     * Get $nom
      *
      * @return  string
      */ 
     public function get_nom()
     {
-        return $this->_nom;
+        return $this->nom;
     }
 
     /**
-     * Set $_nom
+     * Set $nom
      *
-     * @param  string  $_nom  $_nom
+     * @param  string  $nom  
      *
      * @return  self
      */ 
-    public function set_nom(string $_nom)
+    public function set_nom(string $nom)
     {
-        if (is_string($_nom) AND strlen($_nom) <= 60) {
+        if (strlen($nom) <= 60) {
            
-            $this->_nom = $_nom;
+            $this->nom = $nom;
             return $this;
         }
     }
     
     /**
-     * Get $_pseudo
+     * Get $pseudo
      *
      * @return  string
      */ 
     public function get_pseudo()
     {
-        return $this->_pseudo;
+        return $this->pseudo;
     }
 
     /**
-     * Set $_pseudo
+     * Set $pseudo
      *
-     * @param  string  $_pseudo  $_pseudo
+     * @param  string  $pseudo  
      *
      * @return  self
      */ 
-    public function set_pseudo(string $_pseudo)
+    public function set_pseudo(string $pseudo)
     {
-        if (is_string($_pseudo) AND strlen($_pseudo) <= 60) {
+        if (strlen($pseudo) <= 60) {
            
-            $this->_pseudo = $_pseudo;
+            $this->pseudo = $pseudo;
             return $this;
         }
     }
-    
-        
-
+         
     /**
-     * Set $_mail_admin
+     * Set $mail_admin
      *
-     * @param  string  $_mail_admin  $_mail_admin
+     * @param  string  $mail_admin  
      *
      * @return  self
      */ 
-    public function set_mail_admin(string $_mail_admin)
+    public function set_mail_admin(string $mail_admin)
     {
-        if (is_string($_mail_admin) AND strlen($_mail_admin) <= 255) {
+        if (strlen($mail_admin) <= 255) {
            
-            $this->_mail_admin = $_mail_admin;
+            $this->mail_admin = $mail_admin;
             return $this;
         }
     }
     /**
-     * Get $_mail_admin
+     * Get $mail_admin
      *
      * @return  string
      */ 
     public function get_mail_admin()
     {
-        return $this->_mail_admin;
+        return $this->mail_admin;
     }
 
         
 
     /**
-     * Get $_password_admin
+     * Get $password_admin
      *
      * @return  string
      */ 
     public function get_password_admin()
     {
-        return $this->_password_admin;
+        return $this->password_admin;
     }
 
     /**
-     * Set $_password_admin
+     * Set $password_admin
      *
-     * @param  string  $_password_admin  $_password_admin
+     * @param  string  $password_admin  
      *
      * @return  self
      */ 
-    public function set_password_admin(string $_password_admin)
+    public function set_password_admin(string $password_admin)
     {
-        if (is_string($_password_admin) AND strlen($_password_admin) <= 255) {
+        if (strlen($password_admin) <= 255) {
            
-            $this->_password_admin = $_password_admin;
+            $this->password_admin = $password_admin;
             return $this;
         }
     }
       
 
     /**
-     * Get the value of _key_recup_mail
+     * Get the value of $key_recup_mail
      */ 
     public function get_key_recup_mail()
     {
-        return $this->_key_recup_mail;
+        return $this->key_recup_mail;
     }
 
     /**
-     * Set the value of _key_recup_mail
+     * Set the value of $key_recup_mail
      *
      * @return  self
      */ 
-    public function set_key_recup_mail($_key_recup_mail)
+    public function set_key_recup_mail(string $key_recup_mail)
     {
-        if (is_string($_key_recup_mail) AND strlen($_key_recup_mail) <= 60) {
+        if (strlen($key_recup_mail) <= 60) {
             
-            $this->_key_recup_mail = $_key_recup_mail;
+            $this->key_recup_mail = $key_recup_mail;
             return $this;
         }
     }
 
     /**
-     * Get the value of _error
+     * Get the value of $error
      */ 
     public function get_error()
     {
-        return $this->_error;
+        return $this->error;
     }
 
     /**
-     * Set the value of _error
+     * Set the value of $error
      *
      * @return  self
      */ 
-    public function set_error($_error)
+    public function set_error(string $error)
     {
-        $this->_error = $_error;
+        $this->error = $error;
 
         return $this;
     }

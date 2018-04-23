@@ -16,7 +16,7 @@ class LoginAdminManager extends DbConnect {
     /**
      * Variable qui va servir à stocker les requêtes (query et prepare)
      */
-    private $_pdoStatement;
+    private $pdoStatement;
 
       
 
@@ -25,7 +25,8 @@ class LoginAdminManager extends DbConnect {
      *
      * @return bool true si le commentaire a bien été créé dans la table commentarys
      */
-    public function create(LoginAdmin $loginAdmin) {
+    public function create(LoginAdmin $loginAdmin)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO login_admin(prenom, nom, pseudo, mail_admin, password_admin, key_recup_mail, date_login) VALUES(:prenom, :nom, :pseudo, :mail_admin, :password_admin, null, NOW())');
         
@@ -45,7 +46,8 @@ class LoginAdminManager extends DbConnect {
      *
      * @return 
      */
-    public function readLogin($pseudo, $password_admin)  {
+    public function readLogin($pseudo, $password_admin)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT pseudo, password_admin FROM login_admin WHERE pseudo = :pseudo AND password_admin = :password_admin');
         
@@ -54,9 +56,7 @@ class LoginAdminManager extends DbConnect {
 
         $this->pdoStatement->execute();
         
-
         return $this->pdoStatement;
-
 
     }
 
@@ -64,9 +64,10 @@ class LoginAdminManager extends DbConnect {
      * Méthode CRUD, ici la fonction modification d'un admin pour notamment quand on a perdu son mot de passe
      * 
      */
-    public function update() {
+    public function update()
+    {
 
-
+        // En préparation pour la fonction récupération du mot de passe
 
     }
 
@@ -74,9 +75,11 @@ class LoginAdminManager extends DbConnect {
      * Méthode CRUD, ici la fonction suppression d'un admin 
      * 
      */
-    public function delete() {
+    public function delete()
+    {
 
-
+        // En préparation pour la fonction récupération du mot de passe 
+        // Ou encore si l'auteur veut donner l'accès à une tierce personne, comme par exemple un nègre
 
     }
 

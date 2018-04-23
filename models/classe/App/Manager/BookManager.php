@@ -6,7 +6,7 @@ use classe\App\Entity\Book;
 
 /**
  * classe BookManager héritée de la classe DbConnect
- * Pour la page admin2.php
+ * 
  */
 
 class BookManager extends DbConnect {
@@ -22,12 +22,13 @@ class BookManager extends DbConnect {
      * 
      * @return 
      */
-    public function create(Book $book) {
+    public function create(Book $book)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare('INSERT INTO book(title, billet, approuved, delete_book, date_billet) VALUES(:title, :billet, 0, 0, NOW())');
+        
         $this->pdoStatement->bindValue(':title', $book->getTitle(), PDO::PARAM_STR);
         $this->pdoStatement->bindValue(':billet', $book->getBillet(), PDO::PARAM_STR);
-        
         
         return $this->pdoStatement->execute();     
 
@@ -38,9 +39,11 @@ class BookManager extends DbConnect {
      * @param int $statement Correspond à la requête SQL
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
-    public function readStatement($statement) {
+    public function readStatement($statement)
+    {
 
         $this->pdoStatement = $this->getPDO()->query($statement);
+        
         return $this->pdoStatement;
 
     }
@@ -50,7 +53,8 @@ class BookManager extends DbConnect {
      * @param int $postBilletId Identifiant d'un billet
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
-    public function read($postBilletId) {
+    public function read($postBilletId)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_billet FROM book WHERE id = ?');
         
@@ -65,9 +69,11 @@ class BookManager extends DbConnect {
      * 
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
-    public function readAll() {
+    public function readAll()
+    {
 
         $this->pdoStatement = $this->getPDO()->query('SELECT * FROM book ORDER BY date_billet DESC ');
+        
         $billets = [];
         while($billet = $this->pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $billets[] = $billet;
@@ -81,11 +87,13 @@ class BookManager extends DbConnect {
      * 
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
-    public function readId($id) {
+    public function readId($id)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT * FROM book WHERE id = :id ');
+        
         $this->pdoStatement->bindValue(':id', $id->getIdBook(), PDO::PARAM_INT);
-        $executeOk = $this->pdoStatement->execute();
+        $this->pdoStatement->execute();
 
     }
 
@@ -95,11 +103,11 @@ class BookManager extends DbConnect {
      * @param int $statement Requête SQL
      * @return 
      */
-    public function update($statement) {
+    public function update($statement)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare($statement);
         
-
         return $this->pdoStatement;
 
     }
@@ -109,15 +117,13 @@ class BookManager extends DbConnect {
      * @param int $statement Requête SQL
      * @return 
      */
-    public function delete($statement) {
+    public function delete($statement)
+    {
 
         $this->pdoStatement = $this->getPDO()->prepare($statement);
         
-
         return $this->pdoStatement;
 
-
     }
-
 
 }

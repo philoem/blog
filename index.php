@@ -34,7 +34,7 @@ if (isset($_GET['action'])) {
 
 <!-- Ici le body avec le formulaire d'accueil  -->
 		<?php  require './views/home.php'; ?>
-		<?php echo $content;  ?>
+		<?= $content;  ?>
 		
 	</body>
 

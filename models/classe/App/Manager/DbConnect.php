@@ -19,7 +19,8 @@ class DbConnect {
 
 
 
-    public function __construct($db_name = DB_NAME, $db_user = DB_USER, $db_pass = DB_PASS, $db_host = DB_HOST) {
+    public function __construct($db_name = DB_NAME, $db_user = DB_USER, $db_pass = DB_PASS, $db_host = DB_HOST)
+    {
         
         $this->db_name = $db_name;
         $this->db_user = $db_user;
@@ -28,7 +29,8 @@ class DbConnect {
 
     }
 
-    public function getPDO() {
+    public function getPDO()
+    {
 
         if ($this->pdo == null) {
 
@@ -41,7 +43,5 @@ class DbConnect {
         return $this->pdo;
 
     }
-
-
 
 }

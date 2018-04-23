@@ -3,230 +3,214 @@ namespace classe\App\Entity;
 use \PDO;
 
 /**
- * classe Commentary 
+ * classe Commentarys 
  * Entitée correspondante à la table commentarys
  */
 
 class Commentarys {
 
     /**
-     * @var int $_id
+     * @var int $id
      * Identifiant du commentaire 
      */
-    private $_id;
+    private $id;
 
     /**
-     * @var string $_name_user
+     * @var string $name_user
      * Nom du commentateur
      */
-    private $_name_user;
+    private $name_user;
 
     /**
      * @var string $_commentary
      * Contenu du billet 
      */
-    private $_commentary;
+    private $commentary;
 
     /**
-     * @var int $_approuved
+     * @var int $approuved
      * Commentaire approuvé ou non
      */
-    private $_approuved;
+    private $approuved;
     
        
     /**
-     * @var int $_signaled
+     * @var int $signaled
      * Commentaire signalé ou non
      */
-    private $_signaled;
+    private $signaled;
 
     /**
-     * @var int $_delete_commentary
+     * @var int $delete_commentary
      * Champs pour gérer les boutons qui signalent les commentaires, et pour faire passer dans l'url un 0 ou un 1
      */
-    private $_delete_commentary;
+    private $delete_commentary;
 
     /**
-     * @var int $_book_id
+     * @var int $book_id
      * Identifiant du billet de la table book 
      */
-    private $_book_id;
+    private $book_id;
 
         
     /**
-     * Get $_id
+     * Get $id
      *
      * @return  int
      */ 
     public function get_id()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     
     /**
-     * Get $_name_user
+     * Get $name_user
      *
      * @return  string
      */ 
     public function get_name_user()
     {
-        return $this->_name_user;
+        return $this->name_user;
     }
 
     /**
-     * Set $_name_user
+     * Set $name_user
      *
-     * @param  string  $_name_user  $_name_user
+     * @param  string  $name_user  
      *
      * @return  self
      */ 
-    public function set_name_user(string $_name_user)
+    public function set_name_user(string $name_user)
     {
-        if(is_string($_name_user)) {
-
-            $this->_name_user = $_name_user;
-            return $this;
-        }
+        $this->name_user = $name_user;
+        return $this;
+      
     }
 
     /**
-     * Get $_commentary
+     * Get $commentary
      *
      * @return  string
      */ 
     public function get_commentary()
     {
-        return $this->_commentary;
+        return $this->commentary;
     }
 
     /**
-     * Set $_commentary
+     * Set $commentary
      *
-     * @param  string  $_commentary  $_commentary
-     *
+     * @param  string  $commentary  
      * @return  self
      */ 
-    public function set_commentary(string $_commentary)
+    public function set_commentary(string $commentary)
     {
-        if(is_string($_commentary)) {
-
-            $this->_commentary = $_commentary;
-            return $this;
-        }
+        $this->commentary = $commentary;
+        return $this;
+       
     }
 
     /**
-     * Get $_approuved
+     * Get $approuved
      *
      * @return  int
      */ 
-    public function get_approuved()
+    public function getapprouved()
     {
-        return $this->_approuved;
+        return $this->approuved;
     }
 
     /**
-     * Set $_approuved
+     * Set $approuved
      *
-     * @param  int  $_approuved  $_approuved
+     * @param  int  $approuved  
      *
      * @return  self
      */ 
-    public function set_approuved(int $_approuved)
+    public function set_approuved(int $approuved)
     {
-        $_approuved = 0;
-       
-        if($_approuved == 0) {
-       
-            $this->_approuved = $_approuved;
-            return $this;
-        }
+              
+        $this->approuved = $approuved;
+        return $this;
+        
     }
 
     
     /**
-     * Get $_signaled
+     * Get $signaled
      *
      * @return  int
      */ 
     public function get_signaled()
     {
-        return $this->_signaled;
+        return $this->signaled;
     }
 
     /**
-     * Set $_signaled
+     * Set $signaled
      *
-     * @param  int  $_signaled  $_signaled
+     * @param  int  $signaled  
      *
      * @return  self
      */ 
-    public function set_signaled($_signaled)
+    public function set_signaled(int $signaled)
     {
-        //$_signaled = 0;
-        
-        //if($_signaled == 0 OR $_signaled == 1) {
-        
-            $this->_signaled = $_signaled;
+             
+        $this->signaled = $signaled;
             return $this;
-        //}
+       
     }
 
     
     /**
-     * Get $_delete_commentary
+     * Get $delete_commentary
      *
      * @return  int
      */ 
     public function get_delete_commentary()
     {
-        return $this->_delete_commentary;
+        return $this->delete_commentary;
     }
 
     /**
-     * Set $_delete_commentary
+     * Set $delete_commentary
      *
-     * @param  int  $_delete_commentary  $_delete_commentary
+     * @param  int  $delete_commentary  
      *
      * @return  self
      */ 
-    public function set_delete_commentary(int $_delete_commentary)
+    public function set_delete_commentary(int $delete_commentary)
     {
-        $_delete_commentary = 0;
-        
-        if($_delete_commentary == 0) {
-           
-            $this->_delete_commentary = $_delete_commentary;
-            return $this;
-        }
+                  
+        $this->delete_commentary = $delete_commentary;
+        return $this;
+       
     }
-
     
     /**
-     * Get $_book_id
+     * Get $book_id
      *
      * @return  int
      */ 
     public function get_book_id()
     {
-        return $this->_book_id;
+        return $this->book_id;
     }
 
     /**
-     * Set $_book_id
+     * Set $book_id
      *
-     * @param  int  $_book_id  $_book_id
+     * @param  int  $book_id  
      *
      * @return  self
      */ 
-    public function set_book_id(int $_book_id)
+    public function set_book_id(int $book_id)
     {
-        $_book_id = (int) $_book_id;
-        
-        if($_book_id > 0) {
+               
+        if($book_id > 0) {
            
-            $this->_book_id = $_book_id;
+            $this->book_id = $book_id;
             return $this;
         }
     }
