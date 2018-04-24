@@ -1,16 +1,14 @@
 <?php
-// Chargement autoloading Composer
-require '../vendor/autoload.php';
+// Sécurisation de la page pour empêcher l'accès via une réécriture de l'url
+if (!isset($_SESSION['pseudo']) AND !isset($_SESSION['password'])) {
 
-// Chargement de la Classe BookManager, gestionnaire d'entité pour les billets
-require '../models/classe/App/Manager/BookManager.php';
-use classe\App\Manager\BookManager;
-$bookManager = new BookManager();
+    header('Location: ../views/login.php');
 
-// Chargement de la Classe CommentarysManager, gestionnaire d'entité pour les commentaires
-require '../models/classe/App/Manager/CommentarysManager.php';
-use classe\App\Manager\CommentarysManager;
-$commentarysManager = new CommentarysManager();
+} elseif (isset($_COOKIES['pseudo']) AND isset($_COOKIES['password'])) {
+	
+	header('Location: ../controlers/adminControl.php');
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -55,10 +53,10 @@ $commentarysManager = new CommentarysManager();
 						<h3>Liste des derniers billets:</h3>
 						<?php
 							/**
-							 * Affichage des 2 derniers billets
+							 * Affichage des derniers billets en n'affichant que les titres avec leurs dates et leurs boutons
 							*/
-							foreach ($bookManager->readStatement('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC LIMIT 0, 2') as $billet):?>
-								<p><strong><?= htmlspecialchars($billet['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($billet['date_billet']) ?></em></p><p><?= htmlspecialchars($billet['billet']) ?></p><?php if($billet['approuved'] == 0) { ?> <a name="btn_conserver_billet" class="btn btn-outline-warning" role="button" href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;approuved_billet=<?= $billet['approuved'] ?>&amp;btn_conserver_billet"><strong>Editer</strong></a> <a name="btn_supprimer_billet" class="btn btn-outline-danger" role="button" href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;delete_book=<?= $billet['delete_book'] ?>&amp;btn_supprimer_billet"><em>Supprimer</em></a><?php } 
+							foreach ($bookManager->readStatement('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC') as $billet):?>
+								<p><strong><?= htmlspecialchars($billet['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($billet['date_billet']) ?></em></p><?php if($billet['approuved'] == 0) { ?> <a name="btn_conserver_billet" class="btn btn-outline-warning" role="button" href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;approuved_billet=<?= $billet['approuved'] ?>&amp;btn_conserver_billet"><strong>Editer</strong></a> <a name="btn_supprimer_billet" class="btn btn-outline-danger" role="button" href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;delete_book=<?= $billet['delete_book'] ?>&amp;btn_supprimer_billet"><em>Supprimer</em></a><?php } 
 							endforeach;?>
 					</div>
 					

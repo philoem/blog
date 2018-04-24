@@ -22,7 +22,7 @@ $book = new Book();
 // Traitement du formulaire pour créer un nouveau billet avec suppressions des balises html de l'éditeur TinyMce
 if (isset($_POST['title']) AND !empty($_POST['title']) AND isset($_POST['billet']) AND !empty($_POST['billet'])) {
 	
-	$title = $book->setTitle(strip_tags($_POST['title']));
+	$title = $book->setTitle(htmlspecialchars($_POST['title']));
 	$billet = $book->setBillet(strip_tags($_POST['billet']));
 	
 	$bookManager->create($book);

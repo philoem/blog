@@ -24,7 +24,7 @@ $bookManager = new BookManager();
 				<div class="card text-center">
 					<div class="card-header" id="card_header_user_title_billet">
 						<?php 
-						$billetUser1 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC LIMIT 0, 1');
+						$billetUser1 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY id DESC LIMIT 0, 1');
 
 						$donneesUser = $billetUser1->fetch();
 						echo '<p><strong>'.htmlspecialchars($donneesUser['title']).'</strong></p>';
@@ -51,7 +51,7 @@ $bookManager = new BookManager();
 						<div class="card-body">
 							<h5 class="card-title">
 								<?php 
-								$billetUser2 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC LIMIT 1, 1');
+								$billetUser2 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY id DESC LIMIT 1, 1');
 								$donneesUser2 = $billetUser2->fetch();
 								echo '<p><strong>'.htmlspecialchars($donneesUser2['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser2['date_billet']).'</em></p>';
 								?>
@@ -69,7 +69,7 @@ $bookManager = new BookManager();
 						<div class="card-body">
 							<h5 class="card-title">
 								<?php 
-								$billetUser3 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY ID DESC LIMIT 2, 1');
+								$billetUser3 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY ID DESC LIMIT 2, 1');
 								$donneesUser3 = $billetUser3->fetch();
 								echo '<p><strong>'.htmlspecialchars($donneesUser3['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser3['date_billet']).'</em></p>';
 								?>
@@ -87,7 +87,7 @@ $bookManager = new BookManager();
 						<div class="card-body">
 							<h5 class="card-title">
 								<?php 
-								$billetUser4 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY ID DESC LIMIT 3, 1');
+								$billetUser4 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY ID DESC LIMIT 3, 1');
 								$donneesUser4 = $billetUser4->fetch();
 								echo '<p><strong>'.htmlspecialchars($donneesUser4['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser4['date_billet']).'</em></p>';
 								?>

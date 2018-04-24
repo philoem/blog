@@ -26,7 +26,7 @@ $login = new LoginAdmin();
 
 // Condition d'entrée dans l'espace administrateur si des cookies existent
 if (isset($_COOKIE['pseudo']) AND isset($_COOKIE['password']) AND !empty($_COOKIE['pseudo']) AND !empty($_COOKIE['password'])) {
-	header('Location: ../views/admin.php');
+	header('Location: ../controlers/adminControl.php');
 } else {
 	header('Location: ../views/login.php');
 }
@@ -55,17 +55,23 @@ if (isset($_POST['submit_login'])) {
 		$adminexist = $reqadmin->rowCount(); 
 		
 		if ($adminexist == 1) {
+			
 			$_SESSION['pseudo'] = $_POST['pseudo'];
 			$_SESSION['password'] = $_POST['password'];
-			header('Location: ../views/admin.php');
+			header('Location: ../controlers/adminControl.php');
+		
 		} 
 		
 	} 
 } 
-// Vérificationpour savoir si un administré s'est connecté et savoir si une session est déjà en cours. Dans ce cas-là, l'administrateur peut accéder à la page admin.php
+// Vérification pour savoir si un administré s'est connecté et savoir si une session est déjà en cours. Dans ce cas-là, l'administrateur peut accéder à la page admin.php
 if(isset($_SESSION['pseudo']) AND isset($_SESSION['password']) OR isset($_COOKIE['pseudo']) AND isset($_COOKIE['password']) ) {
 
-	header('Location: ../views/admin.php');
+	header('Location: ../controlers/adminControl.php');
+
+} else if(!isset($_SESSION['pseudo']) AND !isset($_SESSION['password']) OR !isset($_COOKIE['pseudo']) AND !isset($_COOKIE['password'])) {
+	
+	header('Location: ../views/login.php');
 }
 	 
 
