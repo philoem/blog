@@ -32,26 +32,26 @@ if (isset($_GET['btn_conserver_commentary']) OR isset($_GET['btn_supprimer_comme
     if (isset($_GET['btn_conserver_commentary']) ) {
         
         $req1 = $commentarysManager->update("UPDATE commentarys SET approuved = 1 WHERE id = $id_commentary");
-        header('Location: ../views/admin.php');  
+        header('Location: ../controlers/adminControl.php');  
         
     } else if (isset($_GET['btn_supprimer_commentary'])) {
         
         $req2 = $commentarysManager->delete("DELETE FROM commentarys WHERE id = $id_commentary ");
-        header('Location: ../views/admin.php');      
+        header('Location: ../controlers/adminControl.php');      
     }
     
     if (isset($_GET['btn_conserver_billet'])) {
         
         $req3 = $bookManager->update("UPDATE book SET approuved = 1 WHERE id = $id");
         $req3->execute([$approuved_billet]);
-        header('Location: ../views/admin.php');  
+        header('Location: ../controlers/adminControl.php');  
         
     } 
     elseif (isset($_GET['btn_supprimer_billet'])) {
         
         $req4 = $bookManager->delete("DELETE FROM book WHERE id = $id ");
         $req4->execute([$delete_book]);
-        header('Location: ../views/admin.php');      
+        header('Location: ../controlers/adminControl.php');      
     }
 
     
