@@ -49,7 +49,7 @@ if (isset($_GET['btn_conserver_commentary']) OR isset($_GET['btn_supprimer_comme
     } 
     elseif (isset($_GET['btn_supprimer_billet'])) {
         
-        $req4 = $bookManager->delete("DELETE FROM book WHERE id = $id ");
+        $req4 = $bookManager->delete("DELETE book, commentarys FROM book INNER JOIN commentarys ON book.id = commentarys.book_id WHERE book.id = $id  ");
         $req4->execute([$delete_book]);
         header('Location: ../controlers/adminControl.php');      
     }

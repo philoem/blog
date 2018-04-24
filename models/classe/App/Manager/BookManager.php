@@ -100,7 +100,7 @@ class BookManager extends DbConnect {
 
     /**
      * Méthode CRUD, ici modification des billets
-     * @param int $statement Requête SQL
+     * @param string $statement Requête SQL
      * @return 
      */
     public function update($statement)
@@ -113,8 +113,8 @@ class BookManager extends DbConnect {
     }
 
     /**
-     * Méthode CRUD, ici suppression des billets
-     * @param int $statement Requête SQL
+     * Méthode CRUD, ici suppression des billets liés aux commentaires
+     * @param string $statement Requête SQL
      * @return 
      */
     public function delete($statement)
