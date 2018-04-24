@@ -44,6 +44,16 @@ $formLogin = new Form();
 					</form>
 				</div>
 			</div>
+<!-- Ici affichage des messages d'erreurs  -->
+			<div class="container" id="error_register">
+				<?php 
+				if (isset($_error)) {
+					
+					echo $_error;
+				}
+				
+				?>
+			</div>
 			
 		</div>
 	</body>
