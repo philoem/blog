@@ -93,9 +93,15 @@ header {
 }
 /* Page admin.php  */
 /* Stylisation des boutons d'actions  */
-a.font-weight-light.badge.badge-danger, a.font-weight-light.badge.badge-info {
+a.font-weight-light.badge.badge-danger, a.font-weight-light.badge.badge-info, a.font-weight-light.badge.badge-warning {
 	font-size: 1em;
+	color: white;
 
+}
+a.font-weight-light.badge.badge-danger:hover, a.font-weight-light.badge.badge-info:hover, a.font-weight-light.badge.badge-warning:hover {
+	
+	color: hsl(0, 0%, 0%);
+	
 }
 
 /* RESPONSIVITE  */
