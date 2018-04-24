@@ -55,8 +55,9 @@ if (!isset($_SESSION['pseudo']) AND !isset($_SESSION['password'])) {
 							/**
 							 * Affichage des derniers billets en n'affichant que les titres avec leurs dates et leurs boutons
 							*/
-							foreach ($bookManager->readStatement('SELECT id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC') as $billet):?>
-								<p><strong><?= htmlspecialchars($billet['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($billet['date_billet']) ?></em></p><?php if($billet['approuved'] == 0) { ?> <a name="btn_conserver_billet" class="font-weight-light badge badge-info"  href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;approuved_billet=<?= $billet['approuved'] ?>&amp;btn_conserver_billet"><strong>Editer</strong></a> <a name="btn_supprimer_billet" class="font-weight-light badge badge-danger"  href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;delete_book=<?= $billet['delete_book'] ?>&amp;btn_supprimer_billet">Supprimer</a><?php } 
+							foreach ($bookManager->readStatement('SELECT  id, title, billet, approuved, delete_book, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%Ss\') AS date_billet FROM book ORDER BY id DESC') as $billet):?>
+								<p><strong><?= htmlspecialchars($billet['title']) ?></strong><em>, billet créé le <?= htmlspecialchars($billet['date_billet']) ?></em><br><?php if(strlen($billet['billet']) > 100){ $comment = substr($billet['billet'],0 ,strpos($billet['billet'],' ', 120)); echo $comment, ' .........'; }?></p><?php if($billet['approuved'] == 0) { ?> <a name="btn_conserver_billet" class="font-weight-light badge badge-info"  href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;approuved_billet=<?= $billet['approuved'] ?>&amp;btn_conserver_billet"><strong>Editer</strong></a> <a name="btn_supprimer_billet" class="font-weight-light badge badge-danger"  href="../controlers/gestion_admin.php?id=<?= $billet['id'] ?>&amp;delete_book=<?= $billet['delete_book'] ?>&amp;btn_supprimer_billet">Supprimer</a><?php } 
+								 
 							endforeach;?>
 					</div>
 					
