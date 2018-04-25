@@ -114,11 +114,21 @@ a.font-weight-light.badge.badge-danger:hover, a.font-weight-light.badge.badge-in
 		display: inline-flex;
 		overflow-wrap: break-word;
 		font-size: xx-large;
+		
 	}
 	header a {
 		overflow-wrap: break-word;
 		font-size: medium;
 		width: auto;
+	}
+	.fieldset_login, form, h3, #card_user_vedette, .card, #readingBillets  {
+		margin-top: 60px;
+	}
+	.font-weight-normal {
+		font-size: 100%;
+	}
+	#link_login_index {
+		margin-left: 5px;
 	}
 
 
