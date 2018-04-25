@@ -1,9 +1,19 @@
 <?php
+session_start();
 /**
  * 
  * CONTROLE DE LA PAGE REGISTER.PHP
  * 
  */
+// Sécurisation de la page pour empêcher l'accès via une réécriture de l'url
+if (!isset($_SESSION['pseudo']) AND !isset($_SESSION['password'])) {
+
+    header('Location: ../views/login.php');
+
+} elseif (isset($_COOKIES['pseudo']) AND isset($_COOKIES['password'])) {
+	
+	header('Location: ../views/register.php');
+}
 
 // Chargement autoloading Composer
 require '../vendor/autoload.php';

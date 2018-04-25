@@ -17,9 +17,6 @@ $commentarysManager = new CommentarysManager();
  * & gestion des boutons "Conserver" et "supprimer" pour les commentaires signalés
  * De la page admin.php
  */
-
-
-
 if (isset($_GET['btn_conserver_commentary']) OR isset($_GET['btn_supprimer_commentary']) OR isset($_GET['btn_conserver_billet']) OR isset($_GET['btn_supprimer_billet']) ) {
     
     $id_commentary = htmlspecialchars($_GET['id_commentary']);
