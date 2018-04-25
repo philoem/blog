@@ -27,7 +27,7 @@ class FormAdminModified extends Form {
     public function inputTitle($title)
     {
         
-        return '<input type="text" class="form-control" name="'. $title .'" id="exampleInputPseudo" value="'.$title.'" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" name="title" id="exampleInputPseudo" value="'.$title.'" aria-describedby="prenomHelp">';
 
     }
 
@@ -37,8 +37,14 @@ class FormAdminModified extends Form {
      */
     public function inputBillet($billet)
     {
-		
-        return '<textarea class="form-control" name="'. $billet .'" id="exampleFormControlTextarea1" rows="18">'.$billet.'</textarea>';
+	
+        return '<textarea class="form-control" name="billet" id="exampleFormControlTextarea1" rows="18">'.$billet.'</textarea>';
+
+    }
+    public function inputHidden($id)
+    {
+        
+        return '<input type="text" class="form-control" name="id" id="exampleInputPseudo" value="'.$id.'" aria-describedby="prenomHelp">';
 
     }
 
@@ -48,7 +54,7 @@ class FormAdminModified extends Form {
     public function submit()
     {
         
-        return '<button type="submit" class="btn btn-primary" name="submit_admin">Validez votre billet modifié</button>';
+        return '<button type="submit" class="btn btn-primary" name="submit_admin_modified">Validez votre billet modifié</button>';
 
     }
     
@@ -58,7 +64,7 @@ class FormAdminModified extends Form {
     public function erase()
     {
         
-        return '<button type="reset" class="btn btn-danger">Tout effacer</button>';
+        return '<button type="reset" class="btn btn-danger">Effacer les modifications</button>';
         
     }
 

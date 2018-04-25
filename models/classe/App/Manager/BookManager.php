@@ -36,7 +36,7 @@ class BookManager extends DbConnect {
 
     /**
      * Méthode CRUD, ici la fonction lit les 4 billets selectionnés de la page user.php 
-     * @param int $statement Correspond à la requête SQL
+     * @param string $statement Correspond à la requête SQL
      * @return bool | billet | false en cas d'erreur de lecture de la bdd ou un objet billet si ok et qui sera affiché 
      */
     public function readStatement($statement)
@@ -92,7 +92,7 @@ class BookManager extends DbConnect {
 
         $this->pdoStatement = $this->getPDO()->prepare('SELECT * FROM book WHERE id = :id ');
         
-        $this->pdoStatement->bindValue(':id', $id->getIdBook(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':id', $id->get_id(), PDO::PARAM_STR);
         $this->pdoStatement->execute();
 
     }
@@ -109,6 +109,18 @@ class BookManager extends DbConnect {
         $this->pdoStatement = $this->getPDO()->prepare($statement);
         
         return $this->pdoStatement;
+
+    }
+    public function updateTextModified($title, $billet, $id)
+    {
+
+        $this->pdoStatement = $this->getPDO()->prepare('UPDATE book SET title = :title, billet = :billet where id = :id');
+        
+        $this->pdoStatement->bindValue(':title', $title->getTitle(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':billet', $billet->getBillet(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':id', $id->get_id(), PDO::PARAM_INT);
+        
+        $this->pdoStatement->execute();
 
     }
 

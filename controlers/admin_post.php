@@ -5,6 +5,7 @@ session_start();
  * Gestion du formulaire de la page admin2.php pour la création d'un nouveau billet
  * 
  */
+
 // Chargement autoloading Composer
 require '../vendor/autoload.php';
 
