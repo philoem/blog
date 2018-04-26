@@ -11,7 +11,7 @@ if (isset($_GET['action'])) {
 
 	}
 	if ($_GET['action'] === 'reading') {
-		header('Location: ../controlers/user_postControl.php');
+		header('Location: ../controlers/user_postControl.php?page=1');
 	
 	}
 	if ($_GET['action'] === 'lastBillets') {

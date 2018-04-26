@@ -35,12 +35,11 @@ $formLogin = new Form();
 								?>
 							</div>
 						</fieldset>
-						<?php
-						echo $formLogin->redirect();
-						?>
-						<?php
-						echo $formLogin->submit();
-						?>
+						<div class="row justify-content-center">
+							<?php
+							echo $formLogin->submit();
+							?>
+						</div>
 					</form>
 				</div>
 			</div>

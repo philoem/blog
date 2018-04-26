@@ -87,7 +87,7 @@ class Form {
     public function submit()
     {
         
-        return '<button type="submit" class="btn btn-primary" name="submit_login">Se connecter</button>';
+        return '<button type="submit" class="btn btn-primary" name="submit_login" id="bouton_submit_login" >Se connecter</button>';
         
     }
     

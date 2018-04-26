@@ -8,6 +8,11 @@ header {
 #link_login_index {
 	margin-left: -115px;
 }
+#bouton_submit_login {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 1.1em;
+}
 /* Encadré du formulaire */ 
 .fieldset_login {
 	border: 1px solid grey;
