@@ -9,7 +9,7 @@ use \PDO;
 
 class Pagination extends DbConnect
 {
-	public $billetsPage = 1;
+	public $billetsPage = 2;
 
 	public $billetsTotallyReq;
 
@@ -58,14 +58,16 @@ class Pagination extends DbConnect
         }
         $this->start = ($this->currentPage-1) * $this->billetsPage;
         
-        $this->datas = $this->getPDO()->query('SELECT * FROM book WHERE approuved = 1 ORDER BY id DESC LIMIT '.$this->start.','.$this->billetsPage);
+        $this->datas = $this->getPDO()->prepare('SELECT * FROM book WHERE approuved = 1 ORDER BY id DESC LIMIT '.$this->start.','.$this->billetsPage);
+        $this->datas->execute();
         
         return $this->datas;
     }    
 
-    public function displayNumbersPages($i)
+    public function displayNumbersPages()
     {
-        for ($i=1; $i <= $this->numberPages(); $i++) {
+        
+        for ($i = 1; $i <= $this->numberPages(); $i++) {
             
             if ($i == $this->currentPage) {
                 
@@ -73,7 +75,7 @@ class Pagination extends DbConnect
 
             } else {
 
-                echo '<a href="/controlers/user_postControl.php?page="'.$i.'">'.$i.'</a> ';
+                echo '<a href="../controlers/user_postControl.php?page='.$i.'">'.$i.'</a> ';
 
             }
         }
