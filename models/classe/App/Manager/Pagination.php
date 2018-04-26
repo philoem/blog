@@ -3,28 +3,68 @@ namespace classe\App\Manager;
 
 use \PDO;
 /**
- * classe Pagination héritée de la classe DbConnect
+ * classe Pagination pour les billets de la page user_post.php, héritée de la classe DbConnect
  * 
  */
 
 class Pagination extends DbConnect
 {
-	public $billetsPage = 2;
+    /**
+     * Définit le nombre de billets dans la page user_post.php
+     *
+     * @var integer
+     */
+    public $billetsPage = 2;
 
-	public $billetsTotallyReq;
+    /**
+     * Stocke la totalité des billets via une requête sql
+     *
+     * @var integer
+     */
+    public $billetsTotallyReq;
 
-	public $billetsTotally;
+    /**
+     * Stocke la totalité des billets 
+     *
+     * @var integer
+     */
+    public $billetsTotally;
 
+    /**
+     * stocke le nombre de pages totales
+     *
+     * @var integer
+     */
     public $pagesTotales;
 
+    /**
+     * stocke le billet de départ, la lecture
+     *
+     * @var integer
+     */
     public $start;
 
+    /**
+     * stocke le numéro de la page courante
+     *
+     * @var integer
+     */
     public $currentPage;
 
+    /**
+     * stocke les billets qui ont été approuvés par l'auteur via une requête sql
+     *
+     * @var [string]
+     */
     public $datas;
     
     
 
+    /**
+     * Pour récupérer la totalité des billets dans la base de données "book" qui ont été approuvés par l'auteur
+     *
+     * @return string $billetsTotallyReq 
+     */
     public function getBillets()
     {
         $this->billetsTotallyReq = $this->getPDO()->query('SELECT id FROM book where approuved = 1');
@@ -36,6 +76,13 @@ class Pagination extends DbConnect
 
     } 
 
+    /**
+     * Calcul le nombre de pages totales en fonction du nombre de billets à afficher sur la page
+     * 
+     * En utilisant la fonction "ceil" pour avoir un entier et non un nombre décimal
+     *
+     * @return integer $pagesTotales 
+     */
     public function numberPages(): int
     {
         $this->billetsTotally = $this->getBillets()->rowCount();
@@ -46,6 +93,11 @@ class Pagination extends DbConnect
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string $datas
+     */
     public function readBillets()
     {
         if (isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $this->numberPages()) {
@@ -64,6 +116,11 @@ class Pagination extends DbConnect
         return $this->datas;
     }    
 
+    /**
+     * Boucle d'itération pour afficher les numéros de pages des billets
+     *
+     * @return void 
+     */
     public function displayNumbersPages()
     {
         
