@@ -31,28 +31,28 @@ class Pagination extends DbConnect
     public $billetsTotally;
 
     /**
-     * stocke le nombre de pages totales
+     * Stocke le nombre de pages totales
      *
      * @var integer
      */
     public $pagesTotales;
 
     /**
-     * stocke le billet de départ, la lecture
+     * Stocke le billet de départ, la lecture
      *
      * @var integer
      */
     public $start;
 
     /**
-     * stocke le numéro de la page courante
+     * Stocke le numéro de la page courante
      *
      * @var integer
      */
     public $currentPage;
 
     /**
-     * stocke les billets qui ont été approuvés par l'auteur via une requête sql
+     * Stocke les billets qui ont été approuvés par l'auteur via une requête sql
      *
      * @var [string]
      */
@@ -94,7 +94,7 @@ class Pagination extends DbConnect
     }
 
     /**
-     * Undocumented function
+     * Ordonne la lecture des billets en vérifiant la valeur du paramètre dans l'url pour sécuriser le tout
      *
      * @return string $datas
      */
