@@ -14,49 +14,49 @@ class Pagination extends DbConnect
      *
      * @var integer
      */
-    public $billetsPage = 2;
+    protected $billetsPage = 2;
 
     /**
      * Stocke la totalité des billets via une requête sql
      *
      * @var integer
      */
-    public $billetsTotallyReq;
+    protected $billetsTotallyReq;
 
     /**
      * Stocke la totalité des billets 
      *
      * @var integer
      */
-    public $billetsTotally;
+    protected $billetsTotally;
 
     /**
      * Stocke le nombre de pages totales
      *
      * @var integer
      */
-    public $pagesTotales;
+    protected $pagesTotales;
 
     /**
      * Stocke le billet de départ, la lecture
      *
      * @var integer
      */
-    public $start;
+    protected $start;
 
     /**
      * Stocke le numéro de la page courante
      *
      * @var integer
      */
-    public $currentPage;
+    protected $currentPage;
 
     /**
      * Stocke les billets qui ont été approuvés par l'auteur via une requête sql
      *
      * @var [string]
      */
-    public $datas;
+    protected $datas;
     
     
 

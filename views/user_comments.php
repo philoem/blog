@@ -1,21 +1,21 @@
 <?php
 // Chargement autoloading Composer
-require_once '../vendor/autoload.php';
+//require_once '../vendor/autoload.php';
 
 // Chargement du formulaire de création des commentaires
-require_once '../models/classe/App/Form/FormUserComments.php';
-use classe\App\Form\FormUserComments;
-$formUser = new FormUserComments();
+//require_once '../models/classe/App/Form/FormUserComments.php';
+//use classe\App\Form\FormUserComments;
+//$formUser = new FormUserComments();
 
 // Chargement de la Classe BookManager, gestionnaire d'entité pour les billets
-require_once '../models/classe/App/Manager/BookManager.php';
-use classe\App\Manager\BookManager as BookManager;
-$bookManager = new BookManager();
+//require_once '../models/classe/App/Manager/BookManager.php';
+//use classe\App\Manager\BookManager as BookManager;
+//$bookManager = new BookManager();
 
 // Chargement de la Classe CommentarysManager, gestionnaire d'entité pour les commentaires
-require_once '../models/classe/App/Manager/CommentarysManager.php';
-use classe\App\Manager\CommentarysManager as CommentarysManager;
-$commentarysManager = new CommentarysManager();
+//require_once '../models/classe/App/Manager/CommentarysManager.php';
+//use classe\App\Manager\CommentarysManager as CommentarysManager;
+//$commentarysManager = new CommentarysManager();
 
 
 ?>				
