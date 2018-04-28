@@ -54,9 +54,9 @@ $formAdmin = new FormAdmin();
                                     <?php
                                     echo $formAdmin->erase();
                                     ?>
-                                <?php
-                                echo $formAdmin->submit();
-                                ?>
+									<?php
+									echo $formAdmin->submit();
+									?>
                                 </div>
                             </div>
 						</form>

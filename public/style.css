@@ -157,6 +157,9 @@ a.font-weight-light.badge.badge-danger:hover, a.font-weight-light.badge.badge-in
 	#link_login_index {
 		margin-left: 5px;
 	}
+	#btn_admin2 {
+		margin-bottom: 10px;
+	}
 
 
 }
