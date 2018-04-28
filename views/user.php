@@ -6,7 +6,7 @@
 	<body>
 		<div class="container-fluid">
 <!-- Ici le header  -->
-			<?php include '../views/inc/header_user.php'; ?>
+			<?php include '../views/inc/header_user.php'; ?> 
 
 <!-- Ici la vignette "vedette" pour afficher le dernier billet  -->			
 			<div class="container" id="card_user_vedette">
@@ -86,7 +86,9 @@
 							</p>
 							<a href="./user_comments_post.php?id=<?= $donneesUser4['id']  ?>" class="btn btn-info">Commentez</a>
 						</div>
+						
 					</div>
+					
 				</div>
 			</div>
 
