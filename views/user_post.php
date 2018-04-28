@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 	<head>
 		<?php include ('../views/inc/head_html.php'); ?>
@@ -24,14 +24,10 @@
 				<div id="pagination">
 					<p><strong><?php $page->displayNumbersPages(); ?></strong></p>
 				</div>
-				
+								
 			</div>
-						
-			
-			
+
 			
 		</div>
 	</body>
 </html>
-
-

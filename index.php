@@ -26,15 +26,18 @@ if (isset($_GET['action'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <!-- Ici le head  -->
-	<?php include ('./views/inc/head_html.php'); ?>
+	<head>
+		<?php include ('./views/inc/head_html.php'); ?>
+	</head>
 
 	<body>
 <!-- Ici le header  -->
 		<?php include './views/inc/header_index.php'; ?> 
-
+		<div class="container">
 <!-- Ici le body avec le formulaire d'accueil  -->
-		<?php  require './views/home.php'; ?>
-		<?= $content;  ?>
+			<?php  require './views/home.php'; ?>
+			<?= $content;  ?>
+		</div>
 		
 	</body>
 

@@ -45,7 +45,7 @@ class Form {
     public function inputText($pseudo)
     {
         
-        return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPseudo" aria-describedby="prenomHelp" autofocus required>';
+        return '<input type="text" class="form-control" name="'. $pseudo .'" id="exampleInputPseudo" aria-describedby="exampleInputPseudo" autofocus required>';
 
     }
 

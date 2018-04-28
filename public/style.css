@@ -27,11 +27,11 @@ header {
 	align-content: flex-end;
 	width: 100%;
 }
-#paragraph_header {
+.paragraph_header {
 	margin-top: 15px;
 	color: white;
 }
-#paragraph_header:hover {
+.paragraph_header:hover {
 	color: #fdd835;
 	text-decoration: none;
 }
@@ -45,11 +45,11 @@ header {
 	margin-bottom: 50px;
 }
 /* Page user_comments.php */
-#paragraph_header_user_comments:hover {
+.paragraph_header_user_comments:hover {
 	font-weight: bold;
 	text-decoration: none;
 }
-#paragraph_header_user_comments {
+.paragraph_header_user_comments {
 	margin-top: 15px;
 	color: white;
 }
@@ -64,11 +64,11 @@ header {
 	align-content: flex-end;
 	width: 100%;
 }
-#paragraph_header_register {
+.paragraph_header_register {
 	margin-top: 15px;
 	color: white;
 }
-#paragraph_header_register:hover {
+.paragraph_header_register:hover {
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -108,6 +108,28 @@ a.font-weight-light.badge.badge-danger:hover, a.font-weight-light.badge.badge-in
 	color: hsl(0, 0%, 0%);
 	
 }
+/* Les titres, les paragraphes et les liens des headers */
+.font-weight-light {
+	margin-top: 0px;
+	color: white;
+	text-decoration: none;
+}
+
+.font-weight-light:hover {
+	text-decoration: none;
+	color: #fdd835;
+}
+/* Les titres, les paragraphes et les liens des headers de la page index.php */
+.font-weight-light_index {
+	margin-top: 15px;
+	color: white;
+	text-decoration: none;
+}
+.font-weight-light_index:hover {
+	text-decoration: none;
+	color: #fdd835;
+}
+
 
 /* RESPONSIVITE  */
 @media (min-width: 300px) and (max-width: 992px) {

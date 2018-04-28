@@ -28,7 +28,7 @@ class FormAdmin extends Form {
     public function inputTitle($title)
     {
         
-        return '<input type="text" class="form-control" name="'. $title .'" id="exampleInputPseudo" aria-describedby="prenomHelp">';
+        return '<input type="text" class="form-control" name="'. $title .'" id="exampleInputPseudo" aria-describedby="exampleInputPseudo">';
 
     }
 

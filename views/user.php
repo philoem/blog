@@ -7,7 +7,7 @@
 		<div class="container-fluid">
 <!-- Ici le header  -->
 			<?php include '../views/inc/header_user.php'; ?> 
-
+		
 <!-- Ici la vignette "vedette" pour afficher le dernier billet  -->			
 			<div class="container" id="card_user_vedette">
 				<div class="card text-center">
@@ -21,14 +21,13 @@
 						?>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">
-							<?='<p>'.htmlspecialchars($donneesUser['billet']).'</p>';	?>
-						</h5>
+						<h5 class="card-title"><?= htmlspecialchars($donneesUser['billet']); ?></h5>
 						<a href="../controlers/user_comments_post.php?id=<?= $donneesUser['id']  ?>" class="btn btn-info">Laissez votre commentaire</a>
 						<a href="../controlers/user_postControl.php" class="btn btn-primary"><em>Lecture du récit en entier</em></a>
 					</div>
 						<div class="card-footer text-muted">
 							<?= '<p><strong>Publié le <em>'.htmlspecialchars($donneesUser['date_billet']).'</em></strong></p>';	?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -42,11 +41,11 @@
 								<?php 
 								$billetUser2 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY id DESC LIMIT 1, 1');
 								$donneesUser2 = $billetUser2->fetch();
-								echo '<p><strong>'.htmlspecialchars($donneesUser2['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser2['date_billet']).'</em></p>';
+								echo '<strong>'.htmlspecialchars($donneesUser2['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser2['date_billet']).'</em>';
 								?>
 							</h5>
 							<p class="card-text">
-								<?= '<p>'.htmlspecialchars($donneesUser2['billet']).'</p>';	?>
+								<?= htmlspecialchars($donneesUser2['billet']);	?>
 							</p>
 							<a href="./user_comments_post.php?id=<?= $donneesUser2['id'] ?>" class="btn btn-info" >Commentez</a>
 						</div>
@@ -60,11 +59,11 @@
 								<?php 
 								$billetUser3 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY ID DESC LIMIT 2, 1');
 								$donneesUser3 = $billetUser3->fetch();
-								echo '<p><strong>'.htmlspecialchars($donneesUser3['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser3['date_billet']).'</em></p>';
+								echo '<strong>'.htmlspecialchars($donneesUser3['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser3['date_billet']).'</em>';
 								?>
 							</h5>
 							<p class="card-text">
-								<?= '<p>'.htmlspecialchars($donneesUser3['billet']).'</p>'; ?>
+								<?= htmlspecialchars($donneesUser3['billet']); ?>
 							</p>
 							<a href="./user_comments_post.php?id=<?= $donneesUser3['id']  ?>" class="btn btn-info">Commentez</a>
 						</div>
@@ -78,20 +77,16 @@
 								<?php 
 								$billetUser4 = $bookManager->readStatement('SELECT id, title, billet, DATE_FORMAT(date_billet, \'%d/%m/%Y\') AS date_billet FROM book ORDER BY ID DESC LIMIT 3, 1');
 								$donneesUser4 = $billetUser4->fetch();
-								echo '<p><strong>'.htmlspecialchars($donneesUser4['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser4['date_billet']).'</em></p>';
+								echo '<strong>'.htmlspecialchars($donneesUser4['title']).'</strong><em>, billet créé le '.htmlspecialchars($donneesUser4['date_billet']).'</em>';
 								?>
 							</h5>
-							<p class="card-text">
-							<?= '<p>'.htmlspecialchars($donneesUser4['billet']).'</p>'; ?>
-							</p>
+							<p class="card-text"><?= htmlspecialchars($donneesUser4['billet']); ?></p>
 							<a href="./user_comments_post.php?id=<?= $donneesUser4['id']  ?>" class="btn btn-info">Commentez</a>
 						</div>
 						
 					</div>
-					
 				</div>
 			</div>
-
 		</div>
 	</body>
 </html>

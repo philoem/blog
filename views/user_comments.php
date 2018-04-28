@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE HTML>
+<html>
 	<head>
 		<?php include ('../views/inc/head_html.php'); ?>
 	</head>

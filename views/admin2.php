@@ -50,7 +50,7 @@ $formAdmin = new FormAdmin();
 								?>
 							</div>
 							<div class="row justify-content-center" id="btn_admin2">
-                                <div id="btn_admin2">
+                                <div>
                                     <?php
                                     echo $formAdmin->erase();
                                     ?>
