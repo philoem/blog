@@ -28,7 +28,7 @@ class FormUserComments extends Form {
     public function inputName($name_user)
     {
         
-        return '<input type="text" class="form-control" name="'. $name_user .'" id="exampleInputPseudo" aria-describedby="prenomHelp" required>';
+        return '<input type="text" class="form-control" name="'. $name_user .'" id="exampleInputPseudo" aria-describedby="exampleInputPseudo" required>';
 
     }
 
@@ -50,7 +50,7 @@ class FormUserComments extends Form {
     public function inputBookId($book_id)
     {
 
-        return '<input type="hidden" class="form-control" name="'. $book_id .'" value="'.$_GET['id'].'" id="exampleInputBookId" aria-describedby="prenomHelp">';
+        return '<input type="hidden" class="form-control" name="'. $book_id .'" value="'.$_GET['id'].'" id="exampleInputBookId" aria-describedby="exampleInputBookId">';
 
     }
 

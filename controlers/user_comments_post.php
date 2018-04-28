@@ -68,20 +68,15 @@ if (isset($_POST['book_id'])) {
 
 // Traitement ici des commentaires signalés avec le bouton
 $postBilletId = htmlspecialchars($_GET['id']);
-if (isset($_GET['signaled']) AND isset($_GET['id_commentary']) ){
+if (isset($_GET['signaled']) AND isset($_GET['id_commentary']) AND isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) ){
     $signaled = $commentarys->set_signaled(htmlspecialchars($_GET['signaled']));
     $id_commentary = htmlspecialchars($_GET['id_commentary']);
 
-//} elseif (isset($_GET['id'] ) AND $_GET['id'] > 0 AND !empty($_GET['id']) AND $_GET['signaled'] == 0) {
-    
+  
     $commentarysManager->update("UPDATE commentarys SET signaled = 1 WHERE id = $id_commentary ");
     
-    //header('Location: ../views/user_comments.php?id=' .$postBilletId );
-    
-} else {
-    echo 'Commentaire non signalé !';
+      
 } 
-
 
 
 include '../views/user_comments.php';

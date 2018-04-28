@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html>
+<html lang='fr'>
 	<head>
 		<?php include ('../views/inc/head_html.php'); ?>
 	</head>
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header  -->
+<!-- Ici le header --> 
 			<?php include '../views/inc/header_user_comments.php'; ?> 
 
 			<div class="container">	
@@ -20,7 +20,7 @@
 									*/
 									$postBilletId = htmlspecialchars($_GET['id']);
 									$billetUserComments = $bookManager->read($postBilletId);
-									echo '<p><strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'</em></p><p>'.htmlspecialchars($billetUserComments['billet']).'</p>'; 
+									echo '<strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'</em>'.htmlspecialchars($billetUserComments['billet']); 
 									
 									?>
 								</h5>

@@ -27,11 +27,12 @@ header {
 	align-content: flex-end;
 	width: 100%;
 }
-.paragraph_header {
+.paragraph_header, #paragraph_header_admin {
 	margin-top: 15px;
 	color: white;
+	
 }
-.paragraph_header:hover {
+.paragraph_header:hover, #paragraph_header_admin:hover {
 	color: #fdd835;
 	text-decoration: none;
 }
