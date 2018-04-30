@@ -4,3 +4,4 @@
 .*lock
 /config.php
 /views/register.php
+/views/inc/header_register.php
