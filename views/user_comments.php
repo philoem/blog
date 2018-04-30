@@ -20,7 +20,7 @@
 									*/
 									$postBilletId = htmlspecialchars($_GET['id']);
 									$billetUserComments = $bookManager->read($postBilletId);
-									echo '<strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'</em>'.htmlspecialchars($billetUserComments['billet']); 
+									echo '<strong>'.htmlspecialchars($billetUserComments['title']).'</strong><em>, billet créé le '.htmlspecialchars($billetUserComments['date_billet']).'<br></em>'.htmlspecialchars($billetUserComments['billet']); 
 									
 									?>
 								</h5>
