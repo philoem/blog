@@ -5,10 +5,7 @@ if (!isset($_SESSION['pseudo']) AND !isset($_SESSION['password'])) {
 
     header('Location: ../controlers/AccesControl.php');
 
-} elseif (isset($_COOKIES['pseudo']) AND isset($_COOKIES['password'])) {
-	
-	header('Location: ../controlers/adminControl.php');
-}
+} 
 
 ?>
 <header>
