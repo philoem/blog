@@ -27,7 +27,7 @@ $formAdmin = new FormAdmin();
 	</head>
 	<body>
 		<div class="container-fluid">
-<!-- Ici le header -->	 	
+<!-- Ici le header 	 -->	
 			<?php include '../views/inc/header_admin2.php'; ?>	
 			
 			<div class="container-fluid">

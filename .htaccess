@@ -6,4 +6,3 @@ RewriteRule ^(.*)$ philoem.nexgate.ch/index.php?url=$1 [QSA,L]
 
 
 
-

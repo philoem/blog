@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 /**
  * Gestion du formulaire de la page admin2.php pour la création d'un nouveau billet
@@ -26,11 +26,8 @@ if (isset($_POST['title']) AND !empty($_POST['title']) AND isset($_POST['billet'
 	$billet = $book->setBillet(strip_tags($_POST['billet']));
 	
 	$bookManager->create($book);
-	
-	header('Location: ../views/admin2.php');
 
-} else {
-	
-	echo 'ERROR 409, LA REQUETE NE PEUT ETRE TRAITEE EN L\'ETAT ACTUEL';
-	echo '<p><a href="../views/admin2.php"><strong>Retour vers le formulaire de création des billets</strong></a></p>';
-}
+
+} 
+
+include '../views/admin2.php';

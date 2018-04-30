@@ -58,5 +58,5 @@ if (isset($_GET['btn_conserver_commentary']) OR isset($_GET['btn_supprimer_comme
 } else {
     
     echo "La requête demandée n'a pas aboutie! ";
-    echo '<p><a href="../views/admin.php"><strong>Retour</strong></a></p>';
+    echo '<p><a href="../index.php"><strong>Retour</strong></a></p>';
 }

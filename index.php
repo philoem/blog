@@ -2,7 +2,7 @@
 if (isset($_GET['action'])) {
 	
 	if ($_GET['action'] === 'writing' ) {
-		header('Location: ../views/admin2.php');
+		header('Location: ../controlers/admin_post.php');
 		
 	}
 	if ($_GET['action'] === 'login') {
