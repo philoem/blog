@@ -3,3 +3,4 @@
 .list
 .*lock
 /config.php
+/register.php
